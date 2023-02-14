@@ -1,0 +1,11 @@
+:root {
+	--white-black: theme('colors.black');
+	--border: theme('colors.gray.200');
+	--primary: theme('colors.blue.600');
+}
+
+:root.dark {
+	--white-black: theme('colors.neutral.100');
+	--border: theme('colors.neutral.800');
+	--primary: theme('colors.blue.500');
+}

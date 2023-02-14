@@ -1,0 +1,13 @@
+{
+	"name": "AdiPol.dev",
+	"icons": [
+		{
+			"src": "/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		}
+	],
+	"theme_color": "#2563eb",
+	"background_color": "#ffffff",
+	"display": "standalone"
+}

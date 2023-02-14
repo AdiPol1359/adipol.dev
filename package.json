@@ -1,0 +1,49 @@
+{
+	"name": "adipol.dev",
+	"version": "0.0.0",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"postinstall": "husky install"
+	},
+	"dependencies": {
+		"@next/font": "13.1.6",
+		"next": "13.1.6",
+		"next-mdx-remote": "4.3.0",
+		"next-seo": "5.15.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"react-icons": "4.7.1",
+		"tailwind-merge": "1.9.0"
+	},
+	"devDependencies": {
+		"@svgr/webpack": "6.5.1",
+		"@tailwindcss/typography": "0.5.9",
+		"@types/node": "18.11.18",
+		"@types/react": "18.0.27",
+		"@types/react-dom": "18.0.10",
+		"@typescript-eslint/eslint-plugin": "5.50.0",
+		"@typescript-eslint/parser": "5.50.0",
+		"autoprefixer": "10.4.13",
+		"eslint": "8.33.0",
+		"eslint-config-next": "13.1.6",
+		"eslint-config-prettier": "8.6.0",
+		"eslint-import-resolver-typescript": "3.5.3",
+		"eslint-plugin-import": "2.27.5",
+		"eslint-plugin-prettier": "4.2.1",
+		"eslint-plugin-simple-import-sort": "10.0.0",
+		"husky": "8.0.3",
+		"lint-staged": "13.1.0",
+		"postcss": "8.4.21",
+		"prettier": "2.8.3",
+		"prettier-plugin-tailwindcss": "0.2.2",
+		"rehype-code-titles": "1.1.0",
+		"rehype-prism-plus": "1.5.1",
+		"tailwindcss": "3.2.4",
+		"typescript": "4.9.5"
+	}
+}

@@ -1,0 +1,175 @@
+code[class*='language-'],
+pre[class*='language-'] {
+	@apply whitespace-pre break-normal bg-[#fafafa] text-left font-mono text-base leading-[1.5em] text-[#90a4ae] dark:bg-neutral-800 dark:text-[#eee];
+
+	word-spacing: normal;
+	word-wrap: normal;
+	tab-size: 2;
+	hyphens: none;
+}
+
+pre[class*='language-'] {
+	@apply rounded-b-lg rounded-t-none border border-t-0 dark:border-neutral-700;
+}
+
+:not(pre) > code[class*='language-'] {
+	@apply whitespace-normal rounded-[0.2em] p-[0.1em];
+}
+
+pre[class*='language-'] {
+	@apply relative my-0 mx-0 overflow-auto py-[1.25em] px-[1em];
+}
+
+.language-css > code,
+.language-sass > code,
+.language-scss > code {
+	@apply text-[#f76d47] dark:text-[#fd9170];
+}
+
+[class*='language-'] .namespace {
+	@apply opacity-70;
+}
+
+.token.atrule {
+	@apply text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.attr-name {
+	@apply text-[#39adb5] dark:text-[#ffcb6b];
+}
+
+.token.attr-value {
+	@apply text-[#f6a434] dark:text-[#a5e844];
+}
+
+.token.attribute {
+	@apply text-[#f6a434] dark:text-[#a5e844];
+}
+
+.token.boolean {
+	@apply text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.builtin {
+	@apply text-[#39adb5] dark:text-[#ffcb6b];
+}
+
+.token.cdata {
+	@apply text-[#39adb5] dark:text-[#80cbc4];
+}
+
+.token.char {
+	@apply text-[#39adb5] dark:text-[#80cbc4];
+}
+
+.token.class {
+	@apply text-[#39adb5] dark:text-[#ffcb6b];
+}
+
+.token.class-name {
+	@apply text-[#6182b8] dark:text-[#f2ff00];
+}
+
+.token.comment {
+	@apply text-[#aabfc9] dark:text-[#616161];
+}
+
+.token.constant {
+	@apply text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.deleted {
+	@apply text-[#e53935] dark:text-[#ff6666];
+}
+
+.token.doctype {
+	@apply text-[#aabfc9] dark:text-[#616161];
+}
+
+.token.entity {
+	@apply text-[#e53935] dark:text-[#ff6666];
+}
+
+.token.function {
+	@apply text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.hexcode {
+	@apply text-[#f76d47] dark:text-[#f2ff00];
+}
+
+.token.id {
+	@apply font-bold text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.important {
+	@apply font-bold text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.inserted {
+	@apply text-[#39adb5] dark:text-[#80cbc4];
+}
+
+.token.keyword {
+	@apply text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.number {
+	@apply text-[#f76d47] dark:text-[#fd9170];
+}
+
+.token.operator {
+	@apply text-[#39adb5] dark:text-[#89ddff];
+}
+
+.token.prolog {
+	@apply text-[#aabfc9] dark:text-[#616161];
+}
+
+.token.property {
+	@apply text-[#39adb5] dark:text-[#80cbc4];
+}
+
+.token.pseudo-class {
+	@apply text-[#f6a434] dark:text-[#a5e844];
+}
+
+.token.pseudo-element {
+	@apply text-[#f6a434] dark:text-[#a5e844];
+}
+
+.token.punctuation {
+	@apply text-[#39adb5] dark:text-[#89ddff];
+}
+
+.token.regex {
+	@apply text-[#6182b8] dark:text-[#f2ff00];
+}
+
+.token.selector {
+	@apply text-[#e53935] dark:text-[#ff6666];
+}
+
+.token.string {
+	@apply text-[#f6a434] dark:text-[#a5e844];
+}
+
+.token.symbol {
+	@apply text-[#7c4dff] dark:text-[#c792ea];
+}
+
+.token.tag {
+	@apply text-[#e53935] dark:text-[#ff6666];
+}
+
+.token.unit {
+	@apply text-[#f76d47] dark:text-[#fd9170];
+}
+
+.token.url {
+	@apply text-[#e53935] dark:text-[#ff6666];
+}
+
+.token.variable {
+	@apply text-[#e53935] dark:text-[#ff6666];
+}
