@@ -17,7 +17,7 @@ export default function AboutMePage() {
 				do stworzenia full-stackowej aplikacji webowej jest TypeScript, Next.js,
 				NestJS, oraz OpenAPI. Oprócz tego, jednym z moich odległych planów
 				przyszłościowych jest nauka Rusta, ponieważ widzę ogromny potencjał w
-				tym języku. Od dłużeszego czasu zastanawiałem się nad stworzeniem
+				tym języku. Od dłuższego czasu zastanawiałem się nad stworzeniem
 				własnego bloga, ponieważ potrzebowałem jakiegoś miejsca, w którym
 				mógłbym segregować moją wiedzę.
 			</p>
