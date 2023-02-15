@@ -1,4 +1,5 @@
 import { Error } from '@/components/Error';
+import { PostComments } from '@/components/PostComments';
 import { SinglePost } from '@/components/SinglePost/SinglePost';
 import { getPostBySlug, getPostsParams } from '@/lib/posts';
 import type { Params } from '@/types';
@@ -21,7 +22,12 @@ export default async function SinglePostPage({
 		);
 	}
 
-	return <SinglePost post={post} />;
+	return (
+		<>
+			<SinglePost post={post} />
+			<PostComments title={post.data.title} />
+		</>
+	);
 }
 
 export const generateStaticParams = () => {
