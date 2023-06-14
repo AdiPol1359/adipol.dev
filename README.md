@@ -20,8 +20,8 @@
 ```bash
 git clone https://github.com/AdiPol1359/adipol.dev.git
 
-yarn install
-yarn dev
+pnpm install
+pnpm dev
 ```
 
 ## 🌍 Live
