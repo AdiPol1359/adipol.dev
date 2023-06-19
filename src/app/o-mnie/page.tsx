@@ -5,7 +5,7 @@ export default function AboutMePage() {
 	return (
 		<>
 			<PageTitle>O mnie</PageTitle>
-			<p className="mt-4 text-justify text-white-black">
+			<p className="prose mt-4 max-w-full text-justify text-white-black">
 				Cześć, nazywam się Adrian i mam 17 lat. Swoją przygodę z programowaniem
 				zacząłem w wieku 11 lat, kiedy to po raz pierwszy natrafiłem na darmowy
 				kurs C++ na YouTube. Od tego momentu programowanie stało się trwałą
