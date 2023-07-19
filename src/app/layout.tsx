@@ -23,6 +23,14 @@ export const metadata: Metadata = {
 		locale: 'pl_PL',
 		url: 'https://adipol.dev/',
 	},
+	icons: {
+		icon: '/favicon.ico',
+		apple: '/apple-touch-icon.png',
+		other: {
+			rel: 'mask-icon',
+			url: '/safari-pinned-tab.svg',
+		},
+	},
 };
 
 const inter = Inter({
