@@ -1,18 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	experimental: {
-		appDir: true,
-		fontLoaders: [
-			{
-				loader: '@next/font/google',
-				options: { subsets: ['latin', 'latin-ext'] },
-			},
-		],
-	},
 	webpack(config) {
 		config.module.rules.push({
 			test: /\.svg$/i,
-			issuer: /\.[jt]sx?$/,
+			resourceQuery: { not: /url/ },
 			use: [
 				{
 					loader: '@svgr/webpack',
@@ -20,8 +11,12 @@ const nextConfig = {
 						svgoConfig: {
 							plugins: [
 								{
-									name: 'removeViewBox',
-									active: false,
+									name: 'preset-default',
+									params: {
+										overrides: {
+											removeViewBox: false,
+										},
+									},
 								},
 							],
 						},
