@@ -1,5 +1,11 @@
+import type { Metadata } from 'next';
+
 import { PageTitle } from '@/components/PageTitle';
 import SoftwareDeveloper from '~/software-developer.svg';
+
+export const metadata: Metadata = {
+	title: 'O mnie',
+};
 
 export default function AboutMePage() {
 	return (

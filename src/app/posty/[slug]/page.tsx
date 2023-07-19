@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+
 import { Error } from '@/components/Error';
 import { PostComments } from '@/components/PostComments';
 import { SinglePost } from '@/components/SinglePost/SinglePost';
@@ -6,11 +8,22 @@ import type { Params } from '@/types';
 
 export const dynamicParams = false;
 
-export default async function SinglePostPage({
+export const generateMetadata = async ({
 	params,
-}: {
+}: SinglePostPageProps): Promise<Metadata> => {
+	const post = await getPostBySlug(params.slug);
+
+	return {
+		title: post?.data.title,
+		description: post?.data.introduction,
+	};
+};
+
+type SinglePostPageProps = Readonly<{
 	params: Params<'slug'>;
-}) {
+}>;
+
+export default async function SinglePostPage({ params }: SinglePostPageProps) {
 	const post = await getPostBySlug(params.slug);
 
 	if (!post) {
