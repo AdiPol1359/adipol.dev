@@ -23,6 +23,15 @@ export const metadata: Metadata = {
 		locale: 'pl_PL',
 		url: 'https://adipol.dev/',
 	},
+	icons: {
+		icon: '/favicon.ico',
+		apple: '/apple-touch-icon.png',
+		other: {
+			rel: 'mask-icon',
+			url: '/safari-pinned-tab.svg',
+			// TODO: ADD COLOR: https://github.com/vercel/next.js/issues/52853
+		},
+	},
 };
 
 const inter = Inter({
