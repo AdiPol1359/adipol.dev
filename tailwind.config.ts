@@ -1,6 +1,7 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 import type { Config } from 'tailwindcss';
+import type { PluginUtils } from 'tailwindcss/types/config';
 
 export default {
 	content: ['./src/**/*.{ts,tsx}'],
@@ -16,8 +17,7 @@ export default {
 				border: 'var(--border)',
 				primary: 'var(--primary)',
 			},
-			typography: (theme: any) => ({
-				// TODO: FIX ANY
+			typography: ({ theme }: PluginUtils) => ({
 				DEFAULT: {
 					css: {
 						color: theme('colors.gray.700'),
