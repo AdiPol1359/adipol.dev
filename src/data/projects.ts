@@ -66,6 +66,7 @@ export const projects: Project[] = [
 			'Storybook',
 			'Tailwind CSS',
 			'Tanstack Query',
+			'NestJS',
 			'Docker',
 			'PostgreSQL',
 			'OpenAPI',
