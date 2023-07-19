@@ -1,7 +1,8 @@
 import Link from 'next/link';
 
-import type { Post } from '@/types';
 import { formatDate } from '@/utils/intl';
+
+import type { Post } from '@/types';
 
 type PostSneakPeekProps = Readonly<{
 	post: Post;
@@ -14,10 +15,10 @@ export const PostSneakPeek = ({
 	},
 }: PostSneakPeekProps) => {
 	const creationDate = new Date(date);
-	const href = `/posty/${slug}`;
+	const href = `/posty/${slug}` as const;
 
 	return (
-		<article className="border-t border-border py-12">
+		<article className="space-y-4 border-t border-border py-12">
 			<time
 				dateTime={creationDate.toISOString()}
 				aria-label={`Artykuł dodano ${formatDate(creationDate)}`}
@@ -25,9 +26,12 @@ export const PostSneakPeek = ({
 			>
 				{formatDate(creationDate)}
 			</time>
-			<div className="mt-2 leading-6">
-				<Link href={href} className="inline-block">
-					<h2 className="text-2xl font-bold text-white-black">{title}</h2>
+			<div className="!mt-2 leading-6">
+				<Link
+					href={href}
+					className="inline-block text-2xl font-bold text-white-black"
+				>
+					{title}
 				</Link>
 				<ul className="flex gap-x-3">
 					{tags.map((tag) => (
@@ -43,11 +47,11 @@ export const PostSneakPeek = ({
 				</ul>
 			</div>
 			{introduction && (
-				<p className="mt-4 text-gray-700 dark:text-gray-100">{introduction}</p>
+				<p className="text-gray-700 dark:text-gray-100">{introduction}</p>
 			)}
 			<Link
 				href={href}
-				className="mt-4 inline-block font-medium text-primary hover:text-blue-500 dark:hover:text-blue-400"
+				className="inline-block font-medium text-primary hover:text-blue-500 dark:hover:text-blue-400"
 			>
 				Czytaj więcej
 			</Link>

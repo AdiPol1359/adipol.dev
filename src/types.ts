@@ -1,4 +1,13 @@
+import type { StaticImageData } from 'next/image';
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
+
+export interface Project {
+	readonly thumbnail: StaticImageData;
+	readonly title: string;
+	readonly description: string;
+	readonly url: string;
+	readonly technologies: string[];
+}
 
 export interface PostTag {
 	readonly tag: string;

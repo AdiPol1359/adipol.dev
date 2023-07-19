@@ -2,20 +2,21 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import type { ComponentProps } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-type ActiveLinkProps = Readonly<{
+import type { LinkProps } from 'next/link';
+
+type ActiveLinkProps<T> = Readonly<{
 	activeClassName?: string;
 }> &
-	ComponentProps<typeof Link>;
+	LinkProps<T>;
 
-export const ActiveLink = ({
+export const ActiveLink = <T,>({
 	activeClassName,
 	className,
 	href,
 	...props
-}: ActiveLinkProps) => {
+}: ActiveLinkProps<T>) => {
 	const pathname = usePathname();
 	const isActive = pathname === href.toString();
 

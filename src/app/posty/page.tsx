@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
-
-import { AllPostsList } from '@/components/AllPostsList/AllPostsList';
+import { AllPosts } from '@/components/AllPosts/AllPosts';
 import { PageTitle } from '@/components/PageTitle';
 import { getAllPosts } from '@/lib/posts';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
 	title: 'Posty',
@@ -14,7 +14,7 @@ export default async function AllPostsPage() {
 	return (
 		<>
 			<PageTitle border={false}>Wszystkie posty</PageTitle>
-			<AllPostsList posts={posts} />
+			<AllPosts posts={posts} />
 		</>
 	);
 }

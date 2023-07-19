@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const defaultTheme = require('tailwindcss/defaultTheme');
+import defaultTheme from 'tailwindcss/defaultTheme';
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss';
+
+export default {
 	content: ['./src/**/*.{ts,tsx}'],
 	darkMode: 'class',
 	theme: {
@@ -16,7 +16,8 @@ module.exports = {
 				border: 'var(--border)',
 				primary: 'var(--primary)',
 			},
-			typography: (theme) => ({
+			typography: (theme: any) => ({
+				// TODO: FIX ANY
 				DEFAULT: {
 					css: {
 						color: theme('colors.gray.700'),
@@ -63,4 +64,4 @@ module.exports = {
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],
-};
+} satisfies Config;

@@ -1,10 +1,10 @@
 import { socials } from '@/data/socials';
 
-type SocialsListProps = Readonly<{
+type SocialListProps = Readonly<{
 	className?: string;
 }>;
 
-export const SocialsList = ({ className }: SocialsListProps) => (
+export const SocialList = ({ className }: SocialListProps) => (
 	<ul className={className}>
 		{socials.map(({ href, label, icon: Icon }) => (
 			<li key={label}>

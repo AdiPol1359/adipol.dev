@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
-
 import { PageTitle } from '@/components/PageTitle';
-import { PostTagsList } from '@/components/PostTagsList';
+import { PostTagList } from '@/components/PostTagList';
 import { getTagsCounter } from '@/lib/posts';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
 	title: 'Tagi',
@@ -14,7 +14,7 @@ export default async function TagsPage() {
 	return (
 		<>
 			<PageTitle>Tagi postów</PageTitle>
-			<PostTagsList tags={tags} />
+			<PostTagList tags={tags} />
 		</>
 	);
 }

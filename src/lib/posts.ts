@@ -1,11 +1,12 @@
 import { promises } from 'node:fs';
 import path from 'node:path';
 
+import { serializeSource } from './markdown';
+
 import { LATEST_POSTS_LIMIT } from '@/constants';
-import type { Post, PostTag } from '@/types';
 import { validatePostData } from '@/utils/validation';
 
-import { serializeSource } from './markdown';
+import type { Post, PostTag } from '@/types';
 
 const postsPath = path.join(process.cwd(), 'posts');
 
@@ -21,7 +22,7 @@ const filterTags = (tags: string[]) =>
 export const getPostBySlug = async (slug: string): Promise<Post | null> => {
 	const content = await promises.readFile(
 		path.join(postsPath, `${slug}.mdx`),
-		'utf8'
+		'utf8',
 	);
 	const source = await serializeSource(content);
 	const postData = source.frontmatter;
@@ -48,7 +49,7 @@ export const getAllPosts = async () => {
 	return posts
 		.flatMap((post) => (post ? [post] : []))
 		.sort((a, b) =>
-			Date.parse(a.data.date) > Date.parse(b.data.date) ? -1 : 1
+			Date.parse(a.data.date) > Date.parse(b.data.date) ? -1 : 1,
 		);
 };
 

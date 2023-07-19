@@ -1,13 +1,12 @@
-import '@/styles/globals.css';
-
-import type { Metadata } from 'next';
 import { Fira_Code, Inter } from 'next/font/google';
-import type { ReactNode } from 'react';
 
 import { Layout } from '@/components/Layout/Layout';
 import { AppProviders } from '@/providers/AppProviders';
 
-const THEME_COLOR = '#2563eb';
+import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
+
+import '@/styles/globals.css';
 
 export const metadata: Metadata = {
 	title: {
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
 	description:
 		'AdiPol.dev - Blog technologiczny, głownie związany ze światem stron internetowych.',
 	manifest: '/manifest.json',
-	themeColor: THEME_COLOR,
+	themeColor: '#2563eb',
 	openGraph: {
 		type: 'website',
 		siteName: 'AdiPol Dev',

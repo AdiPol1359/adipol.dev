@@ -1,11 +1,6 @@
+import { createContext, useContext, useEffect, useState } from 'react';
+
 import type { ReactNode } from 'react';
-import {
-	createContext,
-	useCallback,
-	useContext,
-	useEffect,
-	useState,
-} from 'react';
 
 type Theme = 'dark' | 'light';
 
@@ -35,16 +30,7 @@ export const ThemeProvider = ({
 }) => {
 	const [theme, setTheme] = useState<Theme>('light');
 
-	const changeTheme = useCallback((theme: Theme) => {
-		localStorage.setItem('theme', theme);
-		setTheme(theme);
-	}, []);
-
-	useEffect(() => {
-		changeTheme(getCurrentTheme());
-	}, [changeTheme]);
-
-	useEffect(() => {
+	const changeTheme = (theme: Theme) => {
 		const target = document.querySelector('html');
 
 		if (theme === 'light') {
@@ -52,7 +38,14 @@ export const ThemeProvider = ({
 		} else {
 			target?.classList.add('dark');
 		}
-	}, [theme]);
+
+		localStorage.setItem('theme', theme);
+		setTheme(theme);
+	};
+
+	useEffect(() => {
+		changeTheme(getCurrentTheme());
+	}, []);
 
 	return (
 		<ThemeContext.Provider value={{ theme, changeTheme }}>

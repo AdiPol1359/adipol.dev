@@ -17,7 +17,7 @@ pre[class*='language-'] {
 }
 
 pre[class*='language-'] {
-	@apply relative my-0 mx-0 overflow-auto py-[1.25em] px-[1em];
+	@apply relative mx-0 my-0 overflow-auto px-[1em] py-[1.25em];
 }
 
 .language-css > code,

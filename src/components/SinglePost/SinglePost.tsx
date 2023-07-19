@@ -1,9 +1,10 @@
 import Image from 'next/image';
 
-import type { Post } from '@/types';
+import { PostContent } from './PostContent';
+
 import { formatDate } from '@/utils/intl';
 
-import { PostContent } from './PostContent';
+import type { Post } from '@/types';
 
 type SinglePostProps = Readonly<{
 	post: Post;

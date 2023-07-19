@@ -1,9 +1,11 @@
-import DevFAQThumbnail from '~/projects/devfaq.png';
-import HappyShopThumbnail from '~/projects/happy-shop.png';
-import NodeJSMinecraftItemShop from '~/projects/nodejs-minecraft-itemshop.png';
-import NoodlyThumbnail from '~/projects/noodly.png';
+import DevFAQThumbnail from '@/assets/images/devfaq.png';
+import HappyShopThumbnail from '@/assets/images/happy-shop.png';
+import NodeJSMinecraftItemShop from '@/assets/images/nodejs-minecraft-itemshop.png';
+import NoodlyThumbnail from '@/assets/images/noodly.png';
 
-export const projects = [
+import type { Project } from '@/types';
+
+export const projects: Project[] = [
 	{
 		thumbnail: DevFAQThumbnail,
 		title: 'DevFAQ',

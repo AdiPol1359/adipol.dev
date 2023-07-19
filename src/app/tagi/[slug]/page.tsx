@@ -1,8 +1,9 @@
-import type { Metadata } from 'next';
-
 import { PageTitle } from '@/components/PageTitle';
 import { PostsList } from '@/components/PostsList/PostsList';
 import { getPostsByTag, getTagsParams } from '@/lib/posts';
+
+import type { Metadata } from 'next';
+
 import type { Params } from '@/types';
 
 export const dynamicParams = false;

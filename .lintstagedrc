@@ -1,4 +1,0 @@
-{
-	"src/**/*.{ts,tsx,css,json,md,mdx}": ["pnpm prettier --write"],
-	"src/**/*.{ts,tsx}": ["pnpm eslint --fix"]
-}

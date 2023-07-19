@@ -1,5 +1,6 @@
-import type { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
+
+import type { ReactNode } from 'react';
 
 type PageTitleProps = Readonly<{
 	border?: boolean;
@@ -10,7 +11,7 @@ export const PageTitle = ({ border = true, children }: PageTitleProps) => (
 	<h1
 		className={twMerge(
 			'pb-4 text-3xl font-extrabold text-white-black sm:text-4xl md:pb-8 md:text-5xl',
-			border && 'border-b border-border'
+			border && 'border-b border-border',
 		)}
 	>
 		{children}

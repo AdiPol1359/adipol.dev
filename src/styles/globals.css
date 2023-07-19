@@ -6,5 +6,5 @@ body {
 }
 
 .rehype-code-title {
-	@apply rounded-t-lg border bg-gray-100 py-3 px-3.5 text-sm text-gray-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300;
+	@apply rounded-t-lg border bg-gray-100 px-3.5 py-3 text-sm text-gray-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300;
 }

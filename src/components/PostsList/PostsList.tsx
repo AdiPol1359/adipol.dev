@@ -1,6 +1,6 @@
-import type { Post } from '@/types';
-
 import { PostSneakPeek } from './PostSneakPeek';
+
+import type { Post } from '@/types';
 
 type PostsListProps = Readonly<{
 	posts: Post[];

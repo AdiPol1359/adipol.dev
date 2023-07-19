@@ -1,19 +1,14 @@
-import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 
-type ProjectProps = Readonly<{
-	thumbnail: StaticImageData;
-	title: string;
-	description: string;
-	technologies: string[];
+import type { Project } from '@/types';
+
+type SingleProjectProps = Readonly<{
+	project: Project;
 }>;
 
-export const Project = ({
-	thumbnail,
-	title,
-	description,
-	technologies,
-}: ProjectProps) => (
+export const SingleProject = ({
+	project: { thumbnail, title, description, technologies },
+}: SingleProjectProps) => (
 	<article className="space-y-3">
 		<Image
 			src={thumbnail}
