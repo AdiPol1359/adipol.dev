@@ -1,4 +1,4 @@
-import { SocialsList } from './SocialsList';
+import { SocialList } from './SocialList';
 
 export const AboutMeSection = () => (
 	<section className="space-y-4 text-gray-800 dark:text-gray-300 md:space-y-6">
@@ -12,6 +12,6 @@ export const AboutMeSection = () => (
 			nie są mi obce i pracuję z nimi w ciągu każdego dnia. Myślę, że każdy
 			znajdzie tutaj coś dla siebie.
 		</p>
-		<SocialsList className="flex gap-x-2 text-2xl" />
+		<SocialList className="flex gap-x-2 text-2xl" />
 	</section>
 );

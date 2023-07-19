@@ -12,18 +12,27 @@
 	"rules": {
 		"@typescript-eslint/consistent-type-imports": "error",
 		"@typescript-eslint/no-unused-vars": "error",
+		"require-await": "error",
 		"import/newline-after-import": "error",
 		"import/first": "error",
-		"simple-import-sort/imports": "error",
 		"simple-import-sort/exports": "error",
-		"@next/next/no-html-link-for-pages": "off"
+		"simple-import-sort/imports": [
+			"error",
+			{
+				"groups": [
+					["^@?\\w"],
+					["^\\."],
+					["^@/"],
+					["^(?!@/).+\\u0000$"],
+					["^@/.+\\u0000$"]
+				]
+			}
+		]
 	},
 	"settings": {
 		"import/resolver": {
-			"typescript": {
-				"typescript": true,
-				"node": true
-			}
+			"typescript": true,
+			"node": true
 		}
 	}
 }

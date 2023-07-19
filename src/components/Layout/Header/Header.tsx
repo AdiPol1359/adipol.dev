@@ -1,28 +1,22 @@
-import { ActiveLink } from '@/components/ActiveLink';
+import Link from 'next/link';
 
-import { HeaderWrapper } from './HeaderWrapper';
+import { HeaderNavigation } from './HeaderNavigation/HeaderNavigation';
+import { HeaderNavigationList } from './HeaderNavigationList';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
-const items = [
-	{ href: '/posty', title: 'Posty' },
-	{ href: '/tagi', title: 'Tagi' },
-	{ href: '/projekty', title: 'Projekty' },
-	{ href: '/o-mnie', title: 'O mnie' },
-];
+import { Container } from '@/components/Container';
 
 export const Header = () => (
-	<HeaderWrapper>
-		<ul className="flex flex-col items-center sm:flex-row">
-			{items.map(({ href, title }) => (
-				<li key={title}>
-					<ActiveLink
-						href={href}
-						className="font-medium hover:text-primary"
-						activeClassName="underline decoration-wavy decoration-2 underline-offset-4"
-					>
-						{title}
-					</ActiveLink>
-				</li>
-			))}
-		</ul>
-	</HeaderWrapper>
+	<Container
+		as="header"
+		className="sticky top-0 z-50 grid grid-cols-2 bg-white py-4 text-white-black dark:bg-neutral-900 sm:flex sm:items-center sm:justify-between sm:py-10"
+	>
+		<Link href="/" className="text-xl font-bold sm:text-2xl">
+			AdiPol Dev
+		</Link>
+		<HeaderNavigation>
+			<HeaderNavigationList />
+			<ThemeSwitcher />
+		</HeaderNavigation>
+	</Container>
 );

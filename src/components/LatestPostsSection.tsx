@@ -1,6 +1,6 @@
-import type { Post } from '@/types';
-
 import { PostsList } from './PostsList/PostsList';
+
+import type { Post } from '@/types';
 
 type LatestPostsSectionProps = Readonly<{
 	posts: Post[];

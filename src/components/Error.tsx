@@ -13,7 +13,7 @@ export const Error = ({ statusCode, description }: ErrorProps) => (
 		</hgroup>
 		<Link
 			href="/"
-			className="mt-3.5 rounded-md border border-white-black py-3 px-5"
+			className="mt-3.5 rounded-md border border-white-black px-5 py-3"
 		>
 			Powrót do strony głównej
 		</Link>

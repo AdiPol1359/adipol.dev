@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 import type { PostTag } from '@/types';
 
-type PostTagsListProps = Readonly<{
+type PostTagListProps = Readonly<{
 	tags: PostTag[];
 }>;
 
-export const PostTagsList = ({ tags }: PostTagsListProps) => (
+export const PostTagList = ({ tags }: PostTagListProps) => (
 	<ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1 md:mt-4">
 		{tags.map(({ tag, length }) => (
 			<li key={tag}>

@@ -1,8 +1,15 @@
 import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
-export const useRouteChange = (handler: () => void) => {
+export const useRouteChange = (callback: (pathname: string) => void) => {
 	const pathname = usePathname();
+	const ref = useRef(pathname);
 
-	useEffect(handler, [pathname, handler]);
+	useEffect(() => {
+		if (ref.current !== pathname) {
+			ref.current = pathname;
+
+			callback(pathname);
+		}
+	}, [callback, pathname]);
 };

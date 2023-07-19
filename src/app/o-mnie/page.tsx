@@ -1,7 +1,7 @@
-import type { Metadata } from 'next';
-
+import SoftwareDeveloper from '@/assets/svg/software-developer.svg';
 import { PageTitle } from '@/components/PageTitle';
-import SoftwareDeveloper from '~/software-developer.svg';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
 	title: 'O mnie',
@@ -12,7 +12,7 @@ export default function AboutMePage() {
 		<>
 			<PageTitle>O mnie</PageTitle>
 			<p className="prose mt-4 max-w-full text-justify text-white-black">
-				Cześć, nazywam się Adrian i mam 17 lat. Swoją przygodę z programowaniem
+				Cześć, nazywam się Adrian i mam 18 lat. Swoją przygodę z programowaniem
 				zacząłem w wieku 11 lat, kiedy to po raz pierwszy natrafiłem na darmowy
 				kurs C++ na YouTube. Od tego momentu programowanie stało się trwałą
 				częścią mojego życia. W przeszłości bardzo dużo pisałem w Javie i
