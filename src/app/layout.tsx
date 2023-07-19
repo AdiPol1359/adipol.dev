@@ -29,6 +29,7 @@ export const metadata: Metadata = {
 		other: {
 			rel: 'mask-icon',
 			url: '/safari-pinned-tab.svg',
+			// TODO: ADD COLOR: https://github.com/vercel/next.js/issues/52853
 		},
 	},
 };
