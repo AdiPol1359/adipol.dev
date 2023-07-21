@@ -1,4 +1,5 @@
 import DevFAQThumbnail from '@/assets/images/devfaq.png';
+import DiscordCloneThumbnail from '@/assets/images/discord-clone.png';
 import HappyShopThumbnail from '@/assets/images/happy-shop.png';
 import MobiusThumbnail from '@/assets/images/mobius.png';
 import NodeJSMinecraftItemShop from '@/assets/images/nodejs-minecraft-itemshop.png';
@@ -31,6 +32,25 @@ export const projects: Project[] = [
 		],
 	},
 	{
+		thumbnail: DiscordCloneThumbnail,
+		title: 'Discord Clone (in progress)',
+		description:
+			'Klon discorda napisany w najnowszych technologiach. Projekt stawia ogromny nacisk na frontend oraz architekturę domenową aplikacji.',
+		url: 'https://github.com/AdiPol1359/discord-clone/',
+		technologies: [
+			'TypeScript',
+			'React.js',
+			'Next.js',
+			'Tailwind CSS',
+			'Vitest',
+			'React Testing Library',
+			'Tanstack Query',
+			'Storybook',
+			'React Hook Form',
+			'Supabase',
+		],
+	},
+	{
 		thumbnail: PicstagramThumbnail,
 		title: 'Picstagram',
 		description:
@@ -42,10 +62,10 @@ export const projects: Project[] = [
 			'Next.js',
 			'Tailwind CSS',
 			'Vitest',
-			'Rest Testing Library',
-			'Tanstack Query',
+			'React Testing Library',
 			'React Hook Form',
 			'Storybook',
+			'Tanstack Query',
 			'Docker',
 			'NextAuth',
 			'PostgreSQL',
