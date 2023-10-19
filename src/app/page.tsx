@@ -1,4 +1,4 @@
-import { AboutMeSection } from '@/components/AboutMeSection';
+import { IntroductionSection } from '@/components/IntroductionSection';
 import { LatestPostsSection } from '@/components/LatestPostsSection';
 import { getLatestPosts } from '@/lib/posts';
 
@@ -7,7 +7,7 @@ export default async function IndexPage() {
 
 	return (
 		<div className="space-y-10">
-			<AboutMeSection />
+			<IntroductionSection />
 			<LatestPostsSection posts={posts} />
 		</div>
 	);
