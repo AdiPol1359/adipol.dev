@@ -2,6 +2,14 @@ import type { StaticImageData } from 'next/image';
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import type { ComponentType } from 'react';
 
+export interface Experience {
+	readonly title: string;
+	readonly name: string;
+	readonly href: string;
+	readonly start: string;
+	readonly end?: string;
+}
+
 export interface Project {
 	readonly thumbnail: StaticImageData;
 	readonly title: string;
