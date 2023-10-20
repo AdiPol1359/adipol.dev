@@ -1,6 +1,7 @@
 import DevFAQThumbnail from '@/assets/images/devfaq.png';
 import DiscordCloneThumbnail from '@/assets/images/discord-clone.png';
 import HappyShopThumbnail from '@/assets/images/happy-shop.png';
+import ImpressoStudioThumbnail from '@/assets/images/impresso-studio.png';
 import MobiusThumbnail from '@/assets/images/mobius.png';
 import NodeJSMinecraftItemShop from '@/assets/images/nodejs-minecraft-itemshop.png';
 import NoodlyThumbnail from '@/assets/images/noodly.png';
@@ -29,6 +30,22 @@ export const projects: Project[] = [
 			'Docker',
 			'Prisma',
 			'PostgreSQL',
+		],
+	},
+	{
+		thumbnail: ImpressoStudioThumbnail,
+		title: 'Impresso Studio - system rezerwacyjny',
+		description:
+			'Celem projektu było dodanie do istniejącej strony Internetowej systemu rezerwacyjnego. W skład funkcjonalności wchodził m.in kreator zamówienia, koszyk, czy integracja płatności online od zewnętrznego dostawcy.',
+		url: 'https://impresso.studio/',
+		technologies: [
+			'TypeScript',
+			'React.js',
+			'Next.js',
+			'Tailwind CSS',
+			'Stripe',
+			'AWS S3',
+			'Zustand',
 		],
 	},
 	{
