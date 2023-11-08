@@ -1,11 +1,11 @@
-import DevFAQThumbnail from '@/assets/images/devfaq.png';
-import DiscordCloneThumbnail from '@/assets/images/discord-clone.png';
-import HappyShopThumbnail from '@/assets/images/happy-shop.png';
-import ImpressoStudioThumbnail from '@/assets/images/impresso-studio.png';
-import MobiusThumbnail from '@/assets/images/mobius.png';
-import NodeJSMinecraftItemShop from '@/assets/images/nodejs-minecraft-itemshop.png';
-import NoodlyThumbnail from '@/assets/images/noodly.png';
-import PicstagramThumbnail from '@/assets/images/picstagram.png';
+import DevFAQThumbnail from '@/assets/images/projects/devfaq.png';
+import DiscordCloneThumbnail from '@/assets/images/projects/discord-clone.png';
+import HappyShopThumbnail from '@/assets/images/projects/happy-shop.png';
+import ImpressoStudioThumbnail from '@/assets/images/projects/impresso-studio.png';
+import MobiusThumbnail from '@/assets/images/projects/mobius.png';
+import NodeJSMinecraftItemShop from '@/assets/images/projects/nodejs-minecraft-itemshop.png';
+import NoodlyThumbnail from '@/assets/images/projects/noodly.png';
+import PicstagramThumbnail from '@/assets/images/projects/picstagram.png';
 
 import type { Project } from '@/types';
 
