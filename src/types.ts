@@ -10,6 +10,13 @@ export interface Experience {
 	readonly end?: string;
 }
 
+export interface Recommendation {
+	readonly image: StaticImageData;
+	readonly name: string;
+	readonly positions: string[];
+	readonly content: string;
+}
+
 export interface Project {
 	readonly thumbnail: StaticImageData;
 	readonly title: string;
