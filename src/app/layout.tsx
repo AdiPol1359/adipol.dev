@@ -2,13 +2,19 @@ import { Analytics } from '@vercel/analytics/react';
 import { Fira_Code, Inter } from 'next/font/google';
 
 import { Layout } from '@/components/Layout/Layout';
-import { BASE_OPEN_GRAPH } from '@/constants';
+import { BASE_OPEN_GRAPH, THEME_COLOR } from '@/constants';
 import { AppProviders } from '@/providers/AppProviders';
 
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 
 import '@/assets/styles/globals.css';
+
+const { APP_URL, NEXT_PUBLIC_VERCEL_URL } = process.env;
+
+const metadataBaseUrl = NEXT_PUBLIC_VERCEL_URL
+	? `https://${NEXT_PUBLIC_VERCEL_URL}`
+	: APP_URL || null;
 
 export const metadata: Metadata = {
 	title: {
@@ -18,7 +24,6 @@ export const metadata: Metadata = {
 	description:
 		'AdiPol.dev - Blog technologiczny, głownie związany ze światem stron internetowych.',
 	manifest: '/manifest.json',
-	themeColor: '#2563eb',
 	openGraph: {
 		type: 'website',
 		...BASE_OPEN_GRAPH,
@@ -29,9 +34,16 @@ export const metadata: Metadata = {
 		other: {
 			rel: 'mask-icon',
 			url: '/safari-pinned-tab.svg',
-			// TODO: ADD COLOR: https://github.com/vercel/next.js/issues/52853
+			color: THEME_COLOR,
 		},
 	},
+	...(metadataBaseUrl && {
+		metadataBase: new URL(metadataBaseUrl),
+	}),
+};
+
+export const viewport: Viewport = {
+	themeColor: THEME_COLOR,
 };
 
 const inter = Inter({
