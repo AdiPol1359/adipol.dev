@@ -13,6 +13,7 @@ type SinglePostProps = Readonly<{
 export const SinglePost = ({
 	post: {
 		data: { date, title, thumbnail },
+		slug,
 		source,
 	},
 }: SinglePostProps) => {
@@ -43,6 +44,16 @@ export const SinglePost = ({
 			</header>
 			<div className="prose mt-10 max-w-none dark:prose-dark md:prose-lg">
 				<PostContent source={source} />
+			</div>
+			<div className="mt-10 text-center text-white-black">
+				<p className="font-medium">👉🏻 Zauważyłeś/aś błąd? 👈🏻</p>
+				<a
+					href={`https://github.com/AdiPol1359/adipol.dev/blob/main/posts/${slug}.mdx`}
+					target="_blank"
+					className="text-primary hover:underline"
+				>
+					Edytuj ten post na GitHubie!
+				</a>
 			</div>
 		</article>
 	);
