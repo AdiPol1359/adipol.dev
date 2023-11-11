@@ -1,7 +1,7 @@
 ---
 date: '2023-11-11'
 title: Wydajne providery w React.js 🔥
-introduction: Context API to zdecydowanie jedna z podstawowych funkcjonalności w Reacie, a dogłębne poznanie jego działania pozwoli pisać Ci bardziej świadomy oraz wydajny kod.
+introduction: Context API to zdecydowanie jedna z podstawowych funkcjonalności w Reakcie, a dogłębne poznanie jego działania pozwoli pisać Ci bardziej świadomy oraz wydajny kod.
 thumbnail:
   path: /thumbnails/wydajne-providery-w-reactjs.png
   width: 1200
@@ -10,11 +10,11 @@ tags:
   - React
 ---
 
-Providery w Reacie to zdecydowanie jedna z najistotniejszych rzeczy przy budowaniu aplikacji webowych. To właśnie z ich pomocą raz na zawsze zakończyliśmy bolączkę w postaci przesyłania X razy propsów w dół do naszych dzieci, żeby dzielić stan między sobą. Pomimo tego, że context API znacznie ułatwia nam zarządzanie globalnym stanem, pomagając jednocześnie przy codziennej pracy, musimy być czujni i uważać na pułapki, które mogą negatywnie wpłynąć na wydajność naszej strony. Dlatego w tym artykule chciałbym Cię przestrzeć przed najczęściej popełnianymi błędami podczas używania providerów, które spotykam szczególnie wśród początkujących programistów, zaczynających dopiero swoją przygodę z Reactem. Mam nadzieję, że po przeczytaniu tego posta lepiej zrozumiesz w jaki sposób działa share'owanie stanu w Reacie, co pozwoli pisać Ci bardziej świadomy oraz wydajny kod. Zapraszam do lektury 🙂.
+Providery w Reakcie to zdecydowanie jedna z najistotniejszych rzeczy przy budowaniu aplikacji webowych. To właśnie z ich pomocą raz na zawsze zakończyliśmy bolączkę w postaci przesyłania X razy propsów w dół do naszych dzieci, żeby dzielić stan między sobą. Pomimo tego, że context API znacznie ułatwia nam zarządzanie globalnym stanem, pomagając jednocześnie przy codziennej pracy, musimy być czujni i uważać na pułapki, które mogą negatywnie wpłynąć na wydajność naszej strony. Dlatego w tym artykule chciałbym Cię przestrzec przed najczęściej popełnianymi błędami podczas używania providerów, które spotykam szczególnie wśród początkujących programistów, zaczynających dopiero swoją przygodę z Reactem. Mam nadzieję, że po przeczytaniu tego posta lepiej zrozumiesz w jaki sposób działa share'owanie stanu w Reakcie, co pozwoli pisać Ci bardziej świadomy oraz wydajny kod. Zapraszam do lektury 🙂.
 
 ## Jak dzielić stan pomiędzy komponentami?
 
-Proponuję zacząć od krótkiego przypomnienia, w jaki sposób tworzymy providery w Reacie:
+Proponuję zacząć od krótkiego przypomnienia, w jaki sposób tworzymy providery w Reakcie:
 
 ```ts:App.tsx
 export const ThemeContext = createContext<'dark' | 'light'>('dark');
@@ -34,13 +34,13 @@ export const Theme = () => {
 }
 ```
 
-Na początku stworzyliśmy `ThemeContext` za pomocą funkcji `createContext`, zaimportowanej z Reacta. Do środka przekazaliśmy **domyślną wartość**, która zostanie użyta na wypadek, gdy React **nie znajdzie żadnego providera w drzewie komponentów rodziców**. Następnie w głównym komponencie `App` wyrenderowaliśmy `ThemeContext.Provider`, który **dostarczy przekazaną wartość `value` do swoich dzieci**. Finalnie zostało nam już tylko odczytać wartość z contextu za pomocą hooka `useContext`. No i to tyle, właśnie udało nam się przekazać stan do swoich dzieci. Kod działa, a my możemy rozejść się do domu. Providery w Reacie wydają się na tyle proste i logiczne, że przecież nic złego nie może się tutaj wydarzyć - ale czy na pewno? Pójdźmy o krok dalej i rozbudujmy trochę ten przykład.
+Na początku stworzyliśmy `ThemeContext` za pomocą funkcji `createContext`, zaimportowanej z Reacta. Do środka przekazaliśmy **domyślną wartość**, która zostanie użyta na wypadek, gdy React **nie znajdzie żadnego providera w drzewie komponentów rodziców**. Następnie w głównym komponencie `App` wyrenderowaliśmy `ThemeContext.Provider`, który **dostarczy przekazaną wartość `value` do swoich dzieci**. Finalnie zostało nam już tylko odczytać wartość z contextu za pomocą hooka `useContext`. No i to tyle, właśnie udało nam się przekazać stan do swoich dzieci. Kod działa, a my możemy rozejść się do domu. Providery w Reakcie wydają się na tyle proste i logiczne, że przecież nic złego nie może się tutaj wydarzyć - ale czy na pewno? Pójdźmy o krok dalej i rozbudujmy trochę ten przykład.
 
 ## Task z jiry
 
 Zderzmy się z rzeczywistym problemem, który możemy napotkać przy codziennej pracy z Reactem. Powiedzmy, że dostaliśmy taska na jirze, w którym to musimy zaimplementować **dark theme** oraz **system logowania**. W opisie zadania jasno postawiono nam wymogi, że zarówno theme, jak i zalogowany user **powinien być łatwo dostępny z poziomu każdego komponentu**. Do głowy od razu przychodzi nam context API. Zabieramy się więc do pracy.
 
-Idąc po najniższej linii oporu, pierwsza wersja naszego zadania mogłaby wyglądać mniej więcej w taki sposób:
+Idąc po linii najmniejszego oporu, pierwsza wersja naszego zadania mogłaby wyglądać mniej więcej w taki sposób:
 
 <iframe
 	src="https://codesandbox.io/embed/wydajne-providery-w-reactjs-1-rq879q?expanddevtools=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark"
@@ -402,8 +402,8 @@ Widzimy, że memoizacja w tym przypadku **nie ma kompletnie żadnego sensu**, bo
 
 Upraszczając to co napisałem wyżej - **zamiast tworzyć jeden ogromny provider, lepiej utworzyć kilka mniejszych, przechowujących małe, zgrupowane wartości**. Dzięki temu **unikniemy sytuacji rerenderowania komponentów, które co prawda korzystają z tego samego kontekstu, ale wartość, której używamy się nie zmieniła**, więc ten rerender **kompletnie nic nie wnosi i wpłyna negatywnie na wydajność**.
 
-**Problem rerenderowania komponentów, których używana wartość ze stanu nie uległa zmianie** to dosyć powszechny temat, dlatego powstało na to kilka rozwiązań. Zamiast korzystać z domyślnego sposobu na globalny stan w Reacie, możemy **posłużyć się popularnymi bibliotekami do state managment'u**. Pomocny może okazać się tutaj chociażby [zustand](https://zustand-demo.pmnd.rs/), który **trzyma swój stan poza Reactem** i **synchronizuje go za pomocą hooka `useSyncExternalStore`**. Rozwiązał on m.in **ten, jak i masę innych problemów**, dlatego zainteresowanych odsyłam do dokumentacji 🙂.
+**Problem rerenderowania komponentów, których używana wartość ze stanu nie uległa zmianie** to dosyć powszechny temat, dlatego powstało na to kilka rozwiązań. Zamiast korzystać z domyślnego sposobu na globalny stan w Reakcie, możemy **posłużyć się popularnymi bibliotekami do state managment'u**. Pomocny może okazać się tutaj chociażby [zustand](https://zustand-demo.pmnd.rs/), który **trzyma swój stan poza Reactem** i **synchronizuje go za pomocą hooka `useSyncExternalStore`**. Rozwiązał on m.in **ten, jak i masę innych problemów**, dlatego zainteresowanych odsyłam do dokumentacji 🙂.
 
 ## Podsumowanie
 
-To tyle na dzisiaj. Tym artykułem chciałem rozjaśnić Ci trochę, w jaki sposób działa globalny stan w Reacie, żebyś mógł pisać bardziej świadomy oraz wydajny kod. Mam nadzieję, że wyniosłeś z niego jakąś cenną lekcję, którą zastosujesz przy codziennej pracy. Zainteresowanych zachęcam również do podzielenia się swoimi przemyśleniami w sekcji komentarzy 🙂.
+To tyle na dzisiaj. Tym artykułem chciałem rozjaśnić Ci trochę, w jaki sposób działa globalny stan w Reakcie, żebyś mógł pisać bardziej świadomy oraz wydajny kod. Mam nadzieję, że wyniosłeś z niego jakąś cenną lekcję, którą zastosujesz przy codziennej pracy. Zainteresowanych zachęcam również do podzielenia się swoimi przemyśleniami w sekcji komentarzy 🙂.
