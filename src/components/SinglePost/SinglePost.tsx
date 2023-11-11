@@ -28,7 +28,7 @@ export const SinglePost = ({
 				>
 					{formatDate(creationDate)}
 				</time>
-				<h1 className="mt-2.5 text-center text-5xl font-extrabold text-gray-900 dark:text-gray-100">
+				<h1 className="mt-2.5 text-center text-4xl font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl">
 					{title}
 				</h1>
 				{thumbnail && (
