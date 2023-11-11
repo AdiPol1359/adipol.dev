@@ -41,7 +41,7 @@ export const SinglePost = ({
 					/>
 				)}
 			</header>
-			<div className="prose mt-10 max-w-none dark:prose-dark">
+			<div className="prose mt-10 max-w-none dark:prose-dark md:prose-lg">
 				<PostContent source={source} />
 			</div>
 		</article>
