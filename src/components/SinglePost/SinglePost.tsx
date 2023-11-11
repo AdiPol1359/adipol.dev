@@ -28,7 +28,7 @@ export const SinglePost = ({
 				>
 					{formatDate(creationDate)}
 				</time>
-				<h1 className="mt-2 text-center text-5xl font-extrabold text-gray-900 dark:text-gray-100">
+				<h1 className="mt-2.5 text-center text-5xl font-extrabold text-gray-900 dark:text-gray-100">
 					{title}
 				</h1>
 				{thumbnail && (
@@ -37,7 +37,7 @@ export const SinglePost = ({
 						width={thumbnail.width}
 						height={thumbnail.height}
 						alt={`Miniaturka posta ${title}`}
-						className="mt-7 rounded-lg"
+						className="mt-7 rounded-lg border-2 border-gray-900 dark:border-gray-200"
 					/>
 				)}
 			</header>

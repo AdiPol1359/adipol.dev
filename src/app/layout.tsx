@@ -1,6 +1,7 @@
 import { Fira_Code, Inter } from 'next/font/google';
 
 import { Layout } from '@/components/Layout/Layout';
+import { BASE_OPEN_GRAPH } from '@/constants';
 import { AppProviders } from '@/providers/AppProviders';
 
 import type { Metadata } from 'next';
@@ -19,9 +20,7 @@ export const metadata: Metadata = {
 	themeColor: '#2563eb',
 	openGraph: {
 		type: 'website',
-		siteName: 'AdiPol Dev',
-		locale: 'pl_PL',
-		url: 'https://adipol.dev/',
+		...BASE_OPEN_GRAPH,
 	},
 	icons: {
 		icon: '/favicon.ico',

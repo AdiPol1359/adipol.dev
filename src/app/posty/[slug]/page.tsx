@@ -1,6 +1,7 @@
 import { Error } from '@/components/Error';
 import { PostComments } from '@/components/PostComments';
 import { SinglePost } from '@/components/SinglePost/SinglePost';
+import { BASE_OPEN_GRAPH } from '@/constants';
 import { getPostBySlug, getPostsParams } from '@/lib/posts';
 
 import type { Metadata } from 'next';
@@ -14,9 +15,33 @@ export const generateMetadata = async ({
 }: SinglePostPageProps): Promise<Metadata> => {
 	const post = await getPostBySlug(params.slug);
 
+	if (!post) return {};
+
+	const {
+		data: { introduction: description, title, date, thumbnail },
+	} = post;
+
 	return {
-		title: post?.data.title,
-		description: post?.data.introduction,
+		title,
+		description,
+		openGraph: {
+			title,
+			description,
+			type: 'article',
+			publishedTime: date,
+			...(thumbnail && {
+				images: {
+					alt: title,
+					url: thumbnail.path,
+					width: thumbnail.width,
+					height: thumbnail.height,
+				},
+			}),
+			...BASE_OPEN_GRAPH,
+		},
+		twitter: {
+			card: 'summary_large_image',
+		},
 	};
 };
 
