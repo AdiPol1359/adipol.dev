@@ -21,7 +21,9 @@ export default async function SingleTagPage({ params }: SingleTagPageProps) {
 
 	return (
 		<>
-			<PageTitle border={false}>Artykuły z tagiem #{params.slug}</PageTitle>
+			<PageTitle border={false}>
+				Artykuły oznaczone tagiem #{params.slug}
+			</PageTitle>
 			<PostsList posts={posts} />
 		</>
 	);
