@@ -10,7 +10,7 @@ tags:
   - React
 ---
 
-Providery w Reacie to zdecydowanie jedna z najistotniejszych rzeczy przy budowaniu aplikacji webowych. To właśnie z ich pomocą raz na zawsze zakończyliśmy bolączkę w postaci przesyłania X razy propsów w dół do naszych dzieci, żeby dzielić stan między sobą. Pomimo tego, że context API znacznie ułatwia nam zarządzanie globalnym stanem, pomagając jednocześnie przy codziennej pracy, musimy być czujni i uważać na pułapki, które mogą negatywnie wpłynąć na wydajność naszej strony. Dlatego w tym artykule chciałbym Cię przestrzeć przed najczęściej popełnianymi błędami podczas używania providerów, które spotykam szczególnie wśród początkujących programistów, zaczynających dopiero swoją przygodę z Reactem. Mam nadzieję, że po przeczytaniu tego posta lepiej zrozumiesz w jaki sposób działa share'owanie stanu w Reacie, co pozwoli pisać Ci to bardziej świadomy, oraz wydajny kod. Zapraszam do lektury 🙂.
+Providery w Reacie to zdecydowanie jedna z najistotniejszych rzeczy przy budowaniu aplikacji webowych. To właśnie z ich pomocą raz na zawsze zakończyliśmy bolączkę w postaci przesyłania X razy propsów w dół do naszych dzieci, żeby dzielić stan między sobą. Pomimo tego, że context API znacznie ułatwia nam zarządzanie globalnym stanem, pomagając jednocześnie przy codziennej pracy, musimy być czujni i uważać na pułapki, które mogą negatywnie wpłynąć na wydajność naszej strony. Dlatego w tym artykule chciałbym Cię przestrzeć przed najczęściej popełnianymi błędami podczas używania providerów, które spotykam szczególnie wśród początkujących programistów, zaczynających dopiero swoją przygodę z Reactem. Mam nadzieję, że po przeczytaniu tego posta lepiej zrozumiesz w jaki sposób działa share'owanie stanu w Reacie, co pozwoli pisać Ci bardziej świadomy oraz wydajny kod. Zapraszam do lektury 🙂.
 
 ## Jak dzielić stan pomiędzy komponentami?
 
@@ -38,7 +38,7 @@ Na początku stworzyliśmy `ThemeContext` za pomocą funkcji `createContext`, z
 
 ## Task z jiry
 
-Zderzmy się z rzeczywistym problemem, który możemy napotkać przy codziennej pracy z Reactem. Powiedzmy, że dostaliśmy taska na jirze, w którym musimy zaimplementować **dark theme** oraz **system logowania**. W opisie zadania jasno postawiono nam wymogi, że zarówno theme, jak i zalogowany user **powinien być łatwo dostępny z poziomu każdego komponentu**. Do głowy od razu przychodzi nam context API. Zabieramy się więc do pracy.
+Zderzmy się z rzeczywistym problemem, który możemy napotkać przy codziennej pracy z Reactem. Powiedzmy, że dostaliśmy taska na jirze, w którym to musimy zaimplementować **dark theme** oraz **system logowania**. W opisie zadania jasno postawiono nam wymogi, że zarówno theme, jak i zalogowany user **powinien być łatwo dostępny z poziomu każdego komponentu**. Do głowy od razu przychodzi nam context API. Zabieramy się więc do pracy.
 
 Idąc po najniższej linii oporu, pierwsza wersja naszego zadania mogłaby wyglądać mniej więcej w taki sposób:
 
@@ -56,7 +56,7 @@ Idąc po najniższej linii oporu, pierwsza wersja naszego zadania mogłaby wygl�
 	sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
 
-Na pierwszy rzut oka wszystko działa, a my czujemy, że możemy zamknąć taska, wrzucić brancha na code review i być z siebie dumnyi, że podołaliśmy kolejnemu ciężkiemu zadaniu w robocie. Przyjrzyjmy się temu bliżej.
+Na pierwszy rzut oka wszystko działa, a my czujemy, że możemy zamknąć taska, wrzucić brancha na code review i być z siebie dumni, że podołaliśmy kolejnemu ciężkiemu zadaniu w robocie. Czy aby na pewno? Przyjrzyjmy się temu bliżej.
 
 Dzielony stan pomiędzy komponentami zdefiniowaliśmy **bezpośrednio w komponencie `App`**, czyli **głównym komponencie naszej aplikacji**. Jest to pierwszy, **bardzo częsty błąd popełniany przez początkujących programistów**. Nie ma co się dziwić, bo wydaje się to dosyć logiczne i intucyjne, żeby dzielony stan wrzucić na samą górę naszej aplikacji. Spowoduje to natomiast pewne problemy. Przede wszystkim, z perspektywy czytelności kodu, **nie jest to najlepsze podejście**, bo w przyszłości, gdy do naszej aplikacji dojdą jeszcze dwa globalne stany, plik `App.tsx` **urośnie i nie będzie dało się go przeczytać**. Ja natomiast chciałbym skupić się na drugej, trochę poważniejszej konsekwencji tego błędu.
 
@@ -99,7 +99,7 @@ export const App = () => {
 
 Klikając przycisk `Toggle theme`, wywołujemy funkcję `changeTheme`. Funkcja ta wywołuje pod spodem `setTheme`, aby zaktualizować nasz stan. Tylko musimy pamiętać, że wywołanie settera z useState spowoduje **ponowne wykonanie funkcji komponentu**, żeby ten mógł otrzymać najnowsze dane.
 
-Dlatego właśnie po wywołaniu funkcji `changeTheme`, wywołujemy `setTheme`, co z kolei wywołuje funkcję `App`, a ponieważ w komponencie `App` wyrenderowaliśmy komponenty `Header`, `User`, `Theme`, oraz `Footer` - **wszystkie zostaną wyrenderowane od nowa** (nie biorąc pod uwagę memoizacji). Musimy więc pamiętać, żeby nie zagnieżdżać komponentów naszej aplikacji bezpośrednio w providerach, bo doprowadzi to do **przerenderowania całej aplikacji od nowa po zmianie jakiegokolwiek stanu**, i przy okazji kompletnie nie korzystamy z optymalizacji, o której wcześniej wspomniałem.
+Dlatego właśnie po wywołaniu funkcji `changeTheme`, wywołujemy `setTheme`, co z kolei wywołuje funkcję `App`, a ponieważ w komponencie `App` wyrenderowaliśmy komponenty `Header`, `User`, `Theme` oraz `Footer` - **wszystkie zostaną wyrenderowane od nowa** (nie biorąc pod uwagę memoizacji). Musimy więc pamiętać, żeby nie zagnieżdżać komponentów naszej aplikacji bezpośrednio w providerach, bo doprowadzi to do **przerenderowania całej aplikacji od nowa po zmianie jakiegokolwiek stanu**, i przy okazji kompletnie nie korzystamy z optymalizacji, o której wcześniej wspomniałem.
 
 Możemy poradzić sobie z tym problemem za pomocą propsa `children`. Zabierzmy się zatem za refaktoryzację.
 
@@ -226,13 +226,13 @@ export const AppProviders = ({
 };
 ```
 
-Zauważyłeś/aś co się zmieniło w nowym komponencie `AppProviders`? Jak widać, do naszych funkcji oraz wartości providerów doszły **dwa hooki** - `useCallback`, oraz `useMemo`. Jaki to ma cel?
+Zauważyłeś/aś co się zmieniło w nowym komponencie `AppProviders`? Jak widać, do naszych funkcji oraz wartości providerów doszły **dwa hooki** - `useCallback` oraz `useMemo`. Jaki to ma cel?
 
 Od teraz React będzie **cache'ował definicje naszych funkcji oraz obiektów** i dopóki **nie zmieni się tablica zależności**, co każdy render otrzymamy **dokładnie tę samą referencję, co wywołanie wcześniej**. Jaki to miało wpływ na `useContext`?
 
 Tym razem zmieniając wartość stanu `theme` za pomocą funkcji `changeTheme`, przerenderowanie komponentu spowoduje **zmianę referencji tylko i wyłącznie obiektu `themeValue`**, co za tym idzie - przerenderują się **tylko i wyłącznie komponenty korzystające z jego kontekstu**. Dlaczego?
 
-Do tablicy zależności `themeValue` przekazaliśmy **dwa obiekty**: `theme`, oraz `changeTheme`. Callback `changeTheme` nie powinien nigdy zmienić swojej referencji, ponieważ posiada **pustą tablicę zależności**. Natomiast wywołując funkcję `setTheme` **zmutowaliśmy stan**, co za tym idzie - **zmieniliśmy wartość `theme`**, a więc **`useMemo` w `themeValue` zwróci nową referencję**. Ponieważ referencja obiektu `themeValue` **uległa zmianie**, `Object.is` zwróci `false`, co za tym idzie - React **musi odświeżyć komponenty korzystające z kontekstu `ThemeContext`**.
+Do tablicy zależności `themeValue` przekazaliśmy **dwa obiekty**: `theme` oraz `changeTheme`. Callback `changeTheme` nie powinien nigdy zmienić swojej referencji, ponieważ posiada **pustą tablicę zależności**. Natomiast wywołując funkcję `setTheme` **zmutowaliśmy stan**, co za tym idzie - **zmieniliśmy wartość `theme`**, a więc **`useMemo` w `themeValue` zwróci nową referencję**. Ponieważ referencja obiektu `themeValue` **uległa zmianie**, `Object.is` zwróci `false`, co za tym idzie - React **musi odświeżyć komponenty korzystające z kontekstu `ThemeContext`**.
 
 W przypadku obiektu `userValue`, podczas zmiany stanu `theme`, **nie zmieniła się żadna wartość w tablicy zależności**, dlatego **dostajemy za każdym razem tę samą referencję**, a React **nie ma powodu, aby przerenderować komponenty używające kontekstu `UserContext`**. W ten sposób udowodniłem, że porównywanie wartości `value` **faktycznie odbywa się za pomocą metody `Object.is`**.
 
@@ -318,9 +318,9 @@ export const UserProvider = ({
 };
 ```
 
-Z komponentu `AppProviders` **pozbyliśmy się tony kodu odpowiedzalnego za zarządzanie stanem dwóch providerów w naszej aplikacji**. Został on **przeniesiony do osobnych komponentów**, utworzonych specjalnie pod każdy provider - `ThemeProvider`, oraz `UserProvider`. Jakie mamy zalety? Przede wszystkim **pozbyliśmy się problemu z czytelnością**, o którym wspomniałem na samym początku tego artykułu. Od teraz chcąc edytować dany provider, **nie przebijamy się przez masę logiki pochodzącej z innego providera**. Zamiast tego **udajemy się do osobnego komponentu**, gdzie **wszystko jest ładnie uporządkowane**. Jednocześnie jesteśmy przygotowani na ewentualność **dodania kolejnych providerów w przyszłości**, bez obawy o czytelność kodu.
+Z komponentu `AppProviders` **pozbyliśmy się tony kodu odpowiedzalnego za zarządzanie stanem dwóch providerów w naszej aplikacji**. Został on **przeniesiony do osobnych komponentów**, utworzonych specjalnie pod każdy provider - `ThemeProvider` oraz `UserProvider`. Jakie mamy zalety? Przede wszystkim **pozbyliśmy się problemu z czytelnością**, o którym wspomniałem na samym początku tego artykułu. Od teraz chcąc edytować dany provider, **nie przebijamy się przez masę logiki pochodzącej z innego providera**. Zamiast tego **udajemy się do osobnego komponentu**, gdzie **wszystko jest ładnie uporządkowane**. Jednocześnie jesteśmy przygotowani na ewentualność **dodania kolejnych providerów w przyszłości**, bez obawy o czytelność kodu.
 
-Bardziej spostrzegawcze osoby zauważyły pewnie, że **przestaliśmy również używać `useCallback`, oraz `useMemo`**, a mimo wszystko **kod zachowuje się tak, jak tego oczekiwaliśmy**. Dlaczego tak się dzieje?
+Bardziej spostrzegawcze osoby zauważyły pewnie, że **przestaliśmy również używać `useCallback` oraz `useMemo`**, a mimo wszystko **kod zachowuje się tak, jak tego oczekiwaliśmy**. Dlaczego tak się dzieje?
 
 Zauważ, że od teraz **nie renderujemy żadnego komponentu bezpośrednio w providerach**. Zamiast tego przekazujemy je w propsie `children`. Oznacza to, że renderując ponownie komponent `ThemeProvider`, **nie spowoduje on przerenderowania komponentu `UserProvider`**, ponieważ **go tam nie ma**. Zwracamy tylko obiekt `children`, który **został utworzony wyżej**. Tak więc zmieniając stan w komponencie `ThemeProvider`, **nie spowoduje on rerenderu `UserProvider`**, co za tym idzie - referencja `value` **nie ulegnie zmianie podczas mutacji tego stanu**, dzięki czemu React **nie przerenderuje komponentów korzystających z contextu `UserContext`**.
 
@@ -406,4 +406,4 @@ Upraszczając to co napisałem wyżej - **zamiast tworzyć jeden ogromny provide
 
 ## Podsumowanie
 
-To tyle na dzisiaj. Tym artykułem chciałem rozjaśnić Ci trochę, w jaki sposób działa globalny stan w Reacie, żebyś mógł pisać bardziej świadomy, oraz wydajny kod. Mam nadzieję, że wyniosłeś z niego jakąś cenną lekcję, którą zastosujesz przy codziennej pracy. Zainteresowanych zachęcam również do podzielenia się swoimi przemyśleniami w sekcji komentarzy 🙂.
+To tyle na dzisiaj. Tym artykułem chciałem rozjaśnić Ci trochę, w jaki sposób działa globalny stan w Reacie, żebyś mógł pisać bardziej świadomy oraz wydajny kod. Mam nadzieję, że wyniosłeś z niego jakąś cenną lekcję, którą zastosujesz przy codziennej pracy. Zainteresowanych zachęcam również do podzielenia się swoimi przemyśleniami w sekcji komentarzy 🙂.
