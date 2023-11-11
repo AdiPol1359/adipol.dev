@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Fira_Code, Inter } from 'next/font/google';
 
 import { Layout } from '@/components/Layout/Layout';
@@ -56,6 +57,7 @@ export default function RootLayout({
 				<AppProviders>
 					<Layout>{children}</Layout>
 				</AppProviders>
+				<Analytics />
 			</body>
 		</html>
 	);
