@@ -39,6 +39,9 @@ export const generateMetadata = async ({
 			}),
 			...BASE_OPEN_GRAPH,
 		},
+		twitter: {
+			card: 'summary_large_image',
+		},
 	};
 };
 
