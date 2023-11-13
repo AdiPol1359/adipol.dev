@@ -6,7 +6,6 @@ export const experiences: Experience[] = [
 		name: 'Codehome',
 		href: 'https://codehome.pl/',
 		start: '23.08.2023',
-		end: '12.11.2023',
 	},
 	{
 		title: 'Front-End Developer',
