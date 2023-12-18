@@ -6,7 +6,7 @@ import { recommendations } from '@/data/recommendations';
 export const RecommendationsSection = () => (
 	<section className="space-y-4">
 		<PageTitle level={2}>Moje rekomendacje</PageTitle>
-		<ul className="space-y-3">
+		<ul className="space-y-2.5">
 			{recommendations.map((recommendation) => (
 				<RecommendationsSectionListItem
 					key={recommendation.name}
