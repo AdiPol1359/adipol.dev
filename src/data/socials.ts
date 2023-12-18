@@ -1,4 +1,4 @@
-import { TbBrandDiscord, TbBrandGithub, TbBrandTwitter } from 'react-icons/tb';
+import { TbBrandDiscord, TbBrandGithub, TbBrandLinkedin } from 'react-icons/tb';
 
 export const socials = [
 	{
@@ -7,13 +7,13 @@ export const socials = [
 		icon: TbBrandGithub,
 	},
 	{
+		href: 'https://www.linkedin.com/in/polak-adrian',
+		label: 'LinkedIn',
+		icon: TbBrandLinkedin,
+	},
+	{
 		href: 'https://discord.com/users/344359114798792705',
 		label: 'Discord',
 		icon: TbBrandDiscord,
-	},
-	{
-		href: 'https://twitter.com/adipol1359',
-		label: 'Twitter',
-		icon: TbBrandTwitter,
 	},
 ];
