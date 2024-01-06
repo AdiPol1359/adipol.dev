@@ -3,9 +3,16 @@ import type { Experience } from '@/types';
 export const experiences: Experience[] = [
 	{
 		title: 'Full-Stack Developer',
-		name: 'Codehome',
+		name: 'Segment X',
+		href: 'https://segmentx.ai/',
+		start: '05.01.2024',
+	},
+	{
+		title: 'Full-Stack Developer',
+		name: 'CodeHome',
 		href: 'https://codehome.pl/',
 		start: '23.08.2023',
+		end: '05.01.2024',
 	},
 	{
 		title: 'Front-End Developer',
