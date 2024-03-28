@@ -1,5 +1,3 @@
-import { HelloWorld } from '@/components/HelloWorld/HelloWorld';
-
 export default function IndexPage() {
-	return <HelloWorld />;
+	return <p className="text-primary">Index Page</p>;
 }

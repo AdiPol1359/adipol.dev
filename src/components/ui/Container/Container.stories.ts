@@ -1,12 +1,13 @@
-import { HelloWorld } from './HelloWorld';
+import { Container } from './Container';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-	title: 'HelloWorld',
-	component: HelloWorld,
+	title: 'Container',
+	component: Container,
 	tags: ['autodocs'],
-} satisfies Meta<typeof HelloWorld>;
+	args: { children: 'Example' },
+} satisfies Meta<typeof Container>;
 
 export default meta;
 
