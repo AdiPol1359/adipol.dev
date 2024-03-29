@@ -1,6 +1,6 @@
 import { Header } from '@/components/layout/Header/Header';
 import { Container } from '@/components/ui/Container/Container';
-import { PAGE_DESCRIPTION } from '@/constants';
+import { APP_DESCRIPTION } from '@/constants';
 import { poppins } from '@/lib/fonts';
 
 import type { Metadata } from 'next';
@@ -10,7 +10,7 @@ import '@/assets/styles/globals.css';
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
-	description: PAGE_DESCRIPTION,
+	description: APP_DESCRIPTION,
 };
 
 export default function RootLayout({

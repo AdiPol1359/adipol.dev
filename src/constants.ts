@@ -1,1 +1,1 @@
-export const PAGE_DESCRIPTION = 'AdiPol.dev by Adrian Polak';
+export const APP_DESCRIPTION = 'AdiPol.dev by Adrian Polak';
