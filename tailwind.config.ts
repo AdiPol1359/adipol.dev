@@ -41,6 +41,12 @@ export default {
 			fontFamily: {
 				sans: ['var(--font-poppins)', ...defaultTheme.fontFamily.sans],
 			},
+			transitionProperty: {
+				'header-menu': 'opacity, transform, visibility',
+			},
+			screens: {
+				desktop: '768px',
+			},
 		},
 	},
 	plugins: [],
