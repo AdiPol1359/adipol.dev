@@ -13,5 +13,7 @@ export const Container = ({
 	className,
 	children,
 }: ContainerProps) => (
-	<As className={twJoin('mx-auto max-w-7xl', className)}>{children}</As>
+	<As className={twJoin('mx-auto box-content max-w-7xl px-4', className)}>
+		{children}
+	</As>
 );

@@ -1,5 +1,4 @@
 import { Header } from '@/components/layout/Header/Header';
-import { Container } from '@/components/ui/Container/Container';
 import { APP_DESCRIPTION } from '@/constants';
 import { poppins } from '@/lib/fonts';
 
@@ -20,9 +19,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className={poppins.variable}>
-			<body className="bg-primary p-5 pb-0 desktop:pt-12">
+			<body className="bg-primary">
 				<Header />
-				<Container as="main">{children}</Container>
+				<main>{children}</main>
 			</body>
 		</html>
 	);
