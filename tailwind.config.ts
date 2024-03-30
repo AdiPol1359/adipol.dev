@@ -42,10 +42,13 @@ export default {
 				sans: ['var(--font-poppins)', ...defaultTheme.fontFamily.sans],
 			},
 			transitionProperty: {
-				'header-menu': 'opacity, transform, visibility',
+				'header-collapse': 'opacity, transform, visibility',
 			},
 			screens: {
 				desktop: '768px',
+			},
+			spacing: {
+				inherit: 'inherit',
 			},
 		},
 	},
