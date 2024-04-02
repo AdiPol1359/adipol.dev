@@ -9,7 +9,7 @@ export const SocialList = () => (
 					aria-label={name}
 					target="_blank"
 					rel="noreferrer"
-					className="text-navy-700 transition-colors duration-100 hover:text-navy-500"
+					className="block text-navy-700 transition-colors duration-100 hover:text-navy-500"
 				>
 					<Icon aria-hidden />
 				</a>

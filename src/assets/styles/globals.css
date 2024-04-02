@@ -1,1 +1,9 @@
 @import url('./tailwind.css');
+
+*:focus {
+	outline: none;
+}
+
+[data-whatinput='keyboard'] *:focus {
+	@apply ring-2 ring-brand ring-offset-2 ring-offset-navy-950;
+}

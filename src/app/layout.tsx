@@ -1,4 +1,5 @@
 import { MainLayout } from '@/components/common/MainLayout';
+import { WhatInput } from '@/components/common/WhatInput';
 import { APP_DESCRIPTION } from '@/constants';
 import { poppins } from '@/lib/fonts';
 
@@ -21,6 +22,7 @@ export default function RootLayout({
 		<html lang="en" className={poppins.variable}>
 			<body className="bg-primary">
 				<MainLayout>{children}</MainLayout>
+				<WhatInput />
 			</body>
 		</html>
 	);
