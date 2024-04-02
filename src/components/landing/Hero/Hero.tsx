@@ -1,6 +1,6 @@
 import { HeroAboutMe } from './HeroAboutMe';
-import { HeroDesktopMemoji } from './HeroDesktopMemoji/HeroDesktopMemoji';
 import { HeroIntroduction } from './HeroIntroduction/HeroIntroduction';
+import { HeroLaptopMemoji } from './HeroLaptopMemoji/HeroLaptopMemoji';
 import { HeroMobileMemoji } from './HeroMobileMemoji';
 
 import { Container } from '@/components/ui/Container/Container';
@@ -12,7 +12,7 @@ export const Hero = () => (
 	>
 		<HeroMobileMemoji />
 		<HeroIntroduction />
-		<HeroDesktopMemoji />
+		<HeroLaptopMemoji />
 		<HeroAboutMe />
 	</Container>
 );

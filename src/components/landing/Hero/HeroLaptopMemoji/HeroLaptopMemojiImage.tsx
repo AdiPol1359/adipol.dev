@@ -4,7 +4,7 @@ import memoji from '@/assets/images/smile-memoji.png';
 import DashedArrow1 from '@/assets/svg/dashed-arrow-1.svg';
 import DashedArrow2 from '@/assets/svg/dashed-arrow-2.svg';
 
-export const HeroDesktopMemojiImage = () => (
+export const HeroLaptopMemojiImage = () => (
 	<>
 		<Image src={memoji} alt="Smile" width={320} height={385} />
 		<DashedArrow1
