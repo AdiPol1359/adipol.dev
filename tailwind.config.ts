@@ -7,24 +7,27 @@ export default {
 	theme: {
 		extend: {
 			backgroundColor: {
-				primary: "theme('colors.secondary.950 / <alpha-value>')",
-				secondary: "theme('colors.secondary.900 / <alpha-value>')",
+				primary: "theme('colors.navy.950 / <alpha-value>')",
+				secondary: "theme('colors.navy.900 / <alpha-value>')",
 			},
 			borderColor: {
-				primary: "theme('colors.secondary.800 / <alpha-value>')",
+				primary: "theme('colors.navy.800 / <alpha-value>')",
+			},
+			minHeight: {
+				hero: '53rem',
 			},
 			textColor: {
-				light: "theme('colors.secondary.300 / <alpha-value>')",
-				dark: "theme('colors.secondary.700 / <alpha-value>')",
-				primary: "theme('colors.secondary.400 / <alpha-value>')",
-				secondary: "theme('colors.secondary.500 / <alpha-value>')",
-				heading: "theme('colors.secondary.50 / <alpha-value>')",
+				light: "theme('colors.navy.300 / <alpha-value>')",
+				dark: "theme('colors.navy.700 / <alpha-value>')",
+				primary: "theme('colors.navy.400 / <alpha-value>')",
+				secondary: "theme('colors.navy.500 / <alpha-value>')",
+				heading: "theme('colors.navy.50 / <alpha-value>')",
 				muted: '#e0e0e0',
 			},
 			colors: {
 				brand: '#4f46e5',
 				danger: '#e14343',
-				secondary: {
+				navy: {
 					50: '#f5f7fA',
 					100: '#e9eef5',
 					200: '#cedce9',
@@ -45,7 +48,9 @@ export default {
 				'header-collapse': 'opacity, transform, visibility',
 			},
 			screens: {
-				desktop: '768px',
+				tablet: '768px',
+				laptop: '1024px',
+				desktop: '1280px',
 			},
 			spacing: {
 				inherit: 'inherit',

@@ -2,6 +2,11 @@ import { twMerge } from 'tailwind-merge';
 
 import type { ReactNode } from 'react';
 
+const colors = {
+	brand: 'border-brand hover:bg-brand',
+	navy: 'border-navy-700 hover:bg-navy-700',
+} as const;
+
 const rays = {
 	sm: 'rounded-md',
 	md: 'rounded-xl',
@@ -14,6 +19,7 @@ const sizes = {
 } as const;
 
 type ButtonProps = Readonly<{
+	color?: keyof typeof colors;
 	radius?: keyof typeof rays;
 	size?: keyof typeof sizes;
 	type?: 'button' | 'reset' | 'submit';
@@ -23,6 +29,7 @@ type ButtonProps = Readonly<{
 }>;
 
 export const Button = ({
+	color = 'brand',
 	radius = 'md',
 	size = 'md',
 	type = 'button',
@@ -34,7 +41,8 @@ export const Button = ({
 		type={type}
 		onClick={onClick}
 		className={twMerge(
-			'w-fit border-2 border-brand text-heading transition-all duration-100 hover:bg-brand active:scale-95',
+			'w-fit text-nowrap border-2 text-heading transition-all duration-100 active:scale-95',
+			colors[color],
 			rays[radius],
 			sizes[size],
 			fill && 'w-full',
