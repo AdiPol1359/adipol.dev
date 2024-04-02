@@ -9,7 +9,7 @@ import { Container } from '@/components/ui/Container/Container';
 export const Header = () => (
 	<Container
 		as="header"
-		className="relative flex h-16 items-center justify-between py-4 desktop:py-12"
+		className="relative flex h-16 items-center justify-between py-4 tablet:z-10 tablet:py-12"
 	>
 		<Link href="/">
 			<PageLogo />

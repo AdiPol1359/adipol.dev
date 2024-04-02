@@ -32,3 +32,15 @@ export const Large: Story = {
 		size: 'lg',
 	},
 };
+
+export const Brand: Story = {
+	args: {
+		color: 'brand',
+	},
+};
+
+export const Navy: Story = {
+	args: {
+		color: 'navy',
+	},
+};

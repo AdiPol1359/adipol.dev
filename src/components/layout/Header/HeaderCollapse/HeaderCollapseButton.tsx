@@ -19,7 +19,7 @@ export const HeaderCollapseButton = ({
 		aria-expanded={active}
 		aria-controls={controls}
 		aria-label={`${active ? 'Zamknij' : 'Otwórz'} menu`}
-		className="flex w-9 flex-col items-end gap-y-2 desktop:hidden"
+		className="flex w-9 flex-col items-end gap-y-2 tablet:hidden"
 		onClick={onClick}
 	>
 		<div

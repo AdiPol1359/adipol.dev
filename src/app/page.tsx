@@ -1,3 +1,9 @@
+import { Hero } from '@/components/landing/Hero/Hero';
+
 export default function IndexPage() {
-	return <p className="text-primary">Index Page</p>;
+	return (
+		<>
+			<Hero />
+		</>
+	);
 }

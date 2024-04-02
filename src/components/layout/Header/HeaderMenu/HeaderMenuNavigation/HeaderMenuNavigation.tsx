@@ -4,7 +4,7 @@ import { ActiveLink } from '@/components/common/ActiveLink';
 
 export const HeaderMenuNavigation = () => (
 	<nav>
-		<ul className="flex flex-col items-center gap-y-6 desktop:flex-row desktop:gap-x-8">
+		<ul className="flex flex-col items-center gap-y-6 tablet:flex-row tablet:gap-x-8">
 			{items.map(({ title, href }) => (
 				<li key={title}>
 					<ActiveLink

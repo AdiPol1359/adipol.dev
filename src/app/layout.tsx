@@ -1,4 +1,4 @@
-import { Header } from '@/components/layout/Header/Header';
+import { MainLayout } from '@/components/common/MainLayout';
 import { APP_DESCRIPTION } from '@/constants';
 import { poppins } from '@/lib/fonts';
 
@@ -20,8 +20,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={poppins.variable}>
 			<body className="bg-primary">
-				<Header />
-				<main>{children}</main>
+				<MainLayout>{children}</MainLayout>
 			</body>
 		</html>
 	);
