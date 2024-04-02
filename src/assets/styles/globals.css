@@ -1,7 +1,7 @@
 @import url('./tailwind.css');
 
 *:focus {
-	@apply outline-none;
+	outline: none;
 }
 
 [data-whatinput='keyboard'] *:focus {
