@@ -23,6 +23,10 @@ export default {
 				secondary: "theme('colors.navy.500 / <alpha-value>')",
 				heading: "theme('colors.navy.50 / <alpha-value>')",
 				muted: '#e0e0e0',
+				decoration: {
+					light: "theme('colors.navy.300 / <alpha-value>')",
+					dark: "theme('colors.navy.800 / <alpha-value>')",
+				},
 			},
 			colors: {
 				brand: '#4f46e5',

@@ -15,6 +15,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
+export const Outline: Story = {
+	args: {
+		variant: 'outline',
+	},
+};
+
 export const Small: Story = {
 	args: {
 		size: 'sm',
@@ -39,8 +45,14 @@ export const Brand: Story = {
 	},
 };
 
-export const Navy: Story = {
+export const Navy700: Story = {
 	args: {
-		color: 'navy',
+		color: 'navy.700',
+	},
+};
+
+export const Navy900: Story = {
+	args: {
+		color: 'navy.900',
 	},
 };
