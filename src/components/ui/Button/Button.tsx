@@ -1,30 +1,19 @@
 import { twMerge } from 'tailwind-merge';
 
+import { colors, rays, sizes, variants } from './Button.styles';
+
+import type { Color, Radius, Size, Variant } from './Button.styles';
 import type { ReactNode } from 'react';
 
-const colors = {
-	brand: 'border-brand hover:bg-brand',
-	navy: 'border-navy-700 hover:bg-navy-700',
-} as const;
-
-const rays = {
-	sm: 'rounded-md',
-	md: 'rounded-xl',
-} as const;
-
-const sizes = {
-	sm: 'h-9 px-10',
-	md: 'h-12 px-10',
-	lg: 'h-14 px-12',
-} as const;
-
 type ButtonProps = Readonly<{
-	color?: keyof typeof colors;
-	radius?: keyof typeof rays;
-	size?: keyof typeof sizes;
+	color?: Color;
+	radius?: Radius;
+	size?: Size;
+	variant?: Variant;
 	type?: 'button' | 'reset' | 'submit';
 	fill?: boolean;
 	onClick?: () => void;
+	rightSection?: ReactNode;
 	children: ReactNode;
 }>;
 
@@ -33,21 +22,25 @@ export const Button = ({
 	radius = 'md',
 	size = 'md',
 	type = 'button',
+	variant = 'filled',
 	fill,
 	onClick,
+	rightSection,
 	children,
 }: ButtonProps) => (
 	<button
 		type={type}
 		onClick={onClick}
 		className={twMerge(
-			'w-fit text-nowrap border-2 text-heading transition-all duration-100 active:scale-95',
-			colors[color],
+			'flex w-fit items-center justify-center gap-x-5 text-nowrap text-heading transition-all duration-100 active:scale-95',
+			colors[variant][color],
 			rays[radius],
 			sizes[size],
+			variants[variant],
 			fill && 'w-full',
 		)}
 	>
 		{children}
+		{rightSection && <div>{rightSection}</div>}
 	</button>
 );
