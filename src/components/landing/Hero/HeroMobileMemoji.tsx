@@ -8,7 +8,7 @@ const BASE_ARROW_STYLES = 'absolute top-1/2 translate-y-8 text-navy-300';
 
 export const HeroMobileMemoji = () => (
 	<div className="relative laptop:hidden">
-		<Image src={memoji} alt="Smile" width={128} height={154} />
+		<Image src={memoji} alt="Smile" width={128} height={154} aria-hidden />
 		<DashedArrow
 			className={twJoin(BASE_ARROW_STYLES, '-left-24 -scale-x-100')}
 			aria-hidden

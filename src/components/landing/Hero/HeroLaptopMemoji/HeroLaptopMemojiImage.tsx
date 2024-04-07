@@ -6,7 +6,7 @@ import DashedArrow2 from '@/assets/svg/dashed-arrow-2.svg';
 
 export const HeroLaptopMemojiImage = () => (
 	<>
-		<Image src={memoji} alt="Smile" width={320} height={385} />
+		<Image src={memoji} alt="Smile" width={320} height={385} aria-hidden />
 		<DashedArrow1
 			className="absolute -top-16 left-1/2 translate-x-8 text-decoration-light"
 			aria-hidden
