@@ -1,3 +1,4 @@
+import { Footer } from '../layout/Footer/Footer';
 import { Header } from '../layout/Header/Header';
 
 import Lines from '@/assets/svg/lines.svg';
@@ -18,5 +19,6 @@ export const MainLayout = ({ children }: MainLayoutProps) => (
 		/>
 		<Header />
 		<main>{children}</main>
+		<Footer />
 	</>
 );

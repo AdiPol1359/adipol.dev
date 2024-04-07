@@ -10,6 +10,9 @@ export default {
 				primary: "theme('colors.navy.950 / <alpha-value>')",
 				secondary: "theme('colors.navy.900 / <alpha-value>')",
 			},
+			backgroundImage: {
+				border: "url('/dashed-border.svg')",
+			},
 			borderColor: {
 				primary: "theme('colors.navy.800 / <alpha-value>')",
 			},
