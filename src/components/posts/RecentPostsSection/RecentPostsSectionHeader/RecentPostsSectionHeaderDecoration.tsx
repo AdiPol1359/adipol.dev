@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import memoji from '@/assets/images/wave-memoji.png';
+import memoji from '@/assets/images/memojis/wave.png';
 
 export const RecentPostsSectionHeaderDecoration = () => (
 	<div

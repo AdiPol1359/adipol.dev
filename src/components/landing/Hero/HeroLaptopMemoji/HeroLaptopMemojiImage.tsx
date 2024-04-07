@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import memoji from '@/assets/images/smile-memoji.png';
+import memoji from '@/assets/images/memojis/smile.png';
 import DashedArrow1 from '@/assets/svg/dashed-arrow-1.svg';
 import DashedArrow2 from '@/assets/svg/dashed-arrow-2.svg';
 
