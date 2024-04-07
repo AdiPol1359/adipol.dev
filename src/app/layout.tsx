@@ -1,3 +1,5 @@
+import { twJoin } from 'tailwind-merge';
+
 import { MainLayout } from '@/components/common/MainLayout';
 import { WhatInput } from '@/components/common/WhatInput';
 import { APP_DESCRIPTION } from '@/constants';
@@ -19,7 +21,7 @@ export default function RootLayout({
 	readonly children: ReactNode;
 }) {
 	return (
-		<html lang="en" className={poppins.variable}>
+		<html lang="en" className={twJoin('scroll-smooth', poppins.variable)}>
 			<body className="bg-primary">
 				<MainLayout>{children}</MainLayout>
 				<WhatInput />

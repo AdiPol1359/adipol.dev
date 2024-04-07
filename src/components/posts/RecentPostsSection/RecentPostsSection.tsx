@@ -5,7 +5,7 @@ import DashedLine from '@/assets/svg/dashed-line.svg';
 import { Container } from '@/components/ui/Container/Container';
 
 export const RecentPostsSection = () => (
-	<section className="relative mt-8 laptop:mt-14">
+	<section id="recent-posts" className="relative mt-8 laptop:mt-14">
 		<Container>
 			<RecentPostsSectionHeader />
 			<RecentPostsSectionList />
