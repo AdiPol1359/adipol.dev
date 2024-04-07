@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { twJoin } from 'tailwind-merge';
 
-import memoji from '@/assets/images/smile-memoji.png';
+import memoji from '@/assets/images/memojis/smile.png';
 import DashedArrow from '@/assets/svg/dashed-arrow-3.svg';
 
 const BASE_ARROW_STYLES = 'absolute top-1/2 translate-y-8 text-navy-300';

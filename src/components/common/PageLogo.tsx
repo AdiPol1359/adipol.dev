@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import memoji from '@/assets/images/macbook-memoji.png';
+import memoji from '@/assets/images/memojis/macbook.png';
 import { APP_DESCRIPTION } from '@/constants';
 
 export const PageLogo = () => (

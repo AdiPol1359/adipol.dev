@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import memoji from '@/assets/images/smile-memoji.png';
+import memoji from '@/assets/images/memojis/smile.png';
 
 export const FooterMemoji = () => (
 	<Image
