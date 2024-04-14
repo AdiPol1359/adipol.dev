@@ -4,6 +4,7 @@ export const RecentPostsSectionListEmptyPostCard = () => (
 	<Card
 		as="article"
 		border="dashed"
+		variant="transparent"
 		className="flex h-full flex-col justify-center gap-y-4 text-center"
 	>
 		<h3 className="text-lg font-medium text-heading laptop:text-xl">

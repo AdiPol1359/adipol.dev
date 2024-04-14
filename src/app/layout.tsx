@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className={twJoin('scroll-smooth', poppins.variable)}>
-			<body className="bg-primary">
+			<body className="relative bg-primary">
 				<MainLayout>{children}</MainLayout>
 				<WhatInput />
 			</body>
