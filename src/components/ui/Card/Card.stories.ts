@@ -22,3 +22,9 @@ export const Dashed: Story = {
 		border: 'dashed',
 	},
 };
+
+export const Transparent: Story = {
+	args: {
+		variant: 'transparent',
+	},
+};

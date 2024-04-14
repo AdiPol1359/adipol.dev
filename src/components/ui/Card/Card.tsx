@@ -7,9 +7,15 @@ const borders = {
 	solid: 'border-solid',
 } as const;
 
+const variants = {
+	filled: 'bg-primary',
+	transparent: 'bg-transparent',
+} as const;
+
 type CardProps = Readonly<{
 	as?: keyof JSX.IntrinsicElements;
 	border?: keyof typeof borders;
+	variant?: keyof typeof variants;
 	className?: string;
 	children: ReactNode;
 }>;
@@ -17,13 +23,15 @@ type CardProps = Readonly<{
 export const Card = ({
 	as: As = 'div',
 	border = 'solid',
+	variant = 'filled',
 	className,
 	children,
 }: CardProps) => (
 	<As
 		className={twJoin(
-			'rounded-xl border-2 border-primary/20 bg-primary p-3.5',
+			'rounded-xl border-2 border-primary/20 p-3.5',
 			borders[border],
+			variants[variant],
 			className,
 		)}
 	>
