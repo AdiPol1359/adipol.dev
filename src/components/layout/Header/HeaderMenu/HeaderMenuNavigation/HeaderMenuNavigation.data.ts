@@ -11,7 +11,7 @@ export const items: NavigationItem[] = [
 	},
 	{
 		title: 'Projekty',
-		href: '#',
+		href: '/projekty',
 	},
 	{
 		title: 'O mnie',

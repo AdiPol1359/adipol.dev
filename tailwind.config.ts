@@ -51,6 +51,9 @@ export default {
 			fontFamily: {
 				sans: ['var(--font-poppins)', ...defaultTheme.fontFamily.sans],
 			},
+			rotate: {
+				60: '60deg',
+			},
 			transitionProperty: {
 				'header-collapse': 'opacity, transform, visibility',
 			},
