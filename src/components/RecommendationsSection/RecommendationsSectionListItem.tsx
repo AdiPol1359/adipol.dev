@@ -23,9 +23,16 @@ export const RecommendationsSectionListItem = ({
 					<p>{positions.join(' • ')}</p>
 				</hgroup>
 			</div>
-			<p className="leading-[1.6rem] text-zinc-700 dark:text-zinc-200">
-				{content}
-			</p>
+			<div className="space-y-3">
+				{content.map((value) => (
+					<p
+						key={value}
+						className="leading-[1.6rem] text-zinc-700 dark:text-zinc-200"
+					>
+						{value}
+					</p>
+				))}
+			</div>
 		</blockquote>
 	</li>
 );

@@ -14,7 +14,7 @@ export interface Recommendation {
 	readonly image: StaticImageData;
 	readonly name: string;
 	readonly positions: string[];
-	readonly content: string;
+	readonly content: string[];
 }
 
 export interface Project {
