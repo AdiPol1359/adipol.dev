@@ -17,7 +17,7 @@ export const Footer = () => (
 		<SocialList className="flex gap-x-4 text-3xl" />
 		<div className="space-y-0.5 text-center">
 			<p className="text-sm">
-				Copyright &copy; 2023 | Wszelkie prawa zastrzeżone.
+				Copyright &copy; 2025 | Wszelkie prawa zastrzeżone.
 			</p>
 			{NEXT_PUBLIC_VERCEL_ENV && (
 				<p className="text-xs">

@@ -1,0 +1,195 @@
+---
+date: '2025-02-15'
+title: My VSCode Setup
+introduction: My personal setup for Visual Studio Code.
+thumbnail:
+  path: /thumbnails/my-vscode-setup.png
+  width: 1200
+  height: 630
+tags:
+  - Inne
+---
+
+I have been using Visual Studio Code for a long time now. I have tried many different plugins and settings, but finally found the perfect configuration for me. Here is a list of the plugins and settings I use.
+
+## Files
+
+### JSON Settings
+
+```json:settings.json
+{
+  "window.commandCenter": true,
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.list.smoothScrolling": true,
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
+  "editor.tabSize": 2,
+  "editor.fontSize": 14,
+  "editor.smoothScrolling": true,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "terminal.integrated.lineHeight": 1.5,
+  "explorer.compactFolders": false,
+  "errorLens.excludeBySource": ["eslint(prettier/prettier)"],
+  "prettier.singleQuote": true,
+  "prettier.useTabs": false,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontLigatures": true,
+  "editor.letterSpacing": 0.7,
+  "editor.lineHeight": 32,
+  "editor.guides.bracketPairs": true,
+  "workbench.tree.indent": 20,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.colorCustomizations": {
+    "tree.indentGuidesStroke": "#505050"
+  },
+  "prisma.showPrismaDataPlatformNotification": false,
+  "workbench.sideBar.location": "right",
+  "editor.linkedEditing": true,
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredLightColorTheme": "Default Light Modern",
+  "vscord.app.name": "Visual Studio Code",
+  "vscord.status.idle.enabled": false,
+  "vscord.status.idle.check": false,
+  "i18n-ally.ignoredLocales": [],
+  "workbench.editor.customLabels.patterns": {
+    "**/app/**/page.tsx": "${dirname} - Page",
+    "**/app/**/layout.tsx": "${dirname} - Layout"
+  },
+  "vscord.app.privacyMode.enable": true,
+  "update.mode": "manual",
+  "workbench.navigationControl.enabled": false,
+  "terminal.integrated.gpuAcceleration": "off",
+  "workbench.statusBar.visible": false,
+  "workbench.activityBar.location": "top",
+  "friendly-ui.disableWorkbenchJs": true,
+  "friendly-ui.customCssPath": "/Users/adrian/Documents/vscode/friendly-ui.css",
+  "friendly-ui.customJsPath": "/Users/adrian/Documents/vscode/friendly-ui.js",
+  "workbench.preferredDarkColorTheme": "Night Wolf (black)"
+}
+```
+
+### Friendly UI
+
+```css:friendly-ui.css
+.monaco-tl-contents > * {
+  height: 100% !important;
+  display: flex;
+  align-items: center;
+}
+
+.quick-input-list-label {
+  height: auto !important;
+}
+```
+
+```js:friendly-ui.js
+const COMMAND_PANNEL_HEIGHT = 35;
+const ITEM_HEIGHT = 35;
+
+const loadJsFile = async (path, callback, isImport) => {
+  const resp = await fetch(
+    (path.startsWith('./') ? path : '../../../../' + path) + '.js'
+  );
+  const respText = await resp.text();
+  const newText = callback ? await callback(respText) : respText;
+  const blob = new Blob([newText], { type: 'application/javascript' });
+  const url = URL.createObjectURL(blob);
+
+  return isImport ? await import(url) : url;
+};
+
+const replaceCommandPannelHeight = (text) => {
+  text = text.replace(
+    /(44:)22(?=})/g,
+    (_, prefix) => `${prefix}${COMMAND_PANNEL_HEIGHT}`
+  );
+
+  return text;
+};
+
+const replaceItemHeight = (text) => {
+  const replaceItemH = (_, prefix) => `${prefix}${ITEM_HEIGHT}`;
+
+  text = text.replace(/(eight\([^)]*?\)\{return )22(?!\d)/g, replaceItemH);
+  text = text.replace(/(ITEM_HEIGHT=)22(?!\d)/g, replaceItemH);
+  text = text.replace(/(\*)22(?!\d)/g, replaceItemH);
+  text = text.replace(/(:)22(?=})/g, replaceItemH);
+
+  return text;
+};
+
+(async function () {
+  const mainJsPath = 'vs/workbench/workbench.desktop.main';
+
+  await loadJsFile(
+    './workbench',
+    async (text) => {
+      const mainJsUrl = await loadJsFile(mainJsPath, (text) => {
+        text = replaceCommandPannelHeight(text);
+        text = replaceItemHeight(text);
+        return text;
+      });
+
+      return text.replace(mainJsPath, mainJsUrl + '#');
+    },
+    true
+  );
+})();
+```
+
+## List of plugins
+
+- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
+- [Catppuccin Icons for VSCode](https://marketplace.visualstudio.com/items?itemName=Catppuccin.catppuccin-vsc-icons)
+- [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- [Discord Rich Presence](https://marketplace.visualstudio.com/items?itemName=LeonardSSH.vscord)
+- [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+- [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Friendly UI](https://marketplace.visualstudio.com/items?itemName=FreeIdom.vscode-friendly-ui)
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+- [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat)
+- [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [Highlight Matching Tag](https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag)
+- [i18n Ally](https://marketplace.visualstudio.com/items?itemName=lokalise.i18n-ally)
+- [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost)
+- [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
+- [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+- [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
+- [Night Wolf](https://marketplace.visualstudio.com/items?itemName=MaoSantaella.night-wolf)
+- [npm Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense)
+- [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console)
+- [Package Json Upgrade](https://marketplace.visualstudio.com/items?itemName=codeandstuff.package-json-upgrade)
+- [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=YoavBls.pretty-ts-errors)
+- [Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
+- [px to rem & rpx & vw (cssrem)](https://marketplace.visualstudio.com/items?itemName=cipchk.cssrem)
+- [Svg Preview](https://marketplace.visualstudio.com/items?itemName=SimonSiefke.svg-preview)
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [Template String Converter](https://marketplace.visualstudio.com/items?itemName=meganrogge.template-string-converter)
+- [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree)
+- [Trailing Spaces](https://marketplace.visualstudio.com/items?itemName=shardulm94.trailing-spaces)
+
+## Final result
+
+<Image
+	alt="Final result"
+	src="/posts/my-vscode-setup/final-result.png"
+	width={1920}
+	height={1080}
+/>
