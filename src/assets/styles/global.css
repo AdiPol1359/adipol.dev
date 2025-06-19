@@ -1,1 +1,44 @@
 @import 'tailwindcss';
+
+@theme {
+	--color-*: initial;
+
+	--color-gray: #a7a7a7;
+	--color-indigo: #4f46e5;
+	--color-red: #e14343;
+
+	--color-navy-50: #f5f7fa;
+	--color-navy-100: #cedce9;
+	--color-navy-200: #a3bed6;
+	--color-navy-300: #729cbe;
+	--color-navy-400: #5080a7;
+	--color-navy-500: #3e668b;
+	--color-navy-600: #335271;
+	--color-navy-700: #2d475f;
+	--color-navy-800: #16212c;
+	--color-navy-900: #111821;
+	--color-navy-950: #0e141b;
+}
+
+@theme inline {
+	--color-brand: var(--color-indigo);
+
+	--color-icon-danger: var(--color-red);
+	--color-icon-primary: var(--color-navy-300);
+	--color-icon-secondary: var(--color-navy-600);
+
+	--color-heading: var(--color-navy-50);
+
+	--color-text-neutral: var(--color-navy-50);
+	--color-text-placeholder: var(--color-gray);
+	--color-text-primary: var(--color-navy-300);
+	--color-text-secondary: var(--color-navy-400);
+	--color-text-tertiary: var(--color-navy-600);
+
+	--color-link-active: var(--color-navy-50);
+	--color-link-primary: var(--color-navy-300);
+
+	--color-surface-primary: var(--color-navy-800);
+	--color-surface-secondary: var(--color-navy-900);
+	--color-surface-tertiary: var(--color-navy-950);
+}
