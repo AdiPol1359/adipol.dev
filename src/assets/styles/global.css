@@ -18,6 +18,8 @@
 	--color-navy-800: #16212c;
 	--color-navy-900: #111821;
 	--color-navy-950: #0e141b;
+
+	--font-sans: 'Poppins', sans-serif;
 }
 
 @theme inline {
