@@ -1,0 +1,30 @@
+---
+import { Github, Linkedin, TwitterX } from '@/components/icons';
+
+const SOCIAL_MEDIA = [
+	{ icon: Github, name: 'Github', url: 'https://github.com/adipol1359' },
+	{
+		icon: Linkedin,
+		name: 'Linkedin',
+		url: 'https://www.linkedin.com/in/polak-adrian',
+	},
+	{ icon: TwitterX, name: 'Twitter X', url: 'https://x.com/AdiPol1359' },
+];
+---
+
+<ul aria-label="Moje media społecznościowe" class="flex gap-x-4">
+	{
+		SOCIAL_MEDIA.map(({ icon: Icon, name, url }) => (
+			<li>
+				<a
+					aria-label={name}
+					href={url}
+					target="_blank"
+					class="text-7 text-icon-tertiary transition-colors hover:text-icon-secondary"
+				>
+					<Icon aria-hidden />
+				</a>
+			</li>
+		))
+	}
+</ul>

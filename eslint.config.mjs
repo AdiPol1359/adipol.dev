@@ -23,6 +23,8 @@ export default tsEslint.config(
 				tsconfigRootDir: import.meta.dirname,
 			},
 		},
+	},
+	{
 		rules: {
 			'require-await': 'error',
 			'@typescript-eslint/consistent-type-imports': 'error',
@@ -31,6 +33,15 @@ export default tsEslint.config(
 			'@typescript-eslint/prefer-optional-chain': 'error',
 			'import-x/first': 'error',
 			'import-x/newline-after-import': 'error',
+			'unicorn/prevent-abbreviations': 'off',
+		},
+	},
+	{
+		files: ['**/*.astro'],
+		rules: {
+			'@typescript-eslint/no-unsafe-assignment': 'off',
+			'@typescript-eslint/no-unsafe-return': 'off',
+			'import-x/no-unresolved': ['error', { ignore: ['astro:.+'] }],
 		},
 	},
 );

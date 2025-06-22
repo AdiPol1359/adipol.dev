@@ -1,0 +1,35 @@
+---
+import { cva } from 'cva';
+
+import type { VariantProps } from 'cva';
+
+const text = cva({
+	variants: {
+		align: {
+			center: 'text-center',
+			justify: 'text-justify',
+			left: 'text-left',
+			right: 'text-right',
+		},
+		break: {
+			all: 'break-all',
+			keep: 'break-keep',
+			normal: 'break-normal',
+		},
+		color: {
+			neutral: 'text-text-neutral',
+			primary: 'text-text-primary',
+			secondary: 'text-text-secondary',
+			tertiary: 'text-text-tertiary',
+		},
+		size: {
+			md: 'text-base',
+			lg: 'text-lg',
+		},
+	},
+});
+
+type Props = VariantProps<typeof text>;
+---
+
+<p class={text(Astro.props)}><slot /></p>
