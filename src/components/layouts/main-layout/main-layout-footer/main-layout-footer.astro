@@ -1,0 +1,27 @@
+---
+import { Container } from '@/components/ui';
+
+import MainLayoutFooterCopyright from './main-layout-footer-copyright.astro';
+import MainLayoutFooterDecoration from './main-layout-footer-decoration.astro';
+import MainLayoutFooterDeployment from './main-layout-footer-deployment.astro';
+import MainLayoutFooterMemoji from './main-layout-footer-memoji.astro';
+import MainLayoutFooterSocialProfile from './main-layout-footer-social-profile.astro';
+---
+
+<footer
+	class="relative -mx-4 bg-surface-secondary top-dashed-border-border-secondary px-4 pt-20 pb-10 laptop:py-10"
+>
+	<MainLayoutFooterMemoji />
+	<Container
+		class="relative flex flex-col gap-y-12 laptop:flex-row laptop:justify-between"
+	>
+		<MainLayoutFooterDecoration />
+		<div
+			class="flex flex-col items-center gap-y-inherit laptop:items-start laptop:gap-y-6"
+		>
+			<MainLayoutFooterSocialProfile />
+			<MainLayoutFooterCopyright />
+		</div>
+		<MainLayoutFooterDeployment />
+	</Container>
+</footer>
