@@ -1,0 +1,23 @@
+---
+import { Link } from '@/components/ui';
+
+const NAVIGATION_ITEMS = [
+	{ name: 'Posty', url: '/posty' },
+	{ name: 'Projekty', url: '/projekty' },
+	{ name: 'O mnie', url: '/o-mnie' },
+];
+
+const isActive = (url: string) => url === Astro.url.pathname;
+---
+
+<ul class="text-center laptop:flex laptop:gap-x-10">
+	{
+		NAVIGATION_ITEMS.map(({ name, url }) => (
+			<li class="after:mx-auto after:my-5 after:block after:h-0.5 after:w-4 after:bg-navy-500 last:after:hidden laptop:after:hidden">
+				<Link color={isActive(url) ? 'active' : 'primary'} href={url}>
+					{name}
+				</Link>
+			</li>
+		))
+	}
+</ul>

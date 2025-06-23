@@ -1,5 +1,6 @@
 ---
 import MainLayoutFooter from './main-layout-footer/main-layout-footer.astro';
+import MainLayoutHeader from './main-layout-header/main-layout-header.astro';
 
 import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/500.css';
@@ -20,7 +21,8 @@ import '@/assets/styles/global.css';
 		/>
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	</head>
-	<body class="bg-surface-tertiary px-4">
+	<body class="bg-surface-tertiary px-4 pt-4 laptop:pt-6">
+		<MainLayoutHeader />
 		<main>
 			<slot />
 		</main>
