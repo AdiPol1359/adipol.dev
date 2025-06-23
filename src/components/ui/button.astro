@@ -1,0 +1,53 @@
+---
+import { cva } from 'cva';
+
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import type { VariantProps } from 'cva';
+
+const button = cva({
+	base: 'flex cursor-pointer items-center justify-center text-text-neutral transition-transform active:scale-95',
+	variants: {
+		color: {
+			brand: null,
+			primary: null,
+			secondary: null,
+		},
+		size: {
+			sm: 'h-9 rounded-md px-3.5',
+			md: 'h-12 rounded-xl px-10',
+		},
+		variant: {
+			filled: null,
+			outline: 'border border-2',
+		},
+	},
+	compoundVariants: [
+		{ variant: 'filled', color: 'brand', class: 'bg-brand' },
+		{ variant: 'filled', color: 'primary', class: 'bg-navy-600' },
+		{ variant: 'filled', color: 'secondary', class: 'bg-navy-800' },
+		{ variant: 'outline', color: 'brand', class: 'border-brand' },
+		{ variant: 'outline', color: 'primary', class: 'border-navy-600' },
+		{ variant: 'outline', color: 'secondary', class: 'border-navy-800' },
+	],
+	defaultVariants: {
+		color: 'primary',
+		size: 'md',
+		variant: 'filled',
+	},
+});
+
+type Props<T extends HTMLTag> = Polymorphic<{ as: T }> &
+	VariantProps<typeof button>;
+
+const {
+	as: Tag = 'button',
+	color,
+	size,
+	variant,
+	...props
+} = Astro.props as Props<'button'>;
+---
+
+<Tag class={button({ color, size, variant })} {...props}>
+	<slot />
+</Tag>

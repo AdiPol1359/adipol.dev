@@ -33,6 +33,7 @@ export default tsEslint.config(
 			'@typescript-eslint/prefer-optional-chain': 'error',
 			'import-x/first': 'error',
 			'import-x/newline-after-import': 'error',
+			'unicorn/no-null': 'off',
 			'unicorn/prevent-abbreviations': 'off',
 		},
 	},

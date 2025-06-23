@@ -8,6 +8,7 @@ export default {
 	importOrderSeparation: true,
 	importOrderSideEffects: false,
 	importOrderSortSpecifiers: true,
+	tailwindFunctions: ['cva'],
 	tailwindStylesheet: './src/assets/styles/global.css',
 	plugins: [
 		'prettier-plugin-astro',
