@@ -1,5 +1,6 @@
 ---
 import MainLayoutContentWrapper from './main-layout-content-wrapper.astro';
+import MainLayoutDecorations from './main-layout-decorations.astro';
 import MainLayoutFooter from './main-layout-footer/main-layout-footer.astro';
 import MainLayoutHeader from './main-layout-header/main-layout-header.astro';
 
@@ -23,6 +24,7 @@ import '@/assets/styles/global.css';
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	</head>
 	<body class="bg-surface-tertiary px-4 pt-4 laptop:pt-6">
+		<MainLayoutDecorations />
 		<MainLayoutHeader />
 		<MainLayoutContentWrapper>
 			<slot />
