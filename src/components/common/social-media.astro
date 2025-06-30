@@ -1,7 +1,7 @@
 ---
 import { cva } from 'cva';
 
-import { Github, Linkedin, TwitterX } from '@/components/icons';
+import { Github, Instagram, Linkedin } from '@/components/icons';
 
 import type { VariantProps } from 'cva';
 
@@ -22,7 +22,11 @@ const SOCIAL_MEDIA = [
 		name: 'Linkedin',
 		url: 'https://www.linkedin.com/in/polak-adrian',
 	},
-	{ icon: TwitterX, name: 'Twitter X', url: 'https://x.com/AdiPol1359' },
+	{
+		icon: Instagram,
+		name: 'Instagram',
+		url: 'https://www.instagram.com/adipol_dev',
+	},
 ];
 
 type Props = Required<VariantProps<typeof socialMedia>>;
