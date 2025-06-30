@@ -37,7 +37,7 @@ type Props = Required<VariantProps<typeof socialMedia>>;
 		SOCIAL_MEDIA.map(({ icon: Icon, name, url }) => (
 			<li>
 				<a aria-label={name} href={url} target="_blank">
-					<Icon aria-hidden />
+					<Icon />
 				</a>
 			</li>
 		))
