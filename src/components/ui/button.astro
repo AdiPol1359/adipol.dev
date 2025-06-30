@@ -5,12 +5,16 @@ import type { HTMLTag, Polymorphic } from 'astro/types';
 import type { VariantProps } from 'cva';
 
 const button = cva({
-	base: 'flex cursor-pointer items-center justify-center text-text-neutral transition-transform active:scale-95',
+	base: 'flex cursor-pointer items-center justify-center text-nowrap text-text-neutral transition-transform active:scale-95',
 	variants: {
 		color: {
 			brand: null,
 			primary: null,
 			secondary: null,
+		},
+		fullWidth: {
+			false: null,
+			true: 'w-full',
 		},
 		size: {
 			sm: 'h-9 rounded-md px-3.5',
@@ -31,6 +35,7 @@ const button = cva({
 	],
 	defaultVariants: {
 		color: 'primary',
+		fullWidth: false,
 		size: 'md',
 		variant: 'filled',
 	},
@@ -42,12 +47,13 @@ type Props<T extends HTMLTag> = Polymorphic<{ as: T }> &
 const {
 	as: Tag = 'button',
 	color,
+	fullWidth,
 	size,
 	variant,
 	...props
 } = Astro.props as Props<'button'>;
 ---
 
-<Tag class={button({ color, size, variant })} {...props}>
+<Tag class={button({ color, fullWidth, size, variant })} {...props}>
 	<slot />
 </Tag>

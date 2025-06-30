@@ -1,0 +1,26 @@
+---
+import { cva } from 'cva';
+
+import type { VariantProps } from 'cva';
+
+const heading = cva({
+	base: 'text-heading',
+	variants: {
+		size: {
+			h1: 'text-5xl font-bold laptop:text-6xl',
+			h2: 'text-xl font-bold laptop:text-2xl',
+			h3: 'text-lg font-medium laptop:text-xl',
+		},
+	},
+});
+
+interface Props extends Required<VariantProps<typeof heading>> {
+	readonly as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+}
+
+const { as, size } = Astro.props;
+
+const Tag = as ?? size;
+---
+
+<Tag class={heading({ size })}><slot /></Tag>

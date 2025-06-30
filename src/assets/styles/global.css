@@ -39,15 +39,15 @@
 
 	--color-icon-danger: var(--color-red);
 	--color-icon-primary: var(--color-navy-300);
-	--color-icon-secondary: var(--color-navy-500);
+	--color-icon-secondary: var(--color-navy-400);
 	--color-icon-tertiary: var(--color-navy-600);
 
 	--color-heading: var(--color-navy-50);
 
 	--color-text-neutral: var(--color-navy-50);
 	--color-text-placeholder: var(--color-gray);
-	--color-text-primary: var(--color-navy-300);
-	--color-text-secondary: var(--color-navy-400);
+	--color-text-primary: var(--color-navy-200);
+	--color-text-secondary: var(--color-navy-300);
 	--color-text-tertiary: var(--color-navy-600);
 
 	--color-link-active: var(--color-navy-50);
@@ -58,6 +58,12 @@
 	--color-surface-tertiary: var(--color-navy-950);
 
 	--gap-inherit: inherit;
+
+	--spacing-text: 1em;
+}
+
+@utility mirror-image-x {
+	transform: scaleX(-1);
 }
 
 @utility top-dashed-border-* {
