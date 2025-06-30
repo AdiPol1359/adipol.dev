@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+
+import smile from '@/assets/images/memojis/smile.png';
+import { Arrow } from '@/components/decorations';
+---
+
+<div class="relative mx-auto w-32 laptop:w-full laptop:max-w-80">
+	<Image
+		alt="Adrian Polak"
+		src={smile}
+		widths={[128, 320]}
+		sizes="(min-width: 1024px) 320px, 128px"
+	/>
+	<div class="laptop:hidden">
+		<Arrow
+			color="primary"
+			type="small-dashed-1"
+			class="-right-28 bottom-1 rotate-50"
+		/>
+		<Arrow
+			color="primary"
+			mirrorImageX
+			type="small-dashed-1"
+			class="bottom-1 -left-28 -rotate-50"
+		/>
+	</div>
+	<div class="hidden laptop:block">
+		<Arrow
+			color="primary"
+			type="large-dashed-1"
+			class="-top-18 -right-38 rotate-10"
+		/>
+		<Arrow
+			color="secondary"
+			mirrorImageX
+			type="large-dashed-2"
+			class="-bottom-20 -left-24 -rotate-75"
+		/>
+	</div>
+</div>

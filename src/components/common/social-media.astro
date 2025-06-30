@@ -1,5 +1,19 @@
 ---
+import { cva } from 'cva';
+
 import { Github, Linkedin, TwitterX } from '@/components/icons';
+
+import type { VariantProps } from 'cva';
+
+const socialMedia = cva({
+	base: 'flex gap-x-4 *:text-7 *:transition-colors',
+	variants: {
+		color: {
+			secondary: '*:text-icon-secondary *:hover:text-icon-primary',
+			tertiary: '*:text-icon-tertiary *:hover:text-icon-secondary',
+		},
+	},
+});
 
 const SOCIAL_MEDIA = [
 	{ icon: Github, name: 'Github', url: 'https://github.com/adipol1359' },
@@ -10,18 +24,15 @@ const SOCIAL_MEDIA = [
 	},
 	{ icon: TwitterX, name: 'Twitter X', url: 'https://x.com/AdiPol1359' },
 ];
+
+type Props = Required<VariantProps<typeof socialMedia>>;
 ---
 
-<ul aria-label="Moje media społecznościowe" class="flex gap-x-4">
+<ul aria-label="Moje media społecznościowe" class={socialMedia(Astro.props)}>
 	{
 		SOCIAL_MEDIA.map(({ icon: Icon, name, url }) => (
 			<li>
-				<a
-					aria-label={name}
-					href={url}
-					target="_blank"
-					class="text-7 text-icon-tertiary transition-colors hover:text-icon-secondary"
-				>
+				<a aria-label={name} href={url} target="_blank">
 					<Icon aria-hidden />
 				</a>
 			</li>

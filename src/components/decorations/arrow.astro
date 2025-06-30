@@ -1,0 +1,48 @@
+---
+import { cva } from 'cva';
+
+import LargeDashedArrow1 from '@/assets/svgs/decorations/large-dashed-arrow-1.svg';
+import LargeDashedArrow2 from '@/assets/svgs/decorations/large-dashed-arrow-2.svg';
+import LargeFilledArrow1 from '@/assets/svgs/decorations/large-filled-arrow-1.svg';
+import SmallDashedArrow1 from '@/assets/svgs/decorations/small-dashed-arrow-1.svg';
+import SmallFilledArrow1 from '@/assets/svgs/decorations/small-filled-arrow-1.svg';
+
+import type { VariantProps } from 'cva';
+
+const arrow = cva({
+	base: 'absolute',
+	variants: {
+		color: {
+			primary: 'text-decoration-primary',
+			secondary: 'text-decoration-secondary',
+		},
+		mirrorImageX: {
+			false: null,
+			true: 'mirror-image-x',
+		},
+	},
+});
+
+const TYPES = {
+	'small-dashed-1': SmallDashedArrow1,
+	'small-filled-1': SmallFilledArrow1,
+	'large-dashed-1': LargeDashedArrow1,
+	'large-dashed-2': LargeDashedArrow2,
+	'large-filled-1': LargeFilledArrow1,
+};
+
+type ArrowVariantProps = VariantProps<typeof arrow>;
+
+interface Props
+	extends Omit<ArrowVariantProps, 'color'>,
+		Required<Pick<ArrowVariantProps, 'color'>> {
+	readonly class?: string;
+	readonly type: keyof typeof TYPES;
+}
+
+const { type, ...props } = Astro.props;
+
+const ArrowComponent = TYPES[type];
+---
+
+<ArrowComponent aria-hidden class={arrow(props)} />

@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+
+import callMeHand from '@/assets/images/emojis/call-me-hand.png';
+import gemStone from '@/assets/images/emojis/gem-stone.png';
+import raisedHand from '@/assets/images/emojis/raised-hand.png';
+import wavingHand from '@/assets/images/emojis/waving-hand.png';
+
+const EMOJIS = {
+	'💎': gemStone,
+	'🤙': callMeHand,
+	'✋': raisedHand,
+	'👋': wavingHand,
+};
+
+interface Props {
+	readonly type: keyof typeof EMOJIS;
+}
+
+const { type } = Astro.props;
+
+const emoji = EMOJIS[type];
+---
+
+<Image
+	alt={type}
+	src={emoji}
+	draggable={false}
+	layout="fixed"
+	width={32}
+	height={32}
+	class="inline-block size-text"
+/>
