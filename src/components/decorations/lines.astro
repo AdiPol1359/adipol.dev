@@ -1,9 +1,15 @@
+---
+interface Props {
+	readonly class?: string;
+}
+---
+
 <svg
 	aria-hidden="true"
 	viewBox="0 0 1360 674"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
-	class="max-w-340 min-w-200"
+	{...Astro.props}
 >
 	<line
 		x1="0.5"
