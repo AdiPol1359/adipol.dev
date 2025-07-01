@@ -1,5 +1,5 @@
 ---
-import { Link } from '@/components/ui';
+import { twMerge } from 'tailwind-merge';
 
 const NAVIGATION_ITEMS = [
 	{ name: 'Posty', url: '/posty' },
@@ -14,9 +14,15 @@ const isActive = (url: string) => url === Astro.url.pathname;
 	{
 		NAVIGATION_ITEMS.map(({ name, url }) => (
 			<li class="after:mx-auto after:my-5 after:block after:h-0.5 after:w-4 after:bg-navy-500 last:after:hidden laptop:after:hidden">
-				<Link color={isActive(url) ? 'active' : 'primary'} href={url}>
+				<a
+					href={url}
+					class={twMerge(
+						'text-link-primary transition-colors hover:text-link-active',
+						isActive(url) && 'text-link-active',
+					)}
+				>
 					{name}
-				</Link>
+				</a>
 			</li>
 		))
 	}
