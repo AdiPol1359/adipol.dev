@@ -1,6 +1,5 @@
 ---
 import PoweredByVercel from '@/assets/svgs/powered-by-vercel.svg';
-import { Text } from '@/components/ui';
 
 const gitCommitRef = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_REF;
 const gitCommitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA;
@@ -11,9 +10,9 @@ const gitCommitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA;
 >
 	{
 		gitCommitRef && gitCommitSha && (
-			<Text align="center" break="all" color="tertiary">
+			<p class="text-center break-all text-text-tertiary">
 				{gitCommitRef} | {gitCommitSha}
-			</Text>
+			</p>
 		)
 	}
 	<a href="https://vercel.com/" target="_blank">
