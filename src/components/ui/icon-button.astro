@@ -1,0 +1,13 @@
+---
+interface Props {
+	readonly label: string;
+}
+---
+
+<button
+	aria-label={Astro.props.label}
+	type="button"
+	class="cursor-pointer rounded-full p-1 text-6 text-icon-primary transition-all hover:bg-icon-primary/10 active:scale-95"
+>
+	<slot />
+</button>

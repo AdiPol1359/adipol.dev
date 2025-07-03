@@ -5,7 +5,7 @@ import type { HTMLTag, Polymorphic } from 'astro/types';
 import type { VariantProps } from 'cva';
 
 const button = cva({
-	base: 'flex cursor-pointer items-center justify-center text-nowrap text-text-neutral transition-transform active:scale-95',
+	base: 'flex cursor-pointer items-center justify-center gap-x-6 text-nowrap text-text-neutral transition-transform active:scale-95 [&>svg]:text-6',
 	variants: {
 		color: {
 			brand: null,
@@ -19,6 +19,7 @@ const button = cva({
 		size: {
 			sm: 'h-9 rounded-md px-3.5',
 			md: 'h-12 rounded-xl px-10',
+			lg: 'h-14 rounded-xl px-12.5',
 		},
 		variant: {
 			filled: null,

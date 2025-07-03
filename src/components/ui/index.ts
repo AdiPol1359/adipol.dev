@@ -1,5 +1,10 @@
 export { default as Avatar } from './avatar.astro';
 export { default as Button } from './button.astro';
+export { default as Card } from './card/card.astro';
+export { default as CardContent } from './card/card-content.astro';
+export { default as CardInset } from './card/card-inset.astro';
 export { default as Container } from './container.astro';
 export { default as Emoji } from './emoji.astro';
 export { default as Heading } from './heading.astro';
+export { default as IconButton } from './icon-button.astro';
+export { default as Paper } from './paper.astro';

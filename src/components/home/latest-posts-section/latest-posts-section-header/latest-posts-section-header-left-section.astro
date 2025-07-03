@@ -1,0 +1,16 @@
+---
+import { Arrow } from '@/components/decorations';
+import { Emoji, Heading } from '@/components/ui';
+---
+
+<div class="relative space-y-2">
+	<Heading size="h2">Mój blog</Heading>
+	<p class="text-text-secondary laptop:text-lg">
+		Obczaj moje ostatnie wpisy <Emoji type="🔥" />
+	</p>
+	<Arrow
+		color="secondary"
+		type="large-dashed-3"
+		class="hidden laptop:absolute laptop:-top-2 laptop:left-35 laptop:block laptop:-rotate-2"
+	/>
+</div>

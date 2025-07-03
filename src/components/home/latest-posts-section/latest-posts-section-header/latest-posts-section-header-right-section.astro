@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+
+import waving from '@/assets/images/memojis/waving.png';
+---
+
+<div
+	class="hidden tablet:flex tablet:items-center tablet:gap-x-5 laptop:gap-x-10"
+>
+	<p
+		class="tablet:w-46.5 tablet:text-end tablet:text-text-neutral laptop:w-52 laptop:text-lg"
+	>
+		Mam nadzieję, że Wam się przyda
+		<span class="text-text-secondary">- Adrian</span>
+	</p>
+	<Image
+		alt="Machający człowiek"
+		layout="fixed"
+		src={waving}
+		width={135}
+		height={136}
+	/>
+</div>

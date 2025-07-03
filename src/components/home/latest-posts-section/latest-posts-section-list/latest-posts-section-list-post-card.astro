@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+
+import thumbnail from '@/assets/images/thumbnails/thumbnail.png';
+import { ArrowRightUp, Share } from '@/components/icons';
+import {
+	Button,
+	Card,
+	CardContent,
+	CardInset,
+	Emoji,
+	Heading,
+	IconButton,
+} from '@/components/ui';
+---
+
+<Card as="article">
+	<CardInset>
+		<Image
+			alt="Wydajne providery w React.js 🔥"
+			layout="fixed"
+			src={thumbnail}
+			width={600}
+			height={315}
+			class="size-full object-cover"
+		/>
+	</CardInset>
+	<CardContent>
+		<Heading size="h3">
+			Wydajne providery w React.js <Emoji type="🔥" />
+		</Heading>
+		<p class="mt-2 text-text-primary laptop:text-lg">
+			Context API to zdecydowanie jedna z podstawowych funkcjonalności w
+			Reakcie, a dogłębne poznanie jego działania pozwoli pisać Ci bardziej
+			świadomy oraz wydajny kod.
+		</p>
+		<p class="my-5 text-sm text-text-neutral">
+			<Emoji type="⌛️" /> 8 minut czytania
+		</p>
+		<div class="flex items-center justify-between">
+			<Button color="secondary" size="sm">
+				Przeczytaj więcej <ArrowRightUp />
+			</Button>
+			<IconButton label="Udostępnij post">
+				<Share />
+			</IconButton>
+		</div>
+	</CardContent>
+</Card>
