@@ -1,0 +1,52 @@
+---
+import { cva } from 'cva';
+
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import type { VariantProps } from 'cva';
+
+const paper = cva({
+	base: 'overflow-hidden rounded-xl p-4',
+	variants: {
+		color: {
+			primary: null,
+			secondary: null,
+		},
+		variant: {
+			filled: null,
+			outline:
+				'relative before:pointer-events-none before:absolute before:top-0 before:left-0 before:size-full before:select-none',
+		},
+	},
+	compoundVariants: [
+		{ variant: 'filled', color: 'primary', class: 'bg-surface-primary' },
+		{ variant: 'filled', color: 'secondary', class: 'bg-surface-secondary' },
+		{
+			variant: 'outline',
+			color: 'primary',
+			class: 'before:paper-outline-border-border-primary',
+		},
+		{
+			variant: 'outline',
+			color: 'secondary',
+			class: 'before:paper-outline-border-border-secondary',
+		},
+	],
+	defaultVariants: {
+		color: 'primary',
+		variant: 'filled',
+	},
+});
+
+type Props<T extends HTMLTag> = Polymorphic<{ as: T }> &
+	VariantProps<typeof paper>;
+
+const {
+	as: Tag = 'div',
+	class: className,
+	color,
+	variant,
+	...props
+} = Astro.props as Props<'div'>;
+---
+
+<Tag class={paper({ color, variant, className })} {...props}><slot /></Tag>

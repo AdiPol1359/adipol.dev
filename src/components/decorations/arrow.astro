@@ -3,6 +3,7 @@ import { cva } from 'cva';
 
 import LargeDashedArrow1 from '@/assets/svgs/decorations/large-dashed-arrow-1.svg';
 import LargeDashedArrow2 from '@/assets/svgs/decorations/large-dashed-arrow-2.svg';
+import LargeDashedArrow3 from '@/assets/svgs/decorations/large-dashed-arrow-3.svg';
 import LargeFilledArrow1 from '@/assets/svgs/decorations/large-filled-arrow-1.svg';
 import SmallDashedArrow1 from '@/assets/svgs/decorations/small-dashed-arrow-1.svg';
 import SmallFilledArrow1 from '@/assets/svgs/decorations/small-filled-arrow-1.svg';
@@ -10,7 +11,7 @@ import SmallFilledArrow1 from '@/assets/svgs/decorations/small-filled-arrow-1.sv
 import type { VariantProps } from 'cva';
 
 const arrow = cva({
-	base: 'absolute',
+	base: 'pointer-events-none absolute select-none',
 	variants: {
 		color: {
 			primary: 'text-decoration-primary',
@@ -24,11 +25,12 @@ const arrow = cva({
 });
 
 const TYPES = {
-	'small-dashed-1': SmallDashedArrow1,
-	'small-filled-1': SmallFilledArrow1,
 	'large-dashed-1': LargeDashedArrow1,
 	'large-dashed-2': LargeDashedArrow2,
+	'large-dashed-3': LargeDashedArrow3,
 	'large-filled-1': LargeFilledArrow1,
+	'small-dashed-1': SmallDashedArrow1,
+	'small-filled-1': SmallFilledArrow1,
 };
 
 type ArrowVariantProps = VariantProps<typeof arrow>;

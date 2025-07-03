@@ -1,0 +1,12 @@
+---
+import LatestPostsSectionListEmptySpaceCard from './latest-posts-section-list-empty-space-card.astro';
+import LatestPostsSectionListPostCard from './latest-posts-section-list-post-card.astro';
+---
+
+<ol
+	class="mt-4 grid grid-cols-1 gap-4 tablet:mt-0 tablet:grid-cols-2 laptop:grid-cols-3"
+>
+	<li><LatestPostsSectionListPostCard /></li>
+	<li class="hidden tablet:block"><LatestPostsSectionListEmptySpaceCard /></li>
+	<li class="hidden laptop:block"><LatestPostsSectionListEmptySpaceCard /></li>
+</ol>

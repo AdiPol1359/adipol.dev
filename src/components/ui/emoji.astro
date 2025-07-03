@@ -2,12 +2,16 @@
 import { Image } from 'astro:assets';
 
 import callMeHand from '@/assets/images/emojis/call-me-hand.png';
+import fire from '@/assets/images/emojis/fire.png';
 import gemStone from '@/assets/images/emojis/gem-stone.png';
+import hourglass from '@/assets/images/emojis/hourglass.png';
 import raisedHand from '@/assets/images/emojis/raised-hand.png';
 import wavingHand from '@/assets/images/emojis/waving-hand.png';
 
 const EMOJIS = {
+	'🔥': fire,
 	'💎': gemStone,
+	'⌛️': hourglass,
 	'🤙': callMeHand,
 	'✋': raisedHand,
 	'👋': wavingHand,
@@ -29,5 +33,5 @@ const emoji = EMOJIS[type];
 	src={emoji}
 	width={32}
 	height={32}
-	class="inline-block size-text"
+	class="-mt-0.75 inline-block size-text"
 />
