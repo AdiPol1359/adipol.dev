@@ -1,0 +1,15 @@
+---
+import { Nickname, Scribble, WavyLine } from '@/components/decorations';
+---
+
+<div class="relative -mx-4">
+	<div class="absolute inset-x-0 top-3 overflow-hidden tablet:top-8">
+		<Nickname class="-ml-16 opacity-10" />
+	</div>
+	<WavyLine
+		class="absolute top-11 left-1/2 -translate-x-1/2 tablet:top-16 tablet:right-0 tablet:left-auto tablet:translate-x-0"
+	/>
+	<Scribble
+		class="hidden laptop:absolute laptop:top-42 laptop:left-1/2 laptop:block laptop:-translate-x-1/2"
+	/>
+</div>

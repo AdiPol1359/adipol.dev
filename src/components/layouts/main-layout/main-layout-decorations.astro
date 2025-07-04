@@ -1,14 +1,18 @@
 ---
-import { Lines, Waves } from '@/components/decorations';
+import { Lines, Wave, Waves } from '@/components/decorations';
 
-const WRAPPER_STYLES =
-	'pointer-events-none absolute top-0 left-0 flex w-full justify-center overflow-hidden select-none';
+const BASE_WRAPPER_STYLES =
+	'pointer-events-none absolute left-0 flex w-full justify-center overflow-hidden select-none';
 ---
 
-<div class={WRAPPER_STYLES}>
+<div class:list={[BASE_WRAPPER_STYLES, 'top-0']}>
 	<Lines class="max-w-340 min-w-200" />
 </div>
 
-<div class={WRAPPER_STYLES}>
+<div class:list={[BASE_WRAPPER_STYLES, 'top-0']}>
 	<Waves class="min-w-400" />
+</div>
+
+<div class:list={[BASE_WRAPPER_STYLES, 'top-3/5']}>
+	<Wave class="min-w-450" />
 </div>
