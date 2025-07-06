@@ -1,0 +1,27 @@
+---
+import { Heading, TimelineItem } from '@/components/ui';
+
+import type { Experience } from '@/types/experience';
+
+interface Props {
+	readonly experience: Experience;
+}
+
+const {
+	experience: { company, period, position },
+} = Astro.props;
+---
+
+<TimelineItem>
+	<a aria-label={company.name} href={company.url} target="_blank">
+		<article class="space-y-2">
+			<Heading as="h3" size="h4">
+				{position}
+			</Heading>
+			<p class="text-text-secondary">{company.name}</p>
+			<p class="text-text-primary">
+				{period.from} - {period.to ?? 'obecnie'}
+			</p>
+		</article>
+	</a>
+</TimelineItem>

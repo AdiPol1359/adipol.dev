@@ -1,0 +1,21 @@
+---
+import {
+	AboutMeSection,
+	ExperienceSection,
+	RecommendationsSection,
+	SkillsSection,
+} from '@/components/about-me';
+import { MainLayout } from '@/components/layouts';
+import { Container } from '@/components/ui';
+---
+
+<MainLayout>
+	<Container class="flex flex-col gap-y-8 laptop:gap-y-18">
+		<AboutMeSection />
+		<SkillsSection />
+		<div class="flex flex-col gap-y-inherit laptop:flex-row laptop:gap-x-25">
+			<ExperienceSection />
+			<RecommendationsSection />
+		</div>
+	</Container>
+</MainLayout>

@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+
+import { Linkedin } from '@/components/icons';
+import { Heading } from '@/components/ui';
+
+import type { Recommendation } from '@/types/recommendation';
+
+type Props = Pick<Recommendation, 'linkedIn' | 'name' | 'photo' | 'position'>;
+
+const { linkedIn, name, photo, position } = Astro.props;
+---
+
+<header class="relative flex items-center gap-x-4">
+	<Image
+		alt={name}
+		layout="fixed"
+		src={photo}
+		width={60}
+		height={60}
+		class="rounded-lg"
+	/>
+	<div>
+		<div class="flex items-center gap-x-1">
+			<Heading as="h3" size="h4">
+				{name}
+			</Heading>
+			<a
+				aria-label="LinkedIn"
+				href={linkedIn}
+				target="_blank"
+				class="text-4.5 text-icon-secondary/80 transition-colors hover:text-icon-secondary"
+			>
+				<Linkedin />
+			</a>
+		</div>
+		<p class="text-sm text-text-primary/90">{position}</p>
+	</div>
+</header>

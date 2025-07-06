@@ -1,0 +1,21 @@
+---
+import type { Skill } from '@/types/skill';
+
+interface Props {
+	readonly skill: Skill;
+}
+
+const {
+	skill: { color, icon: Icon, name, url },
+} = Astro.props;
+---
+
+<a
+	aria-label={name}
+	href={url}
+	target="_blank"
+	style={{ '--color': color }}
+	class="flex aspect-square items-center justify-center rounded-lg bg-(--color) text-7 text-navy-50"
+>
+	<Icon />
+</a>

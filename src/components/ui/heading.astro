@@ -10,17 +10,29 @@ const heading = cva({
 			h1: 'text-5xl font-bold laptop:text-6xl',
 			h2: 'text-xl font-semibold laptop:text-2xl',
 			h3: 'text-lg font-medium laptop:text-xl',
+			h4: 'text-lg font-medium',
+		},
+		withShadow: {
+			false: null,
+			true: 'relative z-0 before:absolute before:top-0.75 before:left-0.25 before:-z-1 before:text-[1.3em] before:text-nowrap before:opacity-5 before:content-(--shadow)',
 		},
 	},
 });
 
-interface Props extends Required<VariantProps<typeof heading>> {
+interface Props
+	extends Required<Omit<VariantProps<typeof heading>, 'withShadow'>> {
 	readonly as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+	readonly shadow?: string;
 }
 
-const { as, size } = Astro.props;
+const { as, shadow, size } = Astro.props;
 
 const Tag = as ?? size;
 ---
 
-<Tag class={heading({ size })}><slot /></Tag>
+<Tag
+	style={{ '--shadow': `'${shadow}'/''` }}
+	class={heading({ size, withShadow: Boolean(shadow) })}
+>
+	<slot />
+</Tag>
