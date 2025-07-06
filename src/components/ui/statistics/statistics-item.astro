@@ -1,0 +1,13 @@
+---
+interface Props {
+	readonly name: string;
+	readonly value: number;
+}
+
+const { name, value } = Astro.props;
+---
+
+<div class="text-center laptop:text-end">
+	<dt class="text-text-secondary">{name}</dt>
+	<dd class="text-xl font-semibold text-text-neutral">{value}</dd>
+</div>

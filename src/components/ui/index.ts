@@ -8,3 +8,7 @@ export { default as Emoji } from './emoji.astro';
 export { default as Heading } from './heading.astro';
 export { default as IconButton } from './icon-button.astro';
 export { default as Paper } from './paper.astro';
+export { default as Statistics } from './statistics/statistics.astro';
+export { default as StatisticsItem } from './statistics/statistics-item.astro';
+export { default as Timeline } from './timeline/timeline.astro';
+export { default as TimelineItem } from './timeline/timeline-item.astro';

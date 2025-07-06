@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+
+import smiling from '@/assets/images/memojis/smiling.png';
+import { Arrow } from '@/components/decorations';
+import { Emoji, Heading } from '@/components/ui';
+---
+
+<header
+	class="flex flex-col items-center gap-y-inherit laptop:relative laptop:flex-row laptop:gap-x-12"
+>
+	<Image
+		alt="Adrian Polak"
+		layout="fixed"
+		src={smiling}
+		width={100}
+		height={120}
+	/>
+	<div
+		class="space-y-1.5 text-center laptop:max-w-76 laptop:space-y-2 laptop:text-start"
+	>
+		<Heading size="h2">O mnie <Emoji type="💻" /></Heading>
+		<p class="text-text-secondary">
+			Chcesz dowiedzieć się o mnie więcej? Trafiłeś we właściwe miejsce <Emoji
+				type="🎓"
+			/>
+		</p>
+	</div>
+	<Arrow
+		color="primary"
+		type="large-dashed-4"
+		class="hidden laptop:absolute laptop:-top-1 laptop:-right-34 laptop:block laptop:rotate-16"
+	/>
+</header>

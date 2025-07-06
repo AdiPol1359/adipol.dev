@@ -62,6 +62,21 @@
 	--spacing-text: 1em;
 }
 
+@utility grid-cols-auto-* {
+	grid-template-columns: repeat(
+		auto-fill,
+		minmax(calc(var(--spacing) * --value(number)), 1fr)
+	);
+}
+
+@utility text-* {
+	font-size: calc(var(--spacing) * --value(number));
+}
+
+@utility word-spacing-* {
+	word-spacing: calc(var(--spacing) * --value(number));
+}
+
 @utility mirror-image-x {
 	transform: scaleX(-1);
 }
@@ -82,12 +97,4 @@
 	background-position: left top;
 	background-repeat: repeat-x;
 	background-size: 100% 0.1875rem;
-}
-
-@utility text-* {
-	font-size: calc(var(--spacing) * --value(number));
-}
-
-@utility word-spacing-* {
-	word-spacing: calc(var(--spacing) * --value(number));
 }
