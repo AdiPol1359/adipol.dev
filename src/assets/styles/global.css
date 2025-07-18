@@ -86,7 +86,7 @@
 	mask-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23333' stroke-width='4' stroke-dasharray='20%2c 20' stroke-dashoffset='16' stroke-linecap='square'/%3e%3c/svg%3e");
 }
 
-@utility top-dashed-border-* {
+@utility dashed-border-* {
 	background-image: repeating-linear-gradient(
 		90deg,
 		--value(--color- *),
@@ -94,7 +94,18 @@
 		transparent 1.875rem,
 		transparent 3.75rem
 	);
-	background-position: left top;
+	background-origin: border-box;
 	background-repeat: repeat-x;
 	background-size: 100% 0.1875rem;
+	border-color: transparent;
+}
+
+@utility dashed-border-t {
+	background-position: left top;
+	border-top-width: 0.1875rem;
+}
+
+@utility dashed-border-b {
+	background-position: left bottom;
+	border-bottom-width: 0.1875rem;
 }

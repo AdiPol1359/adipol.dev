@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+
+import { ArrowRightUp } from '@/components/icons';
+import { Button, Card, CardContent, CardInset, Heading } from '@/components/ui';
+
+import type { Project } from '@/types/project';
+
+interface Props {
+	readonly project: Project;
+}
+
+const {
+	project: { thumbnail, title, description, url },
+} = Astro.props;
+---
+
+<Card as="article">
+	<CardInset>
+		<Image
+			alt={title}
+			layout="fixed"
+			src={thumbnail}
+			width={600}
+			height={341}
+			class="size-full object-cover"
+		/>
+	</CardInset>
+	<CardContent>
+		<div class="flex h-full flex-col gap-y-4">
+			<Heading as="h2" size="h4">{title}</Heading>
+			<p class="text-text-primary">{description}</p>
+			<div class="mt-auto w-fit">
+				<Button as="a" color="brand" size="sm" href={url} target="_blank">
+					Zobacz projekt <ArrowRightUp />
+				</Button>
+			</div>
+		</div>
+	</CardContent>
+</Card>

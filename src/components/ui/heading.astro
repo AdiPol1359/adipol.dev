@@ -31,7 +31,7 @@ const Tag = as ?? size;
 ---
 
 <Tag
-	style={{ '--shadow': `'${shadow}'/''` }}
+	style={{ ...(shadow && { '--shadow': `'${shadow}'/''` }) }}
 	class={heading({ size, withShadow: Boolean(shadow) })}
 >
 	<slot />
