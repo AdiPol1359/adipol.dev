@@ -1,13 +1,30 @@
 ---
-interface Props {
+import { cva } from 'cva';
+
+import type { VariantProps } from 'cva';
+
+const statisticsItem = cva({
+	base: 'laptop:text-end',
+	variants: {
+		baseAlign: {
+			left: 'text-left',
+			center: 'text-center',
+		},
+	},
+	defaultVariants: {
+		baseAlign: 'center',
+	},
+});
+
+interface Props extends VariantProps<typeof statisticsItem> {
 	readonly name: string;
 	readonly value: number;
 }
 
-const { name, value } = Astro.props;
+const { name, value, ...variants } = Astro.props;
 ---
 
-<div class="text-center laptop:text-end">
+<div class={statisticsItem(variants)}>
 	<dt class="text-text-secondary">{name}</dt>
 	<dd class="text-xl font-semibold text-text-neutral">{value}</dd>
 </div>

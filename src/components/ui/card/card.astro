@@ -7,7 +7,7 @@ const { as: Tag = 'div', ...props } = Astro.props as Props<'div'>;
 ---
 
 <Tag
-	class="space-y-6 rounded-xl border border-border-secondary bg-surface-tertiary p-2.5 laptop:p-4"
+	class="flex h-full flex-col gap-y-6 rounded-xl border border-border-secondary bg-surface-tertiary p-2.5 laptop:p-4"
 	{...props}
 >
 	<slot />

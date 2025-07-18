@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+
+import waving from '@/assets/images/memojis/waving.png';
+import { Emoji, Heading } from '@/components/ui';
+
+interface Props {
+	readonly title: string;
+}
+
+const { title } = Astro.props;
+
+const hasAdditionalSection = Astro.slots.has('additionalSection');
+---
+
+<header
+	class="relative flex flex-col gap-y-10 dashed-border-b dashed-border-border-secondary pb-10 laptop:flex-row laptop:items-center laptop:justify-between laptop:pb-0"
+>
+	<div class="laptop:flex laptop:items-center laptop:gap-x-10">
+		<div
+			class="absolute top-1/2 -right-4 -translate-y-1/2 overflow-hidden pt-2.5 pb-4.5 laptop:static laptop:translate-y-0 laptop:p-0"
+		>
+			<Image
+				alt="Machający człowiek"
+				layout="fixed"
+				src={waving}
+				width={100}
+				height={101}
+				class="relative -right-8 -rotate-60 laptop:static laptop:rotate-0"
+			/>
+		</div>
+		<div class="space-y-0.5">
+			<p class="text-text-secondary">
+				Cześć wszystkim tutaj <Emoji type="✋" />
+			</p>
+			<Heading as="h1" size="h2">
+				{title}
+			</Heading>
+		</div>
+	</div>
+	{hasAdditionalSection && <slot name="additionalSection" />}
+</header>

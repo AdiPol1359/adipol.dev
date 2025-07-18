@@ -1,0 +1,15 @@
+---
+import { projects } from '@/data/projects';
+
+import ProjectsListProject from './projects-list-project.astro';
+---
+
+<ul class="grid grid-cols-1 gap-4 tablet:grid-cols-2">
+	{
+		projects.map(project => (
+			<li>
+				<ProjectsListProject project={project} />
+			</li>
+		))
+	}
+</ul>
