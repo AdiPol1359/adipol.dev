@@ -1,0 +1,28 @@
+---
+import { MainLayout } from '@/components/layouts';
+import { PostComments, PostView } from '@/components/post';
+import { Container, Divider } from '@/components/ui';
+import { getAllPosts } from '@/lib/posts';
+
+import type { Post } from '@/types/post';
+
+export const getStaticPaths = async () => {
+	const posts = await getAllPosts();
+
+	return posts.map(post => ({ params: { slug: post.slug }, props: { post } }));
+};
+
+interface Props {
+	readonly post: Post;
+}
+
+const { post } = Astro.props;
+---
+
+<MainLayout>
+	<Container class="flex flex-col gap-y-14">
+		<PostView post={post} />
+		<Divider />
+		<PostComments post={post} />
+	</Container>
+</MainLayout>

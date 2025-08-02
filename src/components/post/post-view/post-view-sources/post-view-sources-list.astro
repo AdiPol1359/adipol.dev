@@ -1,0 +1,21 @@
+---
+import type { Post } from '@/types/post';
+
+type Props = Pick<Post, 'sources'>;
+
+const { sources } = Astro.props;
+---
+
+<ol
+	class="w-fit list-decimal pl-5 text-link-primary transition-colors hover:text-link-active laptop:text-lg"
+>
+	{
+		sources.map(({ title, url }) => (
+			<li>
+				<a href={url} target="_blank" class="underline">
+					{title}
+				</a>
+			</li>
+		))
+	}
+</ol>

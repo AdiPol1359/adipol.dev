@@ -1,0 +1,15 @@
+---
+import PostViewSourcesHeader from './post-view-sources-header.astro';
+import PostViewSourcesList from './post-view-sources-list.astro';
+
+import type { Post } from '@/types/post';
+
+type Props = Pick<Post, 'sources'>;
+
+const { sources } = Astro.props;
+---
+
+<section class="space-y-5">
+	<PostViewSourcesHeader />
+	<PostViewSourcesList sources={sources} />
+</section>

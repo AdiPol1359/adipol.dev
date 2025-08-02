@@ -1,0 +1,27 @@
+---
+import { Divider } from '@/components/ui';
+
+import PostViewContentEditor from './post-view-content-editor.astro';
+import PostViewContent from './post-view-content.astro';
+import PostViewHeader from './post-view-header.astro';
+import PostViewSources from './post-view-sources/post-view-sources.astro';
+
+import type { Post } from '@/types/post';
+
+interface Props {
+	readonly post: Post;
+}
+
+const {
+	post: { date, slug, sources, thumbnail, title },
+} = Astro.props;
+---
+
+<article class="flex flex-col gap-y-inherit">
+	<PostViewHeader date={date} thumbnail={thumbnail} title={title} />
+	<PostViewContent slug={slug} />
+	<Divider />
+	<PostViewSources sources={sources} />
+	<Divider />
+	<PostViewContentEditor slug={slug} />
+</article>
