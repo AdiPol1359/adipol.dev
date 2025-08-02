@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 
-import thumbnail from '@/assets/images/thumbnails/thumbnail.png';
 import { ArrowRightUp, Share } from '@/components/icons';
 import {
 	Button,
@@ -12,13 +11,23 @@ import {
 	Heading,
 	IconButton,
 } from '@/components/ui';
+
+import type { Post } from '@/types/post';
+
+interface Props {
+	readonly post: Post;
+}
+
+const {
+	post: { introduction, thumbnail, title, slug },
+} = Astro.props;
 ---
 
 <Card as="article">
 	<CardInset>
 		<Image
-			alt="Wydajne providery w React.js 🔥"
-			layout="fixed"
+			alt={title}
+			layout="constrained"
 			src={thumbnail}
 			width={600}
 			height={315}
@@ -27,18 +36,16 @@ import {
 	</CardInset>
 	<CardContent>
 		<Heading as="h3" size="h4">
-			Wydajne providery w React.js <Emoji type="🔥" />
+			{title}
 		</Heading>
 		<p class="mt-2 text-text-primary">
-			Context API to zdecydowanie jedna z podstawowych funkcjonalności w
-			Reakcie, a dogłębne poznanie jego działania pozwoli pisać Ci bardziej
-			świadomy oraz wydajny kod.
+			{introduction}
 		</p>
 		<p class="my-5 text-sm text-text-neutral">
 			<Emoji type="⌛️" /> 8 minut czytania
 		</p>
 		<div class="flex items-center justify-between">
-			<Button color="secondary" size="sm">
+			<Button as="a" color="secondary" size="sm" href={`/${slug}`}>
 				Przeczytaj więcej <ArrowRightUp />
 			</Button>
 			<IconButton label="Udostępnij post">

@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+
+import { Heading } from '@/components/ui';
+
+import type { Post } from '@/types/post';
+
+type Props = Pick<Post, 'date' | 'thumbnail' | 'title'>;
+
+const { date, thumbnail, title } = Astro.props;
+
+const datetime = date.toISOString();
+const formattedDate = date.toLocaleDateString('pl-PL', {
+	day: 'numeric',
+	month: 'long',
+	year: 'numeric',
+});
+---
+
+<header class="text-center">
+	<time datetime={datetime} class="text-text-secondary">
+		<span class="sr-only">Post został dodany</span>
+		{formattedDate}
+	</time>
+	<Heading as="h1" size="h2">{title}</Heading>
+	<Image
+		alt={title}
+		layout="constrained"
+		src={thumbnail}
+		width={1280}
+		height={672}
+		class="mt-10 rounded-xl"
+	/>
+</header>

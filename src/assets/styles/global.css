@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@plugin '@tailwindcss/typography';
+
 @theme {
 	--breakpoint-*: initial;
 	--breakpoint-tablet: 40rem;
@@ -8,8 +10,9 @@
 
 	--color-*: initial;
 	--color-gray: #a7a7a7;
-	--color-indigo: #4f46e5;
 	--color-red: #e14343;
+	--color-indigo-primary: #8781ff;
+	--color-indigo-secondary: #4f46e5;
 	--color-navy-50: #f5f7fa;
 	--color-navy-100: #cedce9;
 	--color-navy-200: #a3bed6;
@@ -24,11 +27,13 @@
 
 	--default-transition-duration: 200ms;
 
+	--font-mono: 'Fira Code Variable', monospace;
 	--font-sans: 'Poppins', sans-serif;
 }
 
 @theme inline {
-	--color-brand: var(--color-indigo);
+	--color-brand-primary: var(--color-indigo-primary);
+	--color-brand-secondary: var(--color-indigo-secondary);
 
 	--color-border-primary: var(--color-navy-700);
 	--color-border-secondary: var(--color-navy-800);
@@ -44,7 +49,9 @@
 
 	--color-heading: var(--color-navy-50);
 
+	--color-text-brand: var(--color-brand-primary);
 	--color-text-neutral: var(--color-navy-50);
+	--color-text-highlight: var(--color-navy-200);
 	--color-text-placeholder: var(--color-gray);
 	--color-text-primary: var(--color-navy-300);
 	--color-text-secondary: var(--color-navy-400);
@@ -67,6 +74,10 @@
 		auto-fill,
 		minmax(calc(var(--spacing) * --value(number)), 1fr)
 	);
+}
+
+@utility tab-* {
+	tab-size: --value(number);
 }
 
 @utility text-* {

@@ -1,0 +1,26 @@
+---
+import { getPostContentBySlug } from '@/lib/posts';
+
+import type { Post } from '@/types/post';
+
+type Props = Pick<Post, 'slug'>;
+
+const Content = await getPostContentBySlug(Astro.props.slug);
+---
+
+<section
+	class:list={[
+		'prose max-w-none laptop:prose-lg',
+		'prose-headings:text-heading',
+		'prose-h2:mt-8 prose-h2:mb-4 prose-h2:text-xl prose-h2:font-semibold prose-h2:laptop:text-2xl',
+		'prose-p:text-justify prose-p:hyphens-auto prose-p:text-text-primary',
+		'prose-strong:font-medium prose-strong:text-text-highlight',
+		'prose-a:inline-block prose-a:border-b-2 prose-a:border-border-primary/80 prose-a:leading-4.5 prose-a:font-medium prose-a:text-link-primary prose-a:no-underline prose-a:transition-colors prose-a:hover:text-link-active',
+		'prose-img:my-5 prose-img:rounded-xl prose-img:border-2 prose-img:border-border-secondary',
+		'prose-pre:my-5 prose-pre:rounded-xl prose-pre:border-2 prose-pre:border-border-primary/30 prose-pre:!bg-surface-primary prose-pre:text-lg prose-pre:tab-1.5',
+		'[&>p_code]:rounded-md [&>p_code]:border-b-2 [&>p_code]:border-border-primary/30 [&>p_code]:bg-surface-primary [&>p_code]:px-1.75 [&>p_code]:py-0.5 [&>p_code]:font-medium [&>p_code]:text-text-brand [&>p_code]:before:hidden [&>p_code]:after:hidden',
+		'[&>iframe]:my-5 [&>iframe]:aspect-video [&>iframe]:w-full [&>iframe]:overflow-hidden [&>iframe]:rounded-xl [&>iframe]:border-2 [&>iframe]:border-border-secondary',
+	]}
+>
+	<Content />
+</section>

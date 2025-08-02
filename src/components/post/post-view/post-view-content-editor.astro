@@ -1,0 +1,31 @@
+---
+import { Button, Emoji, Heading, Paper } from '@/components/ui';
+
+import type { Post } from '@/types/post';
+
+type Props = Pick<Post, 'slug'>;
+
+const url = `https://github.com/AdiPol1359/adipol.dev/blob/main/posts/${Astro.props.slug}.md`;
+---
+
+<Paper
+	as="article"
+	variant="outline"
+	class="flex flex-col items-center justify-center gap-y-4 py-10 laptop:py-14"
+>
+	<Heading as="h2" size="h3">
+		<Emoji type="👉🏻" /> Zauważyłeś/aś błąd? <Emoji type="👈🏻" />
+	</Heading>
+	<div class="w-full max-w-76">
+		<Button
+			as="a"
+			color="brand"
+			fullWidth
+			variant="outline"
+			target="_blank"
+			href={url}
+		>
+			Edytuj ten post na GitHubie!
+		</Button>
+	</div>
+</Paper>
