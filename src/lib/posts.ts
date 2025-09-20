@@ -14,6 +14,12 @@ export const getAllPosts = async () => {
 	return sortedEntries.map<Post>(({ id, data }) => ({ slug: id, ...data }));
 };
 
+export const getPostsTags = (posts: Post[]) => {
+	const tags = posts.flatMap(({ tags }) => tags).toSorted();
+
+	return [...new Set(tags)];
+};
+
 export const getPostContentBySlug = async (slug: string) => {
 	const entry = await getEntry(COLLECTION_NAME, slug);
 

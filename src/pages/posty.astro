@@ -1,0 +1,29 @@
+---
+import { MainLayout } from '@/components/layouts';
+import {
+	PostsFilteringScript,
+	PostsHeader,
+	PostsSection,
+	SearchForm,
+	TagsSection,
+} from '@/components/posts';
+import { Container } from '@/components/ui';
+import { getAllPosts, getPostsTags } from '@/lib/posts';
+
+const posts = await getAllPosts();
+const tags = getPostsTags(posts);
+---
+
+<MainLayout>
+	<Container class="space-y-10">
+		<PostsHeader />
+		<div class="flex flex-col gap-10 laptop:flex-row">
+			<div class="flex flex-col gap-y-inherit laptop:w-100">
+				<SearchForm />
+				<TagsSection tags={tags} />
+			</div>
+			<PostsSection posts={posts} />
+		</div>
+	</Container>
+</MainLayout>
+<PostsFilteringScript />

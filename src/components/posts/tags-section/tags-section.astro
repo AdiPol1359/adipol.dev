@@ -1,0 +1,24 @@
+---
+import { Chip, Heading, Paper } from '@/components/ui';
+
+import { TAGS_LIST_ID } from './tags-section.constants';
+
+interface Props {
+	readonly tags: string[];
+}
+
+const { tags } = Astro.props;
+---
+
+<Paper as="section" color="secondary" variant="outline" class="space-y-6">
+	<Heading size="h2" shadow="Tagi">Tagi</Heading>
+	<ul id={TAGS_LIST_ID} class="flex flex-wrap gap-2">
+		{
+			tags.map(tag => (
+				<li>
+					<Chip label={tag} />
+				</li>
+			))
+		}
+	</ul>
+</Paper>
