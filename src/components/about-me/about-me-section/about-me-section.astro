@@ -1,17 +1,11 @@
 ---
 import AboutMeSectionDescription from './about-me-section-description.astro';
 import AboutMeSectionDivider from './about-me-section-divider.astro';
-import AboutMeSectionHeader from './about-me-section-header.astro';
-import AboutMeSectionStatistics from './about-me-section-statistics.astro';
+import AboutMeSectionHeader from './about-me-section-header/about-me-section-header.astro';
 ---
 
 <section class="flex flex-col gap-y-8">
-	<div
-		class="flex flex-col items-center gap-y-inherit laptop:flex-row laptop:justify-between"
-	>
-		<AboutMeSectionHeader />
-		<AboutMeSectionStatistics />
-	</div>
+	<AboutMeSectionHeader />
 	<AboutMeSectionDivider />
 	<AboutMeSectionDescription />
 </section>

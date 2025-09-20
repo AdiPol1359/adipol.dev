@@ -6,7 +6,7 @@ import { Arrow } from '@/components/decorations';
 import { Emoji, Heading } from '@/components/ui';
 ---
 
-<header
+<div
 	class="flex flex-col items-center gap-y-inherit laptop:relative laptop:flex-row laptop:gap-x-12"
 >
 	<Image
@@ -19,7 +19,7 @@ import { Emoji, Heading } from '@/components/ui';
 	<div
 		class="space-y-1.5 text-center laptop:max-w-76 laptop:space-y-2 laptop:text-start"
 	>
-		<Heading size="h2">O mnie <Emoji type="💻" /></Heading>
+		<Heading as="h1" size="h2">O mnie <Emoji type="💻" /></Heading>
 		<p class="text-text-secondary">
 			Chcesz dowiedzieć się o mnie więcej? Trafiłeś we właściwe miejsce <Emoji
 				type="🎓"
@@ -31,4 +31,4 @@ import { Emoji, Heading } from '@/components/ui';
 		type="large-dashed-4"
 		class="hidden laptop:absolute laptop:-top-1 laptop:-right-34 laptop:block laptop:rotate-16"
 	/>
-</header>
+</div>
