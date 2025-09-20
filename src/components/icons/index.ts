@@ -35,6 +35,7 @@ export { default as ReactHookForm } from './react-hook-form.astro';
 export { default as Redis } from './redis.astro';
 export { default as Refine } from './refine.astro';
 export { default as Sass } from './sass.astro';
+export { default as Search } from './search.astro';
 export { default as Shadcn } from './shadcn.astro';
 export { default as Share } from './share.astro';
 export { default as Socketio } from './socketio.astro';

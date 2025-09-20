@@ -1,0 +1,22 @@
+---
+interface Props {
+	readonly id?: string;
+	readonly placeholder: string;
+}
+
+const { id, placeholder } = Astro.props;
+---
+
+<div class="relative">
+	<div
+		class="pointer-events-none absolute top-1/2 left-5.5 -translate-y-1/2 text-5 text-text-neutral"
+	>
+		<slot name="icon" />
+	</div>
+	<input
+		id={id}
+		placeholder={placeholder}
+		type="text"
+		class="w-full rounded-md bg-navy-800 py-4 pr-5.5 pl-14.5 text-text-neutral placeholder:text-text-placeholder focus:outline-0"
+	/>
+</div>

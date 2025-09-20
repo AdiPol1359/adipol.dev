@@ -1,0 +1,58 @@
+<script>
+	import { POSTS_LIST_ID } from './posts-section/posts-section.constants';
+	import { SEARCH_INPUT_ID } from './search-form/search-form.constants';
+	import { TAGS_LIST_ID } from './tags-section/tags-section.constants';
+
+	const postsList = document.getElementById(POSTS_LIST_ID);
+	const tagsList = document.getElementById(TAGS_LIST_ID);
+	const searchInput = document.getElementById(SEARCH_INPUT_ID);
+
+	const posts = Array.from(postsList?.querySelectorAll('article') ?? []);
+	const tags = Array.from(tagsList?.querySelectorAll('div') ?? []);
+
+	const synchronizePostsList = (newPosts: HTMLElement[]) => {
+		if (!postsList) return;
+
+		postsList.innerHTML = '';
+
+		newPosts.forEach(post => {
+			const li = document.createElement('li');
+
+			li.appendChild(post);
+			postsList.appendChild(li);
+		});
+	};
+
+	searchInput?.addEventListener('input', ({ target }) => {
+		if (!(target instanceof HTMLInputElement)) return;
+
+		const value = target.value.toLowerCase();
+
+		const filteredPosts = posts.filter(post => {
+			const title = post.getAttribute('data-title')?.toLowerCase() ?? '';
+			const introduction =
+				post.getAttribute('data-introduction')?.toLowerCase() ?? '';
+
+			return title.includes(value) || introduction.includes(value);
+		});
+
+		synchronizePostsList(filteredPosts);
+	});
+
+	tagsList?.addEventListener('input', () => {
+		const selectedTags = tags
+			.filter(tag => tag.querySelector('input')?.checked)
+			.map(tag => tag.getAttribute('data-label')?.toLowerCase() ?? '');
+
+		const filteredPostsByTags = posts.filter(post => {
+			const tagsAttribute = post.getAttribute('data-tags') ?? '';
+			const tags = tagsAttribute.split(',');
+
+			return tags.some(tag => selectedTags.includes(tag.toLowerCase()));
+		});
+
+		const filteredPosts = selectedTags.length ? filteredPostsByTags : posts;
+
+		synchronizePostsList(filteredPosts);
+	});
+</script>

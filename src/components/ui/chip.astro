@@ -1,0 +1,21 @@
+---
+import { randomUUID } from 'node:crypto';
+
+interface Props {
+	readonly label: string;
+}
+
+const { label } = Astro.props;
+
+const id = randomUUID();
+---
+
+<div data-label={label}>
+	<input id={id} type="checkbox" class="peer sr-only" />
+	<label
+		for={id}
+		class="block cursor-pointer rounded-md bg-navy-800 px-5 py-1.5 text-text-neutral transition-colors duration-75 select-none peer-checked:bg-brand-secondary"
+	>
+		{label}
+	</label>
+</div>

@@ -1,8 +1,8 @@
 ---
+import { PostCard } from '@/components/blocks';
 import { getAllPosts } from '@/lib/posts';
 
 import LatestPostsSectionListEmptySpaceCard from './latest-posts-section-list-empty-space-card.astro';
-import LatestPostsSectionListPostCard from './latest-posts-section-list-post-card.astro';
 
 const LATEST_POSTS_LIMIT = 3;
 
@@ -20,7 +20,7 @@ const emptySpaces = Array.from({
 	{
 		latestPosts.map(post => (
 			<li>
-				<LatestPostsSectionListPostCard post={post} />
+				<PostCard post={post} />
 			</li>
 		))
 	}

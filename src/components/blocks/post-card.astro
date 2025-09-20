@@ -19,11 +19,16 @@ interface Props {
 }
 
 const {
-	post: { introduction, thumbnail, title, slug },
+	post: { introduction, tags, thumbnail, title, slug },
 } = Astro.props;
 ---
 
-<Card as="article">
+<Card
+	as="article"
+	data-tags={tags.join(',')}
+	data-title={title}
+	data-introduction={introduction}
+>
 	<CardInset>
 		<Image
 			alt={title}
