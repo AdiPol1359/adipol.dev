@@ -12,15 +12,15 @@ interface Props {
 }
 
 const {
-	recommendation: { content, linkedIn, name, photo, position },
+	recommendation: { content, fullName, linkedInUrl, photo, position },
 } = Astro.props;
 ---
 
 <Paper as="article" class="relative space-y-4">
 	<RecommendationsSectionItemsRecommendationDecoration />
 	<RecommendationsSectionItemsRecommendationHeader
-		linkedIn={linkedIn}
-		name={name}
+		fullName={fullName}
+		linkedInUrl={linkedInUrl}
 		photo={photo}
 		position={position}
 	/>

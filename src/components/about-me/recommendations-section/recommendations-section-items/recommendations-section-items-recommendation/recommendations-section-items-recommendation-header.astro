@@ -6,14 +6,17 @@ import { Heading } from '@/components/ui';
 
 import type { Recommendation } from '@/types/recommendation';
 
-type Props = Pick<Recommendation, 'linkedIn' | 'name' | 'photo' | 'position'>;
+type Props = Pick<
+	Recommendation,
+	'fullName' | 'linkedInUrl' | 'photo' | 'position'
+>;
 
-const { linkedIn, name, photo, position } = Astro.props;
+const { fullName, linkedInUrl, photo, position } = Astro.props;
 ---
 
 <header class="relative flex items-center gap-x-4">
 	<Image
-		alt={name}
+		alt={fullName}
 		layout="fixed"
 		src={photo}
 		width={60}
@@ -23,11 +26,11 @@ const { linkedIn, name, photo, position } = Astro.props;
 	<div>
 		<div class="flex items-center gap-x-1">
 			<Heading as="h3" size="h4">
-				{name}
+				{fullName}
 			</Heading>
 			<a
 				aria-label="LinkedIn"
-				href={linkedIn}
+				href={linkedInUrl}
 				target="_blank"
 				class="text-4.5 text-icon-secondary/80 transition-colors hover:text-icon-secondary"
 			>

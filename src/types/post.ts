@@ -1,6 +1,6 @@
 import type { ImageMetadata } from 'astro';
 
-export interface PostSource {
+interface PostSource {
 	readonly title: string;
 	readonly url: string;
 }
