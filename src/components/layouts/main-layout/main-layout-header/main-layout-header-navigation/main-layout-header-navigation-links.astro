@@ -1,0 +1,29 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+const NAVIGATION_LINKS = [
+	{ name: 'Posty', pathname: '/posty' },
+	{ name: 'Projekty', pathname: '/projekty' },
+	{ name: 'O mnie', pathname: '/o-mnie' },
+];
+
+const isActive = (pathname: string) => Astro.url.pathname.includes(pathname);
+---
+
+<ul class="text-center laptop:flex laptop:gap-x-10">
+	{
+		NAVIGATION_LINKS.map(({ name, pathname }) => (
+			<li class="after:mx-auto after:my-5 after:block after:h-0.5 after:w-4 after:bg-border-primary last:after:hidden laptop:after:hidden">
+				<a
+					href={pathname}
+					class={twMerge(
+						'text-link-primary transition-colors hover:text-link-active',
+						isActive(pathname) && 'text-link-active',
+					)}
+				>
+					{name}
+				</a>
+			</li>
+		))
+	}
+</ul>

@@ -1,13 +1,13 @@
 ---
 import { NAVIGATION_ID } from '../main-layout-header.constants';
 import MainLayoutHeaderNavigationContactButton from './main-layout-header-navigation-contact-button.astro';
-import MainLayoutHeaderNavigationItems from './main-layout-header-navigation-items.astro';
+import MainLayoutHeaderNavigationLinks from './main-layout-header-navigation-links.astro';
 ---
 
 <nav
 	id={NAVIGATION_ID}
-	class="invisible absolute top-full left-0 z-50 flex w-full flex-col gap-y-6 rounded-xl border-2 border-border-primary/60 bg-surface-primary p-4 opacity-0 transition-all data-[expanded=true]:visible data-[expanded=true]:translate-y-2 data-[expanded=true]:opacity-100 laptop:visible laptop:static laptop:top-0 laptop:w-auto laptop:translate-y-0 laptop:flex-row laptop:items-center laptop:gap-x-12 laptop:border-none laptop:bg-transparent laptop:p-0 laptop:opacity-100 laptop:transition-none"
+	class="invisible absolute inset-x-0 top-full z-50 flex flex-col gap-y-6 rounded-xl border-2 border-border-primary/60 bg-surface-primary p-4 opacity-0 transition-all data-[expanded=true]:visible data-[expanded=true]:translate-y-2 data-[expanded=true]:opacity-100 laptop:visible laptop:static laptop:!translate-y-0 laptop:flex-row laptop:items-center laptop:gap-x-12 laptop:border-none laptop:bg-transparent laptop:p-0 laptop:opacity-100 laptop:transition-none"
 >
-	<MainLayoutHeaderNavigationItems />
+	<MainLayoutHeaderNavigationLinks />
 	<MainLayoutHeaderNavigationContactButton />
 </nav>
