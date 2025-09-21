@@ -1,8 +1,9 @@
 ---
 import { Container } from '@/components/ui';
 
-import MainLayoutHeaderHomePageLink from './main-layout-header-home-page-link.astro';
+import MainLayoutHeaderHomePageAvatar from './main-layout-header-home-page-avatar.astro';
 import MainLayoutHeaderNavigation from './main-layout-header-navigation/main-layout-header-navigation.astro';
+import MainLayoutHeaderScript from './main-layout-header-script.astro';
 import MainLayoutHeaderToggleButton from './main-layout-header-toggle-button.astro';
 ---
 
@@ -10,36 +11,8 @@ import MainLayoutHeaderToggleButton from './main-layout-header-toggle-button.ast
 	as="header"
 	class="relative z-10 mb-14 flex items-center justify-between"
 >
-	<MainLayoutHeaderHomePageLink />
+	<MainLayoutHeaderHomePageAvatar />
 	<MainLayoutHeaderNavigation />
 	<MainLayoutHeaderToggleButton />
 </Container>
-
-<script>
-	import {
-		NAVIGATION_ID,
-		TOGGLE_BUTTON_ID,
-	} from './main-layout-header.constants';
-
-	const navigation = document.getElementById(NAVIGATION_ID);
-	const toggleButton = document.getElementById(TOGGLE_BUTTON_ID);
-
-	let isExpanded = false;
-
-	const synchronizeState = () => {
-		const expandedValue = isExpanded.toString();
-		const labelValue = isExpanded ? 'Zamknij menu' : 'Otwórz menu';
-
-		navigation?.setAttribute('data-expanded', expandedValue);
-		toggleButton?.setAttribute('aria-expanded', expandedValue);
-		toggleButton?.setAttribute('aria-label', labelValue);
-	};
-
-	toggleButton?.addEventListener('click', () => {
-		isExpanded = !isExpanded;
-
-		synchronizeState();
-	});
-
-	synchronizeState();
-</script>
+<MainLayoutHeaderScript />

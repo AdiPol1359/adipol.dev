@@ -1,17 +1,17 @@
 ---
 import PoweredByVercel from '@/assets/svgs/powered-by-vercel.svg';
 
-const gitCommitRef = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_REF;
-const gitCommitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA;
+const commitRef = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_REF;
+const commitSha = import.meta.env.PUBLIC_VERCEL_GIT_COMMIT_SHA;
 ---
 
 <div
 	class="flex flex-col items-center gap-y-3 laptop:relative laptop:items-end"
 >
 	{
-		gitCommitRef && gitCommitSha && (
+		commitRef && commitSha && (
 			<p class="text-center break-all text-text-tertiary">
-				{gitCommitRef} | {gitCommitSha}
+				{commitRef} | {commitSha}
 			</p>
 		)
 	}
