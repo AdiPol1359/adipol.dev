@@ -1,6 +1,7 @@
 ---
 import { cva } from 'cva';
 
+import type { HTMLTag, Polymorphic } from 'astro/types';
 import type { VariantProps } from 'cva';
 
 const heading = cva({
@@ -19,20 +20,20 @@ const heading = cva({
 	},
 });
 
-interface Props
-	extends Required<Omit<VariantProps<typeof heading>, 'withShadow'>> {
-	readonly as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-	readonly shadow?: string;
-}
+type Props<T extends HTMLTag> = Readonly<{
+	shadow?: string;
+}> &
+	Polymorphic<{ as: T }> &
+	Required<Omit<VariantProps<typeof heading>, 'withShadow'>>;
 
-const { as, shadow, size } = Astro.props;
+const { as, shadow, size } = Astro.props as Props<'h1'>;
 
 const Tag = as ?? size;
 ---
 
 <Tag
-	style={{ ...(shadow && { '--shadow': `'${shadow}'/''` }) }}
 	class={heading({ size, withShadow: Boolean(shadow) })}
+	style={{ ...(shadow && { '--shadow': `'${shadow}'/''` }) }}
 >
 	<slot />
 </Tag>
