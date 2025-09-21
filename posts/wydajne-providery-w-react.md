@@ -1,5 +1,4 @@
 ---
-slug: wydajne-providery-w-react
 date: 2023-11-11
 thumbnail: '../src/assets/images/thumbnails/wydajne-providery-w-react.png'
 title: Wydajne providery w React.js 🔥
