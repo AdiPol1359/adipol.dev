@@ -3,7 +3,7 @@ import DiscordCloneThumbnail from '@/assets/images/projects/discord-clone.png';
 import HappyShopThumbnail from '@/assets/images/projects/happy-shop.png';
 import ImpressoStudioThumbnail from '@/assets/images/projects/impresso-studio.png';
 import MobiusThumbnail from '@/assets/images/projects/mobius.png';
-import NodeJSMinecraftItemShop from '@/assets/images/projects/nodejs-minecraft-itemshop.png';
+import NodeJSMinecraftItemShopThumbnail from '@/assets/images/projects/nodejs-minecraft-itemshop.png';
 import NoodlyThumbnail from '@/assets/images/projects/noodly.png';
 import PicstagramThumbnail from '@/assets/images/projects/picstagram.png';
 
@@ -60,7 +60,7 @@ export const projects: Project[] = [
 		url: 'https://github.com/AdiPol1359/Happy-Shop',
 	},
 	{
-		thumbnail: NodeJSMinecraftItemShop,
+		thumbnail: NodeJSMinecraftItemShopThumbnail,
 		title: 'NodeJS Minecraft ItemShop',
 		description:
 			'Strona internetowa dedykowana serwerom Minecraft, oferująca sklep z przedmiotami oraz zintegrowany system płatności LVL UP.',
