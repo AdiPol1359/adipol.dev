@@ -46,9 +46,9 @@ interface Props
 	readonly type: keyof typeof TYPES;
 }
 
-const { type, ...props } = Astro.props;
+const { type, ...variants } = Astro.props;
 
 const ArrowComponent = TYPES[type];
 ---
 
-<ArrowComponent aria-hidden class={arrow(props)} />
+<ArrowComponent aria-hidden class={arrow(variants)} />
