@@ -2,14 +2,14 @@
 import { Container } from '@/components/ui';
 
 import HeroSectionAboutMe from './hero-section-about-me.astro';
-import HeroSectionAvatar from './hero-section-avatar/hero-section-avatar.astro';
 import HeroSectionDecorations from './hero-section-decorations.astro';
+import HeroSectionImage from './hero-section-image/hero-section-image.astro';
 import HeroSectionIntro from './hero-section-intro/hero-section-intro.astro';
 ---
 
-<section class="laptop:relative laptop:-mt-39 laptop:h-screen laptop:min-h-180">
+<section class="laptop:relative laptop:-mt-39 laptop:h-dvh laptop:min-h-180">
 	<Container class="laptop:flex laptop:h-full laptop:items-center">
-		<HeroSectionAvatar />
+		<HeroSectionImage />
 		<HeroSectionIntro />
 		<HeroSectionAboutMe />
 	</Container>

@@ -1,0 +1,32 @@
+---
+import { ArrowDown } from '@/components/icons';
+import { Emoji } from '@/components/ui';
+---
+
+<div
+	class="hidden laptop:absolute laptop:inset-x-0 laptop:-bottom-50 laptop:block laptop:space-y-6 laptop:text-center laptop:text-text-neutral"
+>
+	<p class="text-lg text-nowrap">
+		<Emoji type="💎" /> Odkryj więcej na dole <Emoji type="💎" />
+	</p>
+	<button
+		aria-label="Odkryj więcej"
+		id="hero-section-discover-more-button"
+		type="button"
+		class="animate-bounce cursor-pointer text-6.5"
+	>
+		<ArrowDown />
+	</button>
+</div>
+
+<script>
+	const DISCOVER_MORE_BUTTON_ID = 'hero-section-discover-more-button';
+	const SCROLL_INTO_ELEMENT_ID = 'latest-posts-section';
+
+	const discoverMoreButton = document.getElementById(DISCOVER_MORE_BUTTON_ID);
+	const scrollIntoElement = document.getElementById(SCROLL_INTO_ELEMENT_ID);
+
+	discoverMoreButton?.addEventListener('click', () => {
+		scrollIntoElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+	});
+</script>
