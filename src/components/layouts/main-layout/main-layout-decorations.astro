@@ -1,6 +1,10 @@
 ---
 import { Lines, Wave, Waves } from '@/components/decorations';
 
+interface Props {
+	readonly withBottomWave: boolean;
+}
+
 const BASE_WRAPPER_STYLES =
 	'pointer-events-none absolute inset-x-0 flex justify-center overflow-hidden select-none';
 ---
@@ -13,6 +17,10 @@ const BASE_WRAPPER_STYLES =
 	<Waves class="w-full min-w-400" />
 </div>
 
-<div class:list={[BASE_WRAPPER_STYLES, 'top-3/5']}>
-	<Wave class="w-full min-w-450" />
-</div>
+{
+	Astro.props.withBottomWave && (
+		<div class:list={[BASE_WRAPPER_STYLES, 'top-3/5']}>
+			<Wave class="w-full min-w-450" />
+		</div>
+	)
+}

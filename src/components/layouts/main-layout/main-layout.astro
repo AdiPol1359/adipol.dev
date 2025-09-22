@@ -12,6 +12,12 @@ import '@fontsource/poppins/800.css';
 import '@fontsource-variable/fira-code';
 
 import '@/assets/styles/global.css';
+
+interface Props {
+	readonly withBottomWave?: boolean;
+}
+
+const { withBottomWave = true } = Astro.props;
 ---
 
 <html lang="pl-PL">
@@ -26,7 +32,7 @@ import '@/assets/styles/global.css';
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	</head>
 	<body class="relative bg-surface-tertiary px-4 pt-4 laptop:pt-10">
-		<MainLayoutDecorations />
+		<MainLayoutDecorations withBottomWave={withBottomWave} />
 		<MainLayoutHeader />
 		<MainLayoutContentWrapper>
 			<slot />

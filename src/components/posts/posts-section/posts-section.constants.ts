@@ -1,1 +1,1 @@
-export const POSTS_LIST_ID = 'posts-list';
+export const POSTS_SECTION_LIST_ID = 'posts-section-list';

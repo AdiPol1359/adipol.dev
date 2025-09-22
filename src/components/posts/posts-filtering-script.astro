@@ -1,29 +1,29 @@
 <script>
-	import { POSTS_LIST_ID } from './posts-section/posts-section.constants';
-	import { SEARCH_INPUT_ID } from './search-form/search-form.constants';
-	import { TAGS_LIST_ID } from './tags-section/tags-section.constants';
+	import { POSTS_SECTION_LIST_ID } from './posts-section/posts-section.constants';
+	import { SEARCH_FORM_INPUT_ID } from './search-form/search-form.constants';
+	import { TAGS_SECTION_LIST_ID } from './tags-section/tags-section.constants';
 
-	const postsList = document.getElementById(POSTS_LIST_ID);
-	const tagsList = document.getElementById(TAGS_LIST_ID);
-	const searchInput = document.getElementById(SEARCH_INPUT_ID);
+	const postsSectionList = document.getElementById(POSTS_SECTION_LIST_ID);
+	const tagsSectionList = document.getElementById(TAGS_SECTION_LIST_ID);
+	const searchFormInput = document.getElementById(SEARCH_FORM_INPUT_ID);
 
-	const posts = Array.from(postsList?.querySelectorAll('article') ?? []);
-	const tags = Array.from(tagsList?.querySelectorAll('div') ?? []);
+	const posts = Array.from(postsSectionList?.querySelectorAll('article') ?? []);
+	const tags = Array.from(tagsSectionList?.querySelectorAll('div') ?? []);
 
 	const synchronizePostsList = (newPosts: HTMLElement[]) => {
-		if (!postsList) return;
+		if (!postsSectionList) return;
 
-		postsList.innerHTML = '';
+		postsSectionList.innerHTML = '';
 
 		newPosts.forEach(post => {
 			const li = document.createElement('li');
 
 			li.appendChild(post);
-			postsList.appendChild(li);
+			postsSectionList.appendChild(li);
 		});
 	};
 
-	searchInput?.addEventListener('input', ({ target }) => {
+	searchFormInput?.addEventListener('input', ({ target }) => {
 		if (!(target instanceof HTMLInputElement)) return;
 
 		const value = target.value.toLowerCase();
@@ -39,7 +39,7 @@
 		synchronizePostsList(filteredPosts);
 	});
 
-	tagsList?.addEventListener('input', () => {
+	tagsSectionList?.addEventListener('input', () => {
 		const selectedTags = tags
 			.filter(tag => tag.querySelector('input')?.checked)
 			.map(tag => tag.getAttribute('data-label')?.toLowerCase() ?? '');
