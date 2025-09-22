@@ -1,22 +1,22 @@
 ---
 import { PostCard } from '@/components/blocks';
-import { getAllPosts } from '@/lib/posts';
 
+import { LATEST_POSTS_LIMIT } from '../latest-posts-section.constants';
 import LatestPostsSectionListEmptySpaceCard from './latest-posts-section-list-empty-space-card.astro';
 
-const LATEST_POSTS_LIMIT = 3;
+import type { Post } from '@/types/post';
 
-const posts = await getAllPosts();
+interface Props {
+	readonly posts: Post[];
+}
 
-const latestPosts = posts.slice(0, LATEST_POSTS_LIMIT);
+const latestPosts = Astro.props.posts.slice(0, LATEST_POSTS_LIMIT);
 const emptySpaces = Array.from({
 	length: LATEST_POSTS_LIMIT - latestPosts.length,
 });
 ---
 
-<ol
-	class="mt-4 grid grid-cols-1 gap-4 tablet:mt-0 tablet:grid-cols-2 laptop:grid-cols-3"
->
+<ol class="grid grid-cols-1 gap-4 tablet:grid-cols-2 laptop:grid-cols-3">
 	{
 		latestPosts.map(post => (
 			<li>

@@ -1,13 +1,16 @@
 ---
 import { Container } from '@/components/ui';
+import { getAllPosts } from '@/lib/posts';
 
-import LatestPostsSectionFooter from './latest-posts-section-footer.astro';
+// import LatestPostsSectionFooter from './latest-posts-section-footer.astro';
 import LatestPostsSectionHeader from './latest-posts-section-header/latest-posts-section-header.astro';
 import LatestPostsSectionList from './latest-posts-section-list/latest-posts-section-list.astro';
+
+const posts = await getAllPosts();
 ---
 
 <Container as="section" id="latest-posts-section" class="mt-30">
 	<LatestPostsSectionHeader />
-	<LatestPostsSectionList />
-	<LatestPostsSectionFooter />
+	<LatestPostsSectionList posts={posts} />
+	<!-- <LatestPostsSectionFooter posts={posts} /> -->
 </Container>

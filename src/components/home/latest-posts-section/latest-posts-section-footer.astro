@@ -1,5 +1,15 @@
 ---
 import { Button } from '@/components/ui';
+
+import { LATEST_POSTS_LIMIT } from './latest-posts-section.constants';
+
+import type { Post } from '@/types/post';
+
+interface Props {
+	readonly posts: Post[];
+}
+
+const totalPosts = Astro.props.posts.length;
 ---
 
 <footer
@@ -7,12 +17,12 @@ import { Button } from '@/components/ui';
 >
 	<p class="max-w-121 text-center text-text-secondary laptop:text-start">
 		Ej ty! To nie wszystkie posty na moim blogu. Są tu tylko
-		<span class="text-text-neutral">3</span>
+		<span class="text-text-neutral">{LATEST_POSTS_LIMIT}</span>
 		z
-		<span class="text-text-neutral">25</span>. Kliknij w przycisk po lewej
-		stronie, aby zobaczyć wszystkie!
+		<span class="text-text-neutral">{totalPosts}</span>. Kliknij w przycisk, aby
+		zobaczyć wszystkie!
 	</p>
-	<Button color="brand" size="lg" variant="outline">
+	<Button as="a" href="/posty" color="brand" size="lg" variant="outline">
 		Zobacz wszystkie posty
 	</Button>
 </footer>
