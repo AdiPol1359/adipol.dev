@@ -4,7 +4,7 @@ import type { Post } from '@/types/post';
 
 const COLLECTION_NAME = 'posts';
 
-export const getAllPosts = async () => {
+export const getPosts = async () => {
 	const entries = await getCollection(COLLECTION_NAME);
 
 	const sortedEntries = entries.toSorted(
@@ -14,7 +14,8 @@ export const getAllPosts = async () => {
 	return sortedEntries.map<Post>(({ id, data }) => ({ slug: id, ...data }));
 };
 
-export const getPostsTags = (posts: Post[]) => {
+export const getTags = async () => {
+	const posts = await getPosts();
 	const tags = posts.flatMap(({ tags }) => tags).toSorted();
 
 	return [...new Set(tags)];

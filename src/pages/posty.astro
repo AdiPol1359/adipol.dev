@@ -8,10 +8,6 @@ import {
 	TagsSection,
 } from '@/components/posts';
 import { Container } from '@/components/ui';
-import { getAllPosts, getPostsTags } from '@/lib/posts';
-
-const posts = await getAllPosts();
-const tags = getPostsTags(posts);
 ---
 
 <MainLayout>
@@ -20,10 +16,10 @@ const tags = getPostsTags(posts);
 		<div class="flex flex-col gap-10 laptop:flex-row">
 			<div class="flex flex-col gap-y-inherit laptop:w-100">
 				<SearchForm />
-				<TagsSection tags={tags} />
+				<TagsSection />
 			</div>
-			<PostsSection posts={posts} />
+			<PostsSection />
 		</div>
 	</Container>
+	<PostsFilteringScript />
 </MainLayout>
-<PostsFilteringScript />

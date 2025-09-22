@@ -2,12 +2,12 @@
 import { MainLayout } from '@/components/layouts';
 import { PostComments, PostView } from '@/components/post';
 import { Container, Divider } from '@/components/ui';
-import { getAllPosts } from '@/lib/posts';
+import { getPosts } from '@/lib/posts';
 
 import type { Post } from '@/types/post';
 
 export const getStaticPaths = async () => {
-	const posts = await getAllPosts();
+	const posts = await getPosts();
 
 	return posts.map(post => ({ params: { slug: post.slug }, props: { post } }));
 };
