@@ -6,12 +6,13 @@ import { Heading } from '@/components/ui';
 
 import type { Recommendation } from '@/types/recommendation';
 
-type Props = Pick<
-	Recommendation,
-	'fullName' | 'linkedInUrl' | 'photo' | 'position'
->;
+interface Props {
+	readonly recommendation: Recommendation;
+}
 
-const { fullName, linkedInUrl, photo, position } = Astro.props;
+const {
+	recommendation: { fullName, linkedInUrl, photo, position },
+} = Astro.props;
 ---
 
 <header class="relative flex items-center gap-x-4">

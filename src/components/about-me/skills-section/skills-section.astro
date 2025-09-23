@@ -1,9 +1,21 @@
 ---
-import SkillsSectionItems from './skills-section-items/skills-section-items.astro';
-import SkillsSectionTitle from './skills-section-title.astro';
+import { Emoji, Heading } from '@/components/ui';
+import { skills } from '@/data/skills';
+
+import SkillsSectionSkill from './skills-section-skill.astro';
 ---
 
 <section class="space-y-7 laptop:space-y-9">
-	<SkillsSectionTitle />
-	<SkillsSectionItems />
+	<Heading size="h2" shadow="Moje umiejętności">
+		Moje umiejętności <Emoji type="🤙🏻" />
+	</Heading>
+	<ul class="grid grid-cols-auto-13 gap-2.5">
+		{
+			skills.map(skill => (
+				<li>
+					<SkillsSectionSkill skill={skill} />
+				</li>
+			))
+		}
+	</ul>
 </section>
