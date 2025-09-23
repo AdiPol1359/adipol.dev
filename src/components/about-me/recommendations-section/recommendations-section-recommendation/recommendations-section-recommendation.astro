@@ -1,0 +1,23 @@
+---
+import { Paper } from '@/components/ui';
+
+import RecommendationsSectionRecommendationContent from './recommendations-section-recommendation-content.astro';
+import RecommendationsSectionRecommendationDecoration from './recommendations-section-recommendation-decoration.astro';
+import RecommendationsSectionRecommendationHeader from './recommendations-section-recommendation-header.astro';
+
+import type { Recommendation } from '@/types/recommendation';
+
+interface Props {
+	readonly recommendation: Recommendation;
+}
+
+const { recommendation } = Astro.props;
+---
+
+<Paper as="article" class="relative space-y-4">
+	<RecommendationsSectionRecommendationDecoration />
+	<RecommendationsSectionRecommendationHeader recommendation={recommendation} />
+	<RecommendationsSectionRecommendationContent
+		content={recommendation.content}
+	/>
+</Paper>

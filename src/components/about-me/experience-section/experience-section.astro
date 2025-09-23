@@ -1,9 +1,21 @@
 ---
-import ExperienceSectionTimeline from './experience-section-timeline/experience-section-timeline.astro';
-import ExperienceSectionTitle from './experience-section-title.astro';
+import { Emoji, Heading, Timeline } from '@/components/ui';
+import { experiences } from '@/data/experiences';
+
+import ExperienceSectionExperience from './experience-section-experience.astro';
 ---
 
 <section class="space-y-7 laptop:space-y-9">
-	<ExperienceSectionTitle />
-	<ExperienceSectionTimeline />
+	<Heading size="h2" shadow="Moje doświadczenie">
+		Moje doświadczenie <Emoji type="💎" />
+	</Heading>
+	<div class="laptop:sticky laptop:top-4">
+		<Timeline>
+			{
+				experiences.map(experience => (
+					<ExperienceSectionExperience experience={experience} />
+				))
+			}
+		</Timeline>
+	</div>
 </section>

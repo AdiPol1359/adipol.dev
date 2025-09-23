@@ -1,9 +1,23 @@
 ---
-import RecommendationsSectionItems from './recommendations-section-items/recommendations-section-items.astro';
-import RecommendationsSectionTitle from './recommendations-section-title.astro';
+import { Emoji, Heading } from '@/components/ui';
+import { recommendations } from '@/data/recommendations';
+
+import RecommendationsSectionRecommendation from './recommendations-section-recommendation/recommendations-section-recommendation.astro';
 ---
 
 <section class="space-y-7 laptop:flex-1 laptop:space-y-9">
-	<RecommendationsSectionTitle />
-	<RecommendationsSectionItems />
+	<Heading size="h2" shadow="Moje rekomendacje">
+		Moje rekomendacje <Emoji type="🎉" />
+	</Heading>
+	<ol class="space-y-4">
+		{
+			recommendations.map(recommendation => (
+				<li>
+					<RecommendationsSectionRecommendation
+						recommendation={recommendation}
+					/>
+				</li>
+			))
+		}
+	</ol>
 </section>
