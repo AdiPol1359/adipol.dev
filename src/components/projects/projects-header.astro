@@ -3,12 +3,12 @@ import { PageHeader } from '@/components/blocks';
 import { Statistics, StatisticsItem } from '@/components/ui';
 import { projects } from '@/data/projects';
 
-const projectsNumber = projects.length;
+const totalProjects = projects.length;
 ---
 
 <PageHeader title="Moje projekty">
 	<Statistics slot="additionalSection">
 		<StatisticsItem baseAlign="left" name="Commitów" value={23_453} />
-		<StatisticsItem baseAlign="left" name="Projektów" value={projectsNumber} />
+		<StatisticsItem baseAlign="left" name="Projektów" value={totalProjects} />
 	</Statistics>
 </PageHeader>

@@ -11,7 +11,7 @@ interface Props {
 }
 
 const {
-	project: { thumbnail, title, description, url },
+	project: { description, thumbnail, title, url },
 } = Astro.props;
 ---
 
@@ -31,7 +31,7 @@ const {
 			<Heading as="h2" size="h4">{title}</Heading>
 			<p class="text-text-primary">{description}</p>
 			<div class="mt-auto w-fit">
-				<Button as="a" color="brand" size="sm" href={url} target="_blank">
+				<Button as="a" href={url} target="_blank" color="brand" size="sm">
 					Zobacz projekt <ArrowRightUp />
 				</Button>
 			</div>
