@@ -3,9 +3,11 @@ import { Button, Emoji, Heading, Paper } from '@/components/ui';
 
 import type { Post } from '@/types/post';
 
-type Props = Pick<Post, 'slug'>;
+interface Props {
+	readonly post: Pick<Post, 'slug'>;
+}
 
-const url = `https://github.com/AdiPol1359/adipol.dev/blob/main/posts/${Astro.props.slug}.md`;
+const CONTENT_URL = `https://github.com/AdiPol1359/adipol.dev/blob/main/posts/${Astro.props.post.slug}.md`;
 ---
 
 <Paper
@@ -19,11 +21,10 @@ const url = `https://github.com/AdiPol1359/adipol.dev/blob/main/posts/${Astro.pr
 	<div class="w-full max-w-76">
 		<Button
 			as="a"
-			color="brand"
-			fullWidth
-			variant="outline"
 			target="_blank"
-			href={url}
+			href={CONTENT_URL}
+			color="brand"
+			variant="outline"
 		>
 			Edytuj ten post na GitHubie!
 		</Button>

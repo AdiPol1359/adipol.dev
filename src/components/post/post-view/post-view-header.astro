@@ -5,11 +5,15 @@ import { Heading } from '@/components/ui';
 
 import type { Post } from '@/types/post';
 
-type Props = Pick<Post, 'date' | 'thumbnail' | 'title'>;
+interface Props {
+	readonly post: Pick<Post, 'date' | 'thumbnail' | 'title'>;
+}
 
-const { date, thumbnail, title } = Astro.props;
+const {
+	post: { date, thumbnail, title },
+} = Astro.props;
 
-const datetime = date.toISOString();
+const isoDate = date.toISOString();
 const formattedDate = date.toLocaleDateString('pl-PL', {
 	day: 'numeric',
 	month: 'long',
@@ -18,7 +22,7 @@ const formattedDate = date.toLocaleDateString('pl-PL', {
 ---
 
 <header class="text-center">
-	<time datetime={datetime} class="text-text-secondary">
+	<time datetime={isoDate} class="text-text-secondary">
 		<span class="sr-only">Post został dodany</span>
 		{formattedDate}
 	</time>

@@ -1,7 +1,7 @@
 ---
 import { MainLayout } from '@/components/layouts';
 import { PostComments, PostView } from '@/components/post';
-import { Container, Divider } from '@/components/ui';
+import { Container } from '@/components/ui';
 import { getPosts } from '@/lib/posts';
 
 import type { Post } from '@/types/post';
@@ -22,7 +22,6 @@ const { post } = Astro.props;
 <MainLayout>
 	<Container class="flex flex-col gap-y-14">
 		<PostView post={post} />
-		<Divider />
 		<PostComments post={post} />
 	</Container>
 </MainLayout>

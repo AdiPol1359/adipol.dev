@@ -18,6 +18,6 @@ const { recommendation } = Astro.props;
 	<RecommendationsSectionRecommendationDecoration />
 	<RecommendationsSectionRecommendationHeader recommendation={recommendation} />
 	<RecommendationsSectionRecommendationContent
-		content={recommendation.content}
+		recommendation={recommendation}
 	/>
 </Paper>

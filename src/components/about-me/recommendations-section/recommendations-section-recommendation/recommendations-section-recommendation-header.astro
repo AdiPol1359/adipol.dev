@@ -7,7 +7,7 @@ import { Heading } from '@/components/ui';
 import type { Recommendation } from '@/types/recommendation';
 
 interface Props {
-	readonly recommendation: Recommendation;
+	readonly recommendation: Omit<Recommendation, 'content'>;
 }
 
 const {
