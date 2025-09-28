@@ -1,9 +1,11 @@
 ---
+import type { Recommendation } from '@/types/recommendation';
+
 interface Props {
-	readonly content: string;
+	readonly recommendation: Pick<Recommendation, 'content'>;
 }
 ---
 
 <p class="relative whitespace-pre-line text-text-primary">
-	{Astro.props.content}
+	{Astro.props.recommendation.content}
 </p>

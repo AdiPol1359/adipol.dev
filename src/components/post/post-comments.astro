@@ -2,7 +2,7 @@
 import type { Post } from '@/types/post';
 
 interface Props {
-	readonly post: Post;
+	readonly post: Pick<Post, 'title'>;
 }
 
 const {

@@ -3,9 +3,11 @@ import { getPostContentBySlug } from '@/lib/posts';
 
 import type { Post } from '@/types/post';
 
-type Props = Pick<Post, 'slug'>;
+interface Props {
+	readonly post: Pick<Post, 'slug'>;
+}
 
-const Content = await getPostContentBySlug(Astro.props.slug);
+const Content = await getPostContentBySlug(Astro.props.post.slug);
 ---
 
 <section
