@@ -14,7 +14,10 @@ const posts = await getPosts();
 		{
 			posts.map(post => (
 				<li>
-					<PostCard post={post} />
+					<PostCard
+						post={post}
+						thumbnailProps={{ sizes: '(min-width: 1024px) 378px, 100vw' }}
+					/>
 				</li>
 			))
 		}
