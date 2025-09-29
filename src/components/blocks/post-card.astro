@@ -12,14 +12,18 @@ import {
 	IconButton,
 } from '@/components/ui';
 
+import type { LocalImageProps } from 'astro:assets';
+
 import type { Post } from '@/types/post';
 
 interface Props {
 	readonly post: Post;
+	readonly thumbnailProps?: Pick<LocalImageProps, 'sizes'>;
 }
 
 const {
 	post: { introduction, tags, thumbnail, title, slug },
+	thumbnailProps,
 } = Astro.props;
 ---
 
@@ -37,6 +41,7 @@ const {
 			width={600}
 			height={315}
 			class="size-full object-cover"
+			{...thumbnailProps}
 		/>
 	</CardInset>
 	<CardContent>
