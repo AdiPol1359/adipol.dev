@@ -2,6 +2,8 @@
 
 @plugin '@tailwindcss/typography';
 
+@custom-variant hover (&:hover);
+
 @theme {
 	--breakpoint-*: initial;
 	--breakpoint-tablet: 40rem;
