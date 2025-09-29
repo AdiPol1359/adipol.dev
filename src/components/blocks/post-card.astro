@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 
 import { ArrowRightUp, Share } from '@/components/icons';
 import {
+	Badge,
 	Button,
 	Card,
 	CardContent,
@@ -19,11 +20,13 @@ import type { Post } from '@/types/post';
 interface Props {
 	readonly post: Post;
 	readonly thumbnailProps?: Pick<LocalImageProps, 'sizes'>;
+	readonly withTags?: boolean;
 }
 
 const {
 	post: { introduction, tags, thumbnail, title, slug },
 	thumbnailProps,
+	withTags,
 } = Astro.props;
 ---
 
@@ -34,6 +37,20 @@ const {
 	data-introduction={introduction}
 >
 	<CardInset>
+		{
+			withTags && (
+				<ul
+					aria-label="Lista tagów"
+					class="absolute top-2 left-2 flex gap-x-2 laptop:top-4 laptop:left-4"
+				>
+					{tags.map(tag => (
+						<li>
+							<Badge>{tag}</Badge>
+						</li>
+					))}
+				</ul>
+			)
+		}
 		<Image
 			alt={title}
 			layout="constrained"

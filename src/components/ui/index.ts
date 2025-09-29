@@ -1,4 +1,5 @@
 export { default as Avatar } from './avatar.astro';
+export { default as Badge } from './badge.astro';
 export { default as Button } from './button.astro';
 export { default as Card } from './card/card.astro';
 export { default as CardContent } from './card/card-content.astro';
