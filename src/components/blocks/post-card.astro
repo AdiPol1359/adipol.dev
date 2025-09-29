@@ -39,7 +39,10 @@ const {
 	<CardInset>
 		{
 			withTags && (
-				<ul aria-label="Lista tagów" class="absolute top-4 left-4 flex gap-x-2">
+				<ul
+					aria-label="Lista tagów"
+					class="absolute top-2 left-2 flex gap-x-2 laptop:top-4 laptop:left-4"
+				>
 					{tags.map(tag => (
 						<li>
 							<Badge>{tag}</Badge>
