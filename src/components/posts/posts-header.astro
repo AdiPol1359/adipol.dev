@@ -1,5 +1,18 @@
 ---
 import { PageHeader } from '@/components/blocks';
+import { Statistics, StatisticsItem } from '@/components/ui';
+import { getPosts, getTags } from '@/lib/posts';
+
+const posts = await getPosts();
+const tags = await getTags();
+
+const totalPosts = posts.length;
+const totalTags = tags.length;
 ---
 
-<PageHeader title="Wszystkie posty" />
+<PageHeader title="Wszystkie posty">
+	<Statistics slot="additionalSection">
+		<StatisticsItem baseAlign="left" name="Postów" value={totalPosts} />
+		<StatisticsItem baseAlign="left" name="Tagów" value={totalTags} />
+	</Statistics>
+</PageHeader>
