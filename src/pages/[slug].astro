@@ -19,7 +19,7 @@ interface Props {
 const { post } = Astro.props;
 ---
 
-<MainLayout>
+<MainLayout pageTitle={post.title}>
 	<Container class="flex flex-col gap-y-14">
 		<PostView post={post} />
 		<PostComments post={post} />
