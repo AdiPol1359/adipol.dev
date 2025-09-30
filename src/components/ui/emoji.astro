@@ -5,6 +5,7 @@ import backhandIndexPointingLeft from '@/assets/images/emojis/backhand-index-poi
 import backhandIndexPointingRight from '@/assets/images/emojis/backhand-index-pointing-right.png';
 import books from '@/assets/images/emojis/books.png';
 import callMeHand from '@/assets/images/emojis/call-me-hand.png';
+import cryingFace from '@/assets/images/emojis/crying-face.png';
 import fire from '@/assets/images/emojis/fire.png';
 import gemStone from '@/assets/images/emojis/gem-stone.png';
 import graduationCap from '@/assets/images/emojis/graduation-cap.png';
@@ -22,6 +23,7 @@ const EMOJIS = {
 	'⌛️': hourglass,
 	'💻': laptop,
 	'🎉': partyPopper,
+	'😭': cryingFace,
 	'👈🏻': backhandIndexPointingLeft,
 	'👉🏻': backhandIndexPointingRight,
 	'🤙🏻': callMeHand,
@@ -30,10 +32,11 @@ const EMOJIS = {
 };
 
 interface Props {
+	readonly size?: number;
 	readonly type: keyof typeof EMOJIS;
 }
 
-const { type } = Astro.props;
+const { size = 32, type } = Astro.props;
 
 const emoji = EMOJIS[type];
 ---
@@ -43,7 +46,7 @@ const emoji = EMOJIS[type];
 	draggable={false}
 	layout="fixed"
 	src={emoji}
-	width={32}
-	height={32}
+	width={size}
+	height={size}
 	class="-mt-0.75 inline-block size-text"
 />

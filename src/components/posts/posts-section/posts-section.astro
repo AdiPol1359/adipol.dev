@@ -1,26 +1,11 @@
 ---
-import { PostCard } from '@/components/blocks';
-import { Heading } from '@/components/ui';
-import { getPosts } from '@/lib/posts';
-
-import { POSTS_SECTION_LIST_ID } from './posts-section.constants';
-
-const posts = await getPosts();
+import PostsSectionNoDataCard from './posts-section-no-data-card.astro';
+import PostsSectionPostsList from './posts-section-posts-list.astro';
+import PostsSectionTitle from './posts-section-title.astro';
 ---
 
-<section class="space-y-6 laptop:flex-1">
-	<Heading size="h2" shadow="Posty">Posty</Heading>
-	<ul id={POSTS_SECTION_LIST_ID} class="grid gap-4 laptop:grid-cols-2">
-		{
-			posts.map(post => (
-				<li>
-					<PostCard
-						post={post}
-						thumbnailProps={{ sizes: '(min-width: 1024px) 378px, 100vw' }}
-						withTags
-					/>
-				</li>
-			))
-		}
-	</ul>
+<section class="flex flex-col gap-y-6 laptop:flex-1">
+	<PostsSectionTitle />
+	<PostsSectionNoDataCard />
+	<PostsSectionPostsList />
 </section>

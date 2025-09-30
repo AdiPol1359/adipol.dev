@@ -1,0 +1,22 @@
+---
+import { PostCard } from '@/components/blocks';
+import { getPosts } from '@/lib/posts';
+
+import { POSTS_SECTION_POSTS_LIST_ID } from './posts-section.constants';
+
+const posts = await getPosts();
+---
+
+<ul id={POSTS_SECTION_POSTS_LIST_ID} class="grid gap-4 laptop:grid-cols-2">
+	{
+		posts.map(post => (
+			<li>
+				<PostCard
+					post={post}
+					thumbnailProps={{ sizes: '(min-width: 1024px) 378px, 100vw' }}
+					withTags
+				/>
+			</li>
+		))
+	}
+</ul>

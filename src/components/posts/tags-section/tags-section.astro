@@ -2,14 +2,14 @@
 import { Chip, Heading, Paper } from '@/components/ui';
 import { getTags } from '@/lib/posts';
 
-import { TAGS_SECTION_LIST_ID } from './tags-section.constants';
+import { TAGS_SECTION_TAGS_LIST_ID } from './tags-section.constants';
 
 const tags = await getTags();
 ---
 
 <Paper as="section" color="secondary" variant="outline" class="space-y-6">
 	<Heading size="h2" shadow="Tagi">Tagi</Heading>
-	<ul id={TAGS_SECTION_LIST_ID} class="flex flex-wrap gap-2">
+	<ul id={TAGS_SECTION_TAGS_LIST_ID} class="flex flex-wrap gap-2">
 		{
 			tags.map(tag => (
 				<li>
