@@ -1,1 +1,1 @@
-export const TAGS_SECTION_LIST_ID = 'tags-section-list';
+export const TAGS_SECTION_TAGS_LIST_ID = 'tags-section-tags-list';

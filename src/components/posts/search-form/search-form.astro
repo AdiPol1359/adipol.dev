@@ -2,12 +2,12 @@
 import { Search } from '@/components/icons';
 import { Heading, Input } from '@/components/ui';
 
-import { SEARCH_FORM_INPUT_ID } from './search-form.constants';
+import { SEARCH_FORM_SEARCH_INPUT_ID } from './search-form.constants';
 ---
 
 <form class="space-y-6">
 	<Heading size="h2" shadow="Wyszukaj">Wyszukaj</Heading>
-	<Input id={SEARCH_FORM_INPUT_ID} placeholder="Wyszukaj...">
+	<Input id={SEARCH_FORM_SEARCH_INPUT_ID} placeholder="Wyszukaj...">
 		<Search slot="icon" />
 	</Input>
 </form>

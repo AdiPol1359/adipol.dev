@@ -1,1 +1,1 @@
-export const SEARCH_FORM_INPUT_ID = 'search-form-input';
+export const SEARCH_FORM_SEARCH_INPUT_ID = 'search-form-search-input';
