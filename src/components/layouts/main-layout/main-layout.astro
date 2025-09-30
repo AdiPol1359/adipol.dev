@@ -14,15 +14,18 @@ import '@fontsource-variable/fira-code';
 import '@/assets/styles/global.css';
 
 interface Props {
+	readonly pageTitle?: string;
 	readonly withBottomWave?: boolean;
 }
 
-const { withBottomWave = true } = Astro.props;
+const { pageTitle, withBottomWave = true } = Astro.props;
+
+const title = [pageTitle, 'AdiPol Dev'].filter(Boolean).join(' | ');
 ---
 
 <html lang="pl-PL">
 	<head>
-		<title>AdiPol Dev</title>
+		<title>{title}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta
