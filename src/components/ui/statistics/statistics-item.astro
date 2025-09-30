@@ -25,6 +25,6 @@ const { name, value, ...variants } = Astro.props;
 ---
 
 <div class={statisticsItem(variants)}>
-	<dt class="text-text-secondary">{name}</dt>
+	<dt class="text-lg font-medium text-text-secondary">{name}</dt>
 	<dd class="text-xl font-semibold text-text-neutral">{value}</dd>
 </div>
