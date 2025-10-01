@@ -1,0 +1,77 @@
+---
+import banner from '@/assets/images/pages/banner.png';
+
+import type { HeadOptions } from './main-layout.types';
+
+interface Props {
+	readonly headOptions?: HeadOptions;
+}
+
+const { headOptions: { title, description, image, openGraph } = {} } =
+	Astro.props;
+
+const WEBSITE_NAME = 'AdiPol Dev';
+
+const TITLE = [title, WEBSITE_NAME].filter(Boolean).join(' | ');
+const DESCRIPTION =
+	description ??
+	'AdiPol.dev – Zanurz się w świat frontendu! Przestrzeń dla pasjonatów frontendu szukających inspiracji, wskazówek i wiedzy z zakresu tworzenia nowoczesnych aplikacji webowych.';
+
+const CANONICAL_URL = new URL(Astro.url.pathname, Astro.site);
+
+const THEME_COLOR = '#2d475f';
+
+const IMAGE_WIDTH = '1200';
+const IMAGE_HEIGHT = '630';
+const IMAGE_ALT = title ?? WEBSITE_NAME;
+const IMAGE_URL = new URL(image?.src ?? banner.src, Astro.url);
+
+const OG_LOCALE = 'pl_PL';
+const OG_TYPE = openGraph?.type ?? 'website';
+
+const TWITTER_CARD = 'summary_large_image';
+---
+
+<title>{TITLE}</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content={DESCRIPTION} />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="canonical" href={CANONICAL_URL} />
+
+<meta name="theme-color" content={THEME_COLOR} />
+
+<meta property="og:title" content={TITLE} />
+<meta property="og:description" content={DESCRIPTION} />
+<meta property="og:url" content={CANONICAL_URL} />
+<meta property="og:type" content={OG_TYPE} />
+<meta property="og:site_name" content={WEBSITE_NAME} />
+<meta property="og:locale" content={OG_LOCALE} />
+<meta property="og:image" content={IMAGE_URL} />
+<meta property="og:image:alt" content={IMAGE_ALT} />
+<meta property="og:image:width" content={IMAGE_WIDTH} />
+<meta property="og:image:height" content={IMAGE_HEIGHT} />
+{
+	openGraph?.type === 'article' && (
+		<>
+			<meta property="article:author" content={openGraph.author} />
+			<meta
+				property="article:published_time"
+				content={openGraph.publishedTime.toISOString().split('T')[0]}
+			/>
+			{openGraph.tags.map(tag => (
+				<meta property="article:tag" content={tag} />
+			))}
+		</>
+	)
+}
+
+<meta name="twitter:card" content={TWITTER_CARD} />
+<meta name="twitter:title" content={TITLE} />
+<meta name="twitter:description" content={DESCRIPTION} />
+<meta name="twitter:image" content={IMAGE_URL} />
+<meta name="twitter:image:alt" content={IMAGE_ALT} />
+<meta name="twitter:image:width" content={IMAGE_WIDTH} />
+<meta name="twitter:image:height" content={IMAGE_HEIGHT} />
