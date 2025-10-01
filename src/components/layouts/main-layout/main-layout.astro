@@ -2,7 +2,10 @@
 import MainLayoutContentWrapper from './main-layout-content-wrapper.astro';
 import MainLayoutDecorations from './main-layout-decorations.astro';
 import MainLayoutFooter from './main-layout-footer/main-layout-footer.astro';
+import MainLayoutHeadTags from './main-layout-head-tags.astro';
 import MainLayoutHeader from './main-layout-header/main-layout-header.astro';
+
+import type { HeadOptions } from './main-layout.types';
 
 import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/500.css';
@@ -14,25 +17,16 @@ import '@fontsource-variable/fira-code';
 import '@/assets/styles/global.css';
 
 interface Props {
-	readonly pageTitle?: string;
+	readonly headOptions?: HeadOptions;
 	readonly withBottomWave?: boolean;
 }
 
-const { pageTitle, withBottomWave = true } = Astro.props;
-
-const title = [pageTitle, 'AdiPol Dev'].filter(Boolean).join(' | ');
+const { headOptions, withBottomWave = true } = Astro.props;
 ---
 
 <html lang="pl-PL">
 	<head>
-		<title>{title}</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta
-			name="description"
-			content="AdiPol.dev – Zanurz się w świat frontendu! Przestrzeń dla pasjonatów frontendu szukających inspiracji, wskazówek i wiedzy z zakresu tworzenia nowoczesnych aplikacji webowych."
-		/>
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<MainLayoutHeadTags headOptions={headOptions} />
 	</head>
 	<body class="relative bg-surface-tertiary px-4 pt-4 laptop:pt-10">
 		<MainLayoutDecorations withBottomWave={withBottomWave} />

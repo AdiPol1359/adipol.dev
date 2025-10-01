@@ -17,9 +17,23 @@ interface Props {
 }
 
 const { post } = Astro.props;
+
+const POST_AUTHOR = 'Adrian Polak';
 ---
 
-<MainLayout pageTitle={post.title}>
+<MainLayout
+	headOptions={{
+		title: post.title,
+		description: post.introduction,
+		image: post.thumbnail,
+		openGraph: {
+			type: 'article',
+			author: POST_AUTHOR,
+			publishedTime: post.date,
+			tags: post.tags,
+		},
+	}}
+>
 	<Container class="flex flex-col gap-y-14">
 		<PostView post={post} />
 		<PostComments post={post} />
