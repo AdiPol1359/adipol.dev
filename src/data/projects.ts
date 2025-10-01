@@ -2,6 +2,7 @@ import DevFAQThumbnail from '@/assets/images/projects/devfaq.png';
 import DiscordCloneThumbnail from '@/assets/images/projects/discord-clone.png';
 import HappyShopThumbnail from '@/assets/images/projects/happy-shop.png';
 import ImpressoStudioThumbnail from '@/assets/images/projects/impresso-studio.png';
+import MeetJSAssetsGeneratorThumbnail from '@/assets/images/projects/meet.js-assets-generator.png';
 import MobiusThumbnail from '@/assets/images/projects/mobius.png';
 import NodeJSMinecraftItemShopThumbnail from '@/assets/images/projects/nodejs-minecraft-itemshop.png';
 import NoodlyThumbnail from '@/assets/images/projects/noodly.png';
@@ -14,15 +15,15 @@ export const projects: Project[] = [
 		thumbnail: DevFAQThumbnail,
 		title: 'DevFAQ',
 		description:
-			'Platforma internetowa do dzielenia się pytaniami rekrutacyjnymi na stanowiska programistyczne oraz pokrewne role w branży IT.',
+			'Platforma internetowa do dzielenia się pytaniami rekrutacyjnymi na stanowiska programistyczne oraz pokrewne role w branży IT. Umożliwia użytkownikom przeglądanie, dodawanie i ocenianie pytań.',
 		url: 'https://github.com/typeofweb-org/devfaq',
 	},
 	{
-		thumbnail: DiscordCloneThumbnail,
-		title: 'Discord Clone',
+		thumbnail: MeetJSAssetsGeneratorThumbnail,
+		title: 'meet.js Assets Generator',
 		description:
-			'Klon aplikacji discord napisany w najnowszych technologiach. Projekt stawia ogromny nacisk na frontend oraz architekturę aplikacji.',
-		url: 'https://github.com/AdiPol1359/discord-clone',
+			'Aplikacja umożliwiająca generowanie grafik promocyjnych dla wydarzeń organizowanych w ramach społeczności meet.js. Pozwala na szybkie tworzenie spójnych wizualnie materiałów marketingowych.',
+		url: 'https://github.com/meetjspl/assets-generator',
 	},
 	{
 		thumbnail: ImpressoStudioThumbnail,
@@ -30,6 +31,13 @@ export const projects: Project[] = [
 		description:
 			'Moim celem było dodanie systemu rezerwacyjnego do istniejącej aplikacji webowej. W skład funkcjonalności wchodził m.in. kreator zamówień, koszyk, czy integracja płatności online z zewnętrznym dostawcą.',
 		url: 'https://impresso.studio/',
+	},
+	{
+		thumbnail: DiscordCloneThumbnail,
+		title: 'Discord Clone',
+		description:
+			'Klon aplikacji discord napisany w najnowszych technologiach. Projekt stawia ogromny nacisk na nowoczesny frontend oraz architekturę aplikacji.',
+		url: 'https://github.com/AdiPol1359/discord-clone',
 	},
 	{
 		thumbnail: PicstagramThumbnail,
