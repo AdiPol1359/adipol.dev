@@ -1,3 +1,5 @@
+import type { ImageMetadata } from 'astro';
+
 interface OpenGraphArticle {
 	readonly type: 'article';
 	readonly publishedTime: Date;
