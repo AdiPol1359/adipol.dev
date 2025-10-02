@@ -11,6 +11,7 @@ export interface Post {
 	readonly thumbnail: ImageMetadata;
 	readonly title: string;
 	readonly introduction: string;
+	readonly readingTime: number;
 	readonly sources: PostSource[];
 	readonly tags: string[];
 }
