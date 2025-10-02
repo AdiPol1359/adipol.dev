@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 
-import { ArrowRightUp, Share } from '@/components/icons';
+import { ArrowRightUp } from '@/components/icons';
 import {
 	Badge,
 	Button,
@@ -10,7 +10,6 @@ import {
 	CardInset,
 	Emoji,
 	Heading,
-	IconButton,
 } from '@/components/ui';
 
 import type { LocalImageProps } from 'astro:assets';
@@ -71,13 +70,10 @@ const {
 		<p class="my-5 text-sm text-text-neutral">
 			<Emoji type="⌛️" /> 8 minut czytania
 		</p>
-		<div class="flex items-center justify-between">
-			<Button as="a" color="secondary" size="sm" href={`/${slug}`}>
+		<div class="w-fit">
+			<Button as="a" href={`/${slug}`} color="secondary" size="sm">
 				Przeczytaj więcej <ArrowRightUp />
 			</Button>
-			<IconButton label="Udostępnij post">
-				<Share />
-			</IconButton>
 		</div>
 	</CardContent>
 </Card>

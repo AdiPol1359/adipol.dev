@@ -9,7 +9,6 @@ export { default as Container } from './container.astro';
 export { default as Divider } from './divider.astro';
 export { default as Emoji } from './emoji.astro';
 export { default as Heading } from './heading.astro';
-export { default as IconButton } from './icon-button.astro';
 export { default as Input } from './input.astro';
 export { default as Paper } from './paper.astro';
 export { default as Statistics } from './statistics/statistics.astro';
