@@ -1,4 +1,5 @@
 import { getCollection, getEntry, render } from 'astro:content';
+import readingTime from 'reading-time';
 
 import type { Post } from '@/types/post';
 
@@ -11,7 +12,11 @@ export const getPosts = async () => {
 		(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 	);
 
-	return sortedEntries.map<Post>(({ id, data }) => ({ slug: id, ...data }));
+	return sortedEntries.map<Post>(({ id, body, data }) => ({
+		slug: id,
+		readingTime: body ? Math.round(readingTime(body).minutes) : 0,
+		...data,
+	}));
 };
 
 export const getTags = async () => {

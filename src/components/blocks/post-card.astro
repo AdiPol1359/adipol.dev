@@ -11,6 +11,7 @@ import {
 	Emoji,
 	Heading,
 } from '@/components/ui';
+import { createPluralizer } from '@/utils/create-pluralizer';
 
 import type { LocalImageProps } from 'astro:assets';
 
@@ -23,10 +24,16 @@ interface Props {
 }
 
 const {
-	post: { introduction, tags, thumbnail, title, slug },
+	post: { introduction, readingTime, slug, tags, thumbnail, title },
 	thumbnailProps,
 	withTags,
 } = Astro.props;
+
+const readingTimePluralizer = createPluralizer({
+	one: 'minuta',
+	few: 'minuty',
+	many: 'minut',
+});
 ---
 
 <Card
@@ -68,7 +75,9 @@ const {
 			{introduction}
 		</p>
 		<p class="my-5 text-sm text-text-neutral">
-			<Emoji type="⌛️" /> 8 minut czytania
+			<Emoji type="⌛️" />
+			{readingTime}
+			{readingTimePluralizer(readingTime)} czytania
 		</p>
 		<div class="w-fit">
 			<Button as="a" href={`/${slug}`} color="secondary" size="sm">
