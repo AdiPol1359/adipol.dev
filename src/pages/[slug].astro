@@ -1,7 +1,7 @@
 ---
+import { FadeInContainer } from '@/components/blocks';
 import { MainLayout } from '@/components/layouts';
 import { PostComments, PostView } from '@/components/post';
-import { Container } from '@/components/ui';
 import { getPosts } from '@/lib/posts';
 
 import type { Post } from '@/types/post';
@@ -34,8 +34,8 @@ const POST_AUTHOR = 'Adrian Polak';
 		},
 	}}
 >
-	<Container class="flex flex-col gap-y-14">
+	<FadeInContainer class="flex flex-col gap-y-14">
 		<PostView post={post} />
 		<PostComments post={post} />
-	</Container>
+	</FadeInContainer>
 </MainLayout>

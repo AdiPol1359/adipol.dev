@@ -2,12 +2,17 @@
 import { Container } from '@/components/ui';
 
 import HeroSectionAboutMe from './hero-section-about-me.astro';
+import HeroSectionAnimation from './hero-section-animation.astro';
 import HeroSectionDecorations from './hero-section-decorations.astro';
 import HeroSectionImage from './hero-section-image/hero-section-image.astro';
 import HeroSectionIntro from './hero-section-intro/hero-section-intro.astro';
+import { HERO_SECTION_ID } from './hero-section.constants.ts';
 ---
 
-<section class="laptop:relative laptop:-mt-39 laptop:h-dvh laptop:min-h-180">
+<section
+	id={HERO_SECTION_ID}
+	class="-translate-y-2.5 opacity-0 blur-xs laptop:relative laptop:-mt-39 laptop:h-dvh laptop:min-h-180"
+>
 	<Container class="laptop:flex laptop:h-full laptop:items-center">
 		<HeroSectionImage />
 		<HeroSectionIntro />
@@ -15,3 +20,5 @@ import HeroSectionIntro from './hero-section-intro/hero-section-intro.astro';
 	</Container>
 	<HeroSectionDecorations />
 </section>
+
+<HeroSectionAnimation />

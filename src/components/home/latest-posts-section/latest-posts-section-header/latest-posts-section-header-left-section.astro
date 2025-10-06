@@ -1,9 +1,14 @@
 ---
 import { Arrow } from '@/components/decorations';
 import { Emoji, Heading } from '@/components/ui';
+
+import { LATEST_POSTS_SECTION_HEADER_LEFT_SECTION_ID } from './latest-posts-section-header.constants';
 ---
 
-<div class="relative space-y-2">
+<div
+	id={LATEST_POSTS_SECTION_HEADER_LEFT_SECTION_ID}
+	class="relative space-y-2 opacity-0"
+>
 	<Heading size="h2">Mój blog</Heading>
 	<p class="text-text-secondary laptop:text-lg">
 		Obczaj moje ostatnie posty <Emoji type="🔥" />
@@ -11,6 +16,31 @@ import { Emoji, Heading } from '@/components/ui';
 	<Arrow
 		color="secondary"
 		type="large-dashed-3"
-		class="hidden laptop:-top-2 laptop:left-35 laptop:inline laptop:-rotate-2"
+		class="hidden laptop:-top-2 laptop:left-35 laptop:inline laptop:-translate-x-4 laptop:-rotate-2 laptop:opacity-0"
 	/>
 </div>
+
+<script>
+	import {
+		animate,
+		createFadeInAnimation,
+		createSlideInAnimation,
+		inView,
+	} from '@/lib/animations';
+
+	import { LATEST_POSTS_SECTION_HEADER_LEFT_SECTION_ID } from './latest-posts-section-header.constants';
+
+	inView(
+		`#${LATEST_POSTS_SECTION_HEADER_LEFT_SECTION_ID}`,
+		element => {
+			animate([
+				createFadeInAnimation(element, { duration: 1 }),
+				createSlideInAnimation(
+					`#${LATEST_POSTS_SECTION_HEADER_LEFT_SECTION_ID} > svg`,
+					{ duration: 0.5 },
+				),
+			]);
+		},
+		{ margin: -290 },
+	);
+</script>

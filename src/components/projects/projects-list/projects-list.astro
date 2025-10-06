@@ -2,14 +2,29 @@
 import { projects } from '@/data/projects';
 
 import ProjectsListProject from './projects-list-project.astro';
+import { PROJECTS_LIST_ID } from './projects-list.constants';
 ---
 
-<ul class="grid grid-cols-1 gap-4 tablet:grid-cols-2">
+<ul id={PROJECTS_LIST_ID} class="grid grid-cols-1 gap-4 tablet:grid-cols-2">
 	{
 		projects.map(project => (
-			<li>
+			<li class="translate-y-2 opacity-0 blur-xs">
 				<ProjectsListProject project={project} />
 			</li>
 		))
 	}
 </ul>
+
+<script>
+	import { animate, createSlideInAnimation, inView } from '@/lib/animations';
+
+	import { PROJECTS_LIST_ID } from './projects-list.constants';
+
+	inView(
+		`#${PROJECTS_LIST_ID} > li`,
+		element => {
+			animate(...createSlideInAnimation(element, { duration: 0.7 }));
+		},
+		{ margin: -250 },
+	);
+</script>

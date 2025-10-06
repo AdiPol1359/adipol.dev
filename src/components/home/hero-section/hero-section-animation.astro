@@ -1,0 +1,7 @@
+<script>
+	import { animate, createSlideInAnimation } from '@/lib/animations';
+
+	import { HERO_SECTION_ID } from './hero-section.constants.ts';
+
+	animate(...createSlideInAnimation(`#${HERO_SECTION_ID}`, { duration: 0.8 }));
+</script>
