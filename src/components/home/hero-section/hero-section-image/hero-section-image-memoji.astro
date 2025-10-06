@@ -3,9 +3,14 @@ import { Image } from 'astro:assets';
 
 import smiling from '@/assets/images/memojis/smiling.png';
 import { Arrow } from '@/components/decorations';
+
+import { HERO_SECTION_IMAGE_MEMOJI_ID } from './hero-section-image.constants';
 ---
 
-<div class="relative mx-auto w-32 laptop:w-full laptop:max-w-80">
+<div
+	id={HERO_SECTION_IMAGE_MEMOJI_ID}
+	class="relative mx-auto w-32 laptop:w-full laptop:max-w-80"
+>
 	<Image
 		alt="Adrian Polak"
 		src={smiling}
@@ -39,3 +44,16 @@ import { Arrow } from '@/components/decorations';
 		/>
 	</div>
 </div>
+
+<script>
+	import { animate, createPopInAnimation } from '@/lib/animations';
+
+	import { HERO_SECTION_IMAGE_MEMOJI_ID } from './hero-section-image.constants';
+
+	animate(
+		...createPopInAnimation(`#${HERO_SECTION_IMAGE_MEMOJI_ID}`, {
+			delay: 0.25,
+			duration: 0.4,
+		}),
+	);
+</script>

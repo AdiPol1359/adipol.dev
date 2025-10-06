@@ -24,7 +24,34 @@ interface Props extends VariantProps<typeof statisticsItem> {
 const { name, value, ...variants } = Astro.props;
 ---
 
-<div class={statisticsItem(variants)}>
+<div data-statistics-item-value={value} class={statisticsItem(variants)}>
 	<dt class="text-text-secondary">{name}</dt>
-	<dd class="text-lg font-semibold text-text-neutral">{value}</dd>
+	<dd class="text-lg font-semibold text-text-neutral">1</dd>
 </div>
+
+<script>
+	import { animate, createCountingAnimation } from '@/lib/animations';
+
+	const statisticsItems = document.querySelectorAll(
+		'[data-statistics-item-value]',
+	);
+
+	[...statisticsItems]
+		.filter(item => item instanceof HTMLDivElement)
+		.forEach(item => {
+			const value = Number(item.dataset.statisticsItemValue ?? -1);
+			const valueElement = item.querySelector('dd');
+
+			animate(
+				...createCountingAnimation(
+					{ initialValue: 1, targetValue: value },
+					{
+						duration: 2,
+						onUpdate: newValue =>
+							valueElement &&
+							(valueElement.innerHTML = Math.round(newValue).toString()),
+					},
+				),
+			);
+		});
+</script>

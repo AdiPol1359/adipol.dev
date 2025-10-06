@@ -10,7 +10,7 @@ const posts = await getPosts();
 <ul id={POSTS_SECTION_POSTS_LIST_ID} class="grid gap-4 laptop:grid-cols-2">
 	{
 		posts.map(post => (
-			<li>
+			<li class="translate-y-2 opacity-0 blur-xs">
 				<PostCard
 					post={post}
 					thumbnailProps={{ sizes: '(min-width: 1024px) 378px, 100vw' }}
@@ -20,3 +20,17 @@ const posts = await getPosts();
 		))
 	}
 </ul>
+
+<script>
+	import { animate, createSlideInAnimation, inView } from '@/lib/animations';
+
+	import { POSTS_SECTION_POSTS_LIST_ID } from './posts-section.constants';
+
+	inView(
+		`#${POSTS_SECTION_POSTS_LIST_ID} > li`,
+		element => {
+			animate(...createSlideInAnimation(element, { duration: 0.7 }));
+		},
+		{ margin: -250 },
+	);
+</script>

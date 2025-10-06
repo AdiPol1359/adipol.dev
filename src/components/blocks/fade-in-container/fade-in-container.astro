@@ -1,0 +1,29 @@
+---
+import { Container } from '@/components/ui';
+
+import { FADE_IN_CONTAINER_ID } from './fade-in-container.constants';
+
+import type { ComponentProps } from 'astro/types';
+
+type Props = ComponentProps<typeof Container>;
+
+const { class: className, ...props } = Astro.props;
+---
+
+<Container
+	id={FADE_IN_CONTAINER_ID}
+	class:list={['opacity-0', className]}
+	{...props}
+>
+	<slot />
+</Container>
+
+<script>
+	import { animate, createFadeInAnimation } from '@/lib/animations';
+
+	import { FADE_IN_CONTAINER_ID } from './fade-in-container.constants';
+
+	animate(
+		...createFadeInAnimation(`#${FADE_IN_CONTAINER_ID}`, { duration: 0.8 }),
+	);
+</script>

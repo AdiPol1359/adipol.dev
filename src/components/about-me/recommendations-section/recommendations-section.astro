@@ -3,21 +3,36 @@ import { Emoji, Heading } from '@/components/ui';
 import { recommendations } from '@/data/recommendations';
 
 import RecommendationsSectionRecommendation from './recommendations-section-recommendation/recommendations-section-recommendation.astro';
+import { RECOMMENDATIONS_SECTION_RECOMMENDATIONS_LIST_ID } from './recommendations-section.constants';
 ---
 
 <section class="space-y-7 laptop:flex-1 laptop:space-y-9">
 	<Heading size="h2" shadow="Moje rekomendacje">
 		Moje rekomendacje <Emoji type="🎉" />
 	</Heading>
-	<ol class="space-y-4">
+	<ul id={RECOMMENDATIONS_SECTION_RECOMMENDATIONS_LIST_ID} class="space-y-4">
 		{
 			recommendations.map(recommendation => (
-				<li>
+				<li class="translate-y-2 opacity-0 blur-xs">
 					<RecommendationsSectionRecommendation
 						recommendation={recommendation}
 					/>
 				</li>
 			))
 		}
-	</ol>
+	</ul>
 </section>
+
+<script>
+	import { animate, createSlideInAnimation, inView } from '@/lib/animations';
+
+	import { RECOMMENDATIONS_SECTION_RECOMMENDATIONS_LIST_ID } from './recommendations-section.constants';
+
+	inView(
+		`#${RECOMMENDATIONS_SECTION_RECOMMENDATIONS_LIST_ID} > li`,
+		element => {
+			animate(...createSlideInAnimation(element, { duration: 0.7 }));
+		},
+		{ margin: -40 },
+	);
+</script>

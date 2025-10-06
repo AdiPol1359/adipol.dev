@@ -3,6 +3,7 @@ import { PostCard } from '@/components/blocks';
 
 import { LATEST_POSTS_LIMIT } from '../latest-posts-section.constants';
 import LatestPostsSectionListEmptySpaceCard from './latest-posts-section-list-empty-space-card.astro';
+import { LATEST_POSTS_SECTION_LIST_ID } from './latest-posts-section-list.constants';
 
 import type { Post } from '@/types/post';
 
@@ -16,7 +17,10 @@ const emptySpaces = Array.from({
 });
 ---
 
-<ol class="grid grid-cols-1 gap-4 tablet:grid-cols-2 laptop:grid-cols-3">
+<ol
+	id={LATEST_POSTS_SECTION_LIST_ID}
+	class="grid grid-cols-1 gap-4 opacity-0 tablet:grid-cols-2 laptop:grid-cols-3"
+>
 	{
 		latestPosts.map(post => (
 			<li>
@@ -37,3 +41,15 @@ const emptySpaces = Array.from({
 		))
 	}
 </ol>
+
+<script>
+	import { animate, createFadeInAnimation, inView } from '@/lib/animations';
+
+	import { LATEST_POSTS_SECTION_LIST_ID } from './latest-posts-section-list.constants';
+
+	inView(
+		`#${LATEST_POSTS_SECTION_LIST_ID}`,
+		element => animate(...createFadeInAnimation(element, { duration: 1 })),
+		{ margin: -180 },
+	);
+</script>

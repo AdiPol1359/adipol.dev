@@ -1,5 +1,7 @@
 ---
 import { Nickname, Scribble, WavyLine } from '@/components/decorations';
+
+import { DECORATIONS_SCRIBBLE_DECORATION_ID } from './decorations.constants';
 ---
 
 <div class="relative -mx-4">
@@ -12,6 +14,19 @@ import { Nickname, Scribble, WavyLine } from '@/components/decorations';
 		<WavyLine />
 	</div>
 	<Scribble
+		id={DECORATIONS_SCRIBBLE_DECORATION_ID}
 		class="hidden laptop:absolute laptop:top-42 laptop:left-1/2 laptop:inline laptop:-translate-x-1/2"
 	/>
 </div>
+
+<script>
+	import { animate, createDrawingAnimation, inView } from '@/lib/animations';
+
+	import { DECORATIONS_SCRIBBLE_DECORATION_ID } from './decorations.constants';
+
+	inView(
+		`#${DECORATIONS_SCRIBBLE_DECORATION_ID} > path`,
+		element => animate(...createDrawingAnimation(element, { duration: 1.5 })),
+		{ margin: -270 },
+	);
+</script>

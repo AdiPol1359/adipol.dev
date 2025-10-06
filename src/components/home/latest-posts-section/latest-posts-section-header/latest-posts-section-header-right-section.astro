@@ -2,10 +2,13 @@
 import { Image } from 'astro:assets';
 
 import waving from '@/assets/images/memojis/waving.png';
+
+import { LATEST_POSTS_SECTION_HEADER_RIGHT_SECTION_ID } from './latest-posts-section-header.constants';
 ---
 
 <div
-	class="hidden tablet:flex tablet:items-center tablet:gap-x-5 laptop:gap-x-10"
+	id={LATEST_POSTS_SECTION_HEADER_RIGHT_SECTION_ID}
+	class="hidden tablet:flex tablet:translate-y-1/2 tablet:items-center tablet:gap-x-5 tablet:opacity-0 tablet:blur-xs laptop:gap-x-10"
 >
 	<p class="w-46.5 text-end text-text-neutral laptop:w-52 laptop:text-lg">
 		Mam nadzieję, że Wam się przyda
@@ -19,3 +22,18 @@ import waving from '@/assets/images/memojis/waving.png';
 		height={136}
 	/>
 </div>
+
+<script>
+	import { animate, createSlideInAnimation, inView } from '@/lib/animations';
+
+	import { LATEST_POSTS_SECTION_HEADER_RIGHT_SECTION_ID } from './latest-posts-section-header.constants';
+
+	inView(
+		`#${LATEST_POSTS_SECTION_HEADER_RIGHT_SECTION_ID}`,
+		element =>
+			animate(
+				...createSlideInAnimation(element, { delay: 0.3, duration: 0.5 }),
+			),
+		{ margin: -250 },
+	);
+</script>
