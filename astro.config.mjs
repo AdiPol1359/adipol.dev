@@ -7,6 +7,9 @@ export default defineConfig({
 	markdown: {
 		shikiConfig: { theme: 'nord' },
 	},
+	prefetch: {
+		prefetchAll: true,
+	},
 	vite: {
 		plugins: [tailwindcss()],
 	},
