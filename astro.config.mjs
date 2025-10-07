@@ -8,6 +8,7 @@ export default defineConfig({
 		shikiConfig: { theme: 'nord' },
 	},
 	prefetch: {
+		defaultStrategy: 'viewport',
 		prefetchAll: true,
 	},
 	vite: {
