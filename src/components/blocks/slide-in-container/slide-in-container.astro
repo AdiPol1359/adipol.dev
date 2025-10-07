@@ -1,0 +1,29 @@
+---
+import { Container } from '@/components/ui';
+
+import { SLIDE_IN_CONTAINER_ID } from './slide-in-container.constants';
+
+import type { ComponentProps } from 'astro/types';
+
+type Props = ComponentProps<typeof Container>;
+
+const { class: className, ...props } = Astro.props;
+---
+
+<Container
+	id={SLIDE_IN_CONTAINER_ID}
+	class:list={['translate-y-1 opacity-0 blur-xs', className]}
+	{...props}
+>
+	<slot />
+</Container>
+
+<script>
+	import { animate, createSlideInAnimation } from '@/lib/animations';
+
+	import { SLIDE_IN_CONTAINER_ID } from './slide-in-container.constants';
+
+	animate(
+		...createSlideInAnimation(`#${SLIDE_IN_CONTAINER_ID}`, { duration: 0.6 }),
+	);
+</script>

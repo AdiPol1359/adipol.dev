@@ -4,9 +4,12 @@ import { Image } from 'astro:assets';
 import smiling from '@/assets/images/memojis/smiling.png';
 import { Arrow } from '@/components/decorations';
 import { Emoji, Heading } from '@/components/ui';
+
+import { ABOUT_ME_SECTION_HEADER_INTRODUCTION_ID } from './about-me-section-header.constants';
 ---
 
 <div
+	id={ABOUT_ME_SECTION_HEADER_INTRODUCTION_ID}
 	class="flex flex-col items-center gap-y-inherit laptop:relative laptop:flex-row laptop:gap-x-12"
 >
 	<Image
@@ -29,6 +32,19 @@ import { Emoji, Heading } from '@/components/ui';
 	<Arrow
 		color="primary"
 		type="large-dashed-4"
-		class="hidden laptop:-top-1 laptop:-right-34 laptop:inline laptop:rotate-16"
+		class="hidden laptop:-top-1 laptop:-right-34 laptop:inline laptop:-translate-x-4 laptop:rotate-16 laptop:opacity-0"
 	/>
 </div>
+
+<script>
+	import { animate, createSlideInAnimation } from '@/lib/animations';
+
+	import { ABOUT_ME_SECTION_HEADER_INTRODUCTION_ID } from './about-me-section-header.constants';
+
+	animate(
+		...createSlideInAnimation(
+			`#${ABOUT_ME_SECTION_HEADER_INTRODUCTION_ID} > svg`,
+			{ delay: 0.4, duration: 0.5 },
+		),
+	);
+</script>

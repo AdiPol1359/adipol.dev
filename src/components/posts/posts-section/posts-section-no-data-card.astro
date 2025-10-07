@@ -9,7 +9,7 @@ import { POSTS_SECTION_NO_DATA_CARD_ID } from './posts-section.constants';
 	id={POSTS_SECTION_NO_DATA_CARD_ID}
 	color="secondary"
 	variant="outline"
-	class="flex flex-col items-center gap-y-7 py-14"
+	class="flex translate-y-1 flex-col items-center gap-y-7 py-14 opacity-0 blur-xs"
 	style="display: none;"
 >
 	<div class="text-16 laptop:text-20 [&>img]:mt-0 [&>img]:block">
@@ -21,3 +21,13 @@ import { POSTS_SECTION_NO_DATA_CARD_ID } from './posts-section.constants';
 		Przykro mi, ale nic nie znaleziono
 	</h3>
 </Paper>
+
+<script>
+	import { animate, createSlideInAnimation, inView } from '@/lib/animations';
+
+	import { POSTS_SECTION_NO_DATA_CARD_ID } from './posts-section.constants';
+
+	inView(`#${POSTS_SECTION_NO_DATA_CARD_ID}`, element =>
+		animate(...createSlideInAnimation(element, { duration: 0.5 })),
+	);
+</script>
