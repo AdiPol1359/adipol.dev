@@ -60,10 +60,12 @@ export const createSlideInAnimation: DOMAnimationHandler = (
 export const inView = (
 	elementOrSelector: ElementOrSelector,
 	onStart: (element: Element) => void,
-	{ margin }: { margin: number },
+	{ margin }: { margin?: number } = {},
 ) =>
 	motionInView(elementOrSelector, onStart, {
-		margin: `0px 0px ${`${margin}px` as const} 0px`,
+		...(margin !== undefined && {
+			margin: `0px 0px ${`${margin}px` as const} 0px`,
+		}),
 	});
 
 export { animate } from 'motion';

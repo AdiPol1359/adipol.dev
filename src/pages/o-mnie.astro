@@ -5,17 +5,17 @@ import {
 	RecommendationsSection,
 	SkillsSection,
 } from '@/components/about-me';
-import { FadeInContainer } from '@/components/blocks';
+import { SlideInContainer } from '@/components/blocks';
 import { MainLayout } from '@/components/layouts';
 ---
 
 <MainLayout headOptions={{ title: 'O mnie' }}>
-	<FadeInContainer class="flex flex-col gap-y-8 laptop:gap-y-18">
+	<SlideInContainer class="flex flex-col gap-y-8 laptop:gap-y-18">
 		<AboutMeSection />
 		<SkillsSection />
 		<div class="flex flex-col gap-y-inherit laptop:flex-row laptop:gap-x-25">
 			<ExperienceSection />
 			<RecommendationsSection />
 		</div>
-	</FadeInContainer>
+	</SlideInContainer>
 </MainLayout>
