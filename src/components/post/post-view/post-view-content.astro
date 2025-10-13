@@ -12,15 +12,18 @@ const Content = await getPostContentBySlug(Astro.props.post.slug);
 
 <section
 	class:list={[
-		'mx-auto prose w-full max-w-5xl laptop:prose-lg',
-		'prose-headings:text-heading',
+		'mx-auto prose w-full max-w-4xl laptop:prose-lg',
+		'prose-headings:text-heading-secondary',
 		'prose-h2:mt-8 prose-h2:mb-4 prose-h2:text-xl prose-h2:font-semibold prose-h2:laptop:text-2xl',
-		'prose-p:text-justify prose-p:hyphens-auto prose-p:text-text-primary',
-		'prose-strong:font-medium prose-strong:text-text-highlight',
-		'prose-a:inline-block prose-a:border-b-2 prose-a:border-border-primary/80 prose-a:leading-4.5 prose-a:font-medium prose-a:text-link-primary prose-a:no-underline prose-a:transition-colors prose-a:hover:text-link-active',
+		'prose-p:text-justify prose-p:font-light prose-p:hyphens-auto prose-p:text-text-neutral',
+		'prose-strong:font-medium prose-strong:text-text-neutral',
+		'prose-a:inline-block prose-a:border-b-2 prose-a:border-border-primary/75 prose-a:leading-4.5 prose-a:font-medium prose-a:text-link-neutral prose-a:no-underline prose-a:transition-colors prose-a:hover:text-link-neutral/75',
+		'prose-ol:pl-4.5 laptop:prose-ol:pl-5',
+		'prose-li:my-2 prose-li:font-light prose-li:text-text-neutral prose-li:marker:text-text-brand',
+		'prose-blockquote:rounded-sm prose-blockquote:border-border-primary/30 prose-blockquote:bg-surface-primary prose-blockquote:p-5 laptop:prose-blockquote:p-6 [&>blockquote>p]:my-0 [&>blockquote>p]:text-text-primary [&>blockquote>p]:not-italic [&>blockquote>p]:before:hidden [&>blockquote>p]:after:hidden',
 		'prose-img:my-5 prose-img:rounded-xl prose-img:border-2 prose-img:border-border-secondary',
 		'prose-pre:my-5 prose-pre:rounded-xl prose-pre:border-2 prose-pre:border-border-primary/30 prose-pre:!bg-surface-primary prose-pre:text-lg prose-pre:tab-1.5',
-		'[&>p_code]:rounded-md [&>p_code]:border-b-2 [&>p_code]:border-border-primary/30 [&>p_code]:bg-surface-primary [&>p_code]:px-1.75 [&>p_code]:py-0.5 [&>p_code]:font-medium [&>p_code]:text-text-brand [&>p_code]:before:hidden [&>p_code]:after:hidden',
+		'[&>:not(pre)_code]:rounded-md [&>:not(pre)_code]:border-b-2 [&>:not(pre)_code]:border-border-primary/30 [&>:not(pre)_code]:bg-surface-primary [&>:not(pre)_code]:px-1.75 [&>:not(pre)_code]:py-0.5 [&>:not(pre)_code]:font-medium [&>:not(pre)_code]:text-text-brand [&>:not(pre)_code]:before:hidden [&>:not(pre)_code]:after:hidden',
 		'[&>iframe]:my-5 [&>iframe]:aspect-video [&>iframe]:w-full [&>iframe]:overflow-hidden [&>iframe]:rounded-xl [&>iframe]:border-2 [&>iframe]:border-border-secondary',
 	]}
 >
