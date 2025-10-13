@@ -27,6 +27,8 @@
 	--color-navy-900: #111821;
 	--color-navy-950: #0e141b;
 
+	--container-4xl: 60rem;
+
 	--default-transition-duration: 200ms;
 
 	--font-mono: 'Fira Code Variable', monospace;
@@ -49,17 +51,18 @@
 	--color-icon-secondary: var(--color-navy-400);
 	--color-icon-tertiary: var(--color-navy-600);
 
-	--color-heading: var(--color-navy-50);
+	--color-heading-primary: var(--color-navy-50);
+	--color-heading-secondary: var(--color-navy-300);
 
 	--color-text-brand: var(--color-brand-primary);
 	--color-text-neutral: var(--color-navy-50);
-	--color-text-highlight: var(--color-navy-200);
 	--color-text-placeholder: var(--color-gray);
 	--color-text-primary: var(--color-navy-300);
 	--color-text-secondary: var(--color-navy-400);
 	--color-text-tertiary: var(--color-navy-600);
 
 	--color-link-active: var(--color-navy-50);
+	--color-link-neutral: var(--color-navy-50);
 	--color-link-primary: var(--color-navy-200);
 
 	--color-surface-primary: var(--color-navy-800);
