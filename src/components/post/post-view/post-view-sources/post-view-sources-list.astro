@@ -6,13 +6,11 @@ type Props = Pick<Post, 'sources'>;
 const { sources } = Astro.props;
 ---
 
-<ol
-	class="w-fit list-decimal pl-5 text-link-primary transition-colors hover:text-link-active laptop:text-lg"
->
+<ol class="list-decimal pl-5">
 	{
 		sources.map(({ title, url }) => (
-			<li>
-				<a href={url} target="_blank" class="underline">
+			<li class="w-fit text-link-primary underline transition-colors hover:text-link-active laptop:text-lg">
+				<a href={url} target="_blank">
 					{title}
 				</a>
 			</li>
