@@ -55,6 +55,7 @@
 	--color-heading-secondary: var(--color-navy-300);
 
 	--color-text-brand: var(--color-brand-primary);
+	--color-text-content: var(--color-navy-200);
 	--color-text-neutral: var(--color-navy-50);
 	--color-text-placeholder: var(--color-gray);
 	--color-text-primary: var(--color-navy-300);
@@ -62,7 +63,6 @@
 	--color-text-tertiary: var(--color-navy-600);
 
 	--color-link-active: var(--color-navy-50);
-	--color-link-neutral: var(--color-navy-50);
 	--color-link-primary: var(--color-navy-200);
 
 	--color-surface-primary: var(--color-navy-800);
