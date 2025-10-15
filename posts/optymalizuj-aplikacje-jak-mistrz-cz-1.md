@@ -28,7 +28,7 @@ No dobra… ale czym tak właściwie jest ta cała memoizacja? Mówiąc prostym 
 
 ## Kiedy komponent się rerenderuje?
 
-Moim ulubionym pytaniem podczas rozmowy technicznej, które zawsze zadaję, jest: _Kiedy komponent się rerenderuje?_. Dlaczego o tym wspominam? Ponieważ bardzo często słyszę odpowiedź: _Na skutek zmiany propsów_. I co, to tyle? Odpowiedź ta oczywiście po części jest poprawna, ale tylko pod warunkiem, że nie zapomniemy o memoizacji i odwołamy się do mechanizmu działania `memo`. Jak się pewnie domyślacie, nawiązuję do tego, ponieważ rzadko kiedy słyszę taką odpowiedź. Do tego tematu wrócimy jeszcze za chwilę, ale najpierw chciałbym przybliżyć Wam działanie wspomnianej wcześniej funkcji.
+Moim ulubionym pytaniem podczas rozmowy technicznej, które zawsze zadaję, jest: _Kiedy komponent się rerenderuje?_. Dlaczego o tym wspominam? Ponieważ bardzo często słyszę odpowiedź: _Na skutek zmiany propsów_. I co, to tyle? Odpowiedź ta oczywiście po części jest poprawna, ale tylko pod warunkiem, że nie zapomnimy o memoizacji i odwołamy się do mechanizmu działania `memo`. Jak się pewnie domyślacie, nawiązuję do tego, ponieważ rzadko kiedy słyszę taką odpowiedź. Do tego tematu wrócimy jeszcze za chwilę, ale najpierw chciałbym przybliżyć Wam działanie wspomnianej wcześniej funkcji.
 
 Teoria jest bardzo prosta. Mój perfekcjonizm zmusza mnie do zacytowania oficjalnej dokumentacji Reakta:
 
