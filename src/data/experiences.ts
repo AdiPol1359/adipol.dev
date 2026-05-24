@@ -2,8 +2,13 @@ import type { Experience } from '@/types/experience';
 
 export const experiences: Experience[] = [
 	{
-		company: { name: 'Code Your Brand', url: 'https://www.codeyourbrand.com/' },
-		period: { from: '04.06.2024' },
+		company: { name: 'Nocowanie.pl', url: 'https://www.nocowanie.pl/' },
+		period: { from: '08.04.2026' },
+		position: 'Front-End Developer',
+	},
+	{
+		company: { name: 'CodeYourBrand', url: 'https://www.codeyourbrand.com/' },
+		period: { from: '04.06.2024', to: '08.04.2026' },
 		position: 'Front-End Developer',
 	},
 	{
