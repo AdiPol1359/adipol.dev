@@ -2,6 +2,7 @@ import DevFAQThumbnail from '@/assets/images/projects/devfaq.png';
 import DiscordCloneThumbnail from '@/assets/images/projects/discord-clone.png';
 import HappyShopThumbnail from '@/assets/images/projects/happy-shop.png';
 import ImpressoStudioThumbnail from '@/assets/images/projects/impresso-studio.png';
+import LangPalThumbnail from '@/assets/images/projects/langpal.png';
 import MeetJSAssetsGeneratorThumbnail from '@/assets/images/projects/meet.js-assets-generator.png';
 import MobiusThumbnail from '@/assets/images/projects/mobius.png';
 import NodeJSMinecraftItemShopThumbnail from '@/assets/images/projects/nodejs-minecraft-itemshop.png';
@@ -17,6 +18,13 @@ export const projects: Project[] = [
 		description:
 			'Platforma internetowa do dzielenia się pytaniami rekrutacyjnymi na stanowiska programistyczne oraz pokrewne role w branży IT. Umożliwia użytkownikom przeglądanie, dodawanie i ocenianie pytań.',
 		url: 'https://github.com/typeofweb-org/devfaq',
+	},
+	{
+		thumbnail: LangPalThumbnail,
+		title: 'LangPal',
+		description:
+			'Aplikacja do nauki języków obcych, wykorzystująca sztuczną inteligencję. Platforma umożliwia gromadzenie słownictwa z wielu źródeł, a następnie oferuje spersonalizowane i efektywne metody nauki.',
+		url: 'https://beta.langpal.ai',
 	},
 	{
 		thumbnail: MeetJSAssetsGeneratorThumbnail,
